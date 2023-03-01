@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const projectSchema = require('./Project');
 const userSchema = new Schema(
   {
     username: {
@@ -18,6 +18,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    userProjects: [projectSchema],
+},
+{
     toJSON: {
       virtuals: true,
     },

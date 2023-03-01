@@ -8,11 +8,13 @@ const typeDefs = gql`
         password: String!
         userProjects: [Project]
         followedProjects: [Project]
+        bio: String!
     }
     Project {
-        _id: ID!
+        projectID: ID!
         title: String!
         description: String!
+        image: String!
         fundingGoal: Int!
         fundingEarned: Int!
         languages: String!
@@ -28,6 +30,13 @@ const typeDefs = gql`
     }
     type Query {
         me: User
+    }
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
+        removeProject(projectId: ID!): User
+        addProject(name: String!, description: String!, creator: String!, fundingGoal: Int!): Project
+        
     }
     `;
     module.exports = typeDefs;

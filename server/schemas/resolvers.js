@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Project } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -36,7 +36,32 @@ const resolvers = {
     
           return { token, user };
         },
+        addProject: async (parent, { name, description, creator, fundingGoal }, context) => { 
+          const project = await Project.create({ name, description, creator,  fundingGoal }); 
+          console.log(project);
+          const pUser = 
+          await User.findOneAndUpdate( 
+              { _id: creator }, 
+              { $addToSet: { projects: project } },
+              {new: true}
+          );
+          console.log(pUser)
+          return project;
+        },
+        removeProject: async (parent, { projectId }, context) => {
+          if (context.user) {
+            const project = await project.findOneAndDelete({
+              _id: projectId,
+              creator: context.user._id,
+            });
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { projects: projectId } }
+            );
+            return project;
     }
+  }
+}
 };
 
 module.exports = resolvers;
