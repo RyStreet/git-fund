@@ -8,7 +8,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header';
 import Navbar from './components/Navbar';
 import ProjectCard from './components/ProjectCard';
 
@@ -42,7 +41,6 @@ function App() {
   <ApolloProvider client={client}>
     <Router>
       <div>
-        <Header />
         <Navbar />
         <Routes>
           <Route
