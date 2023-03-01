@@ -38,10 +38,11 @@ const client = new ApolloClient({
 });
 
 function App() {
+  return(
   <ApolloProvider client={client}>
     <Router>
-      <div>
-        <Navbar />
+      <>
+        {/* <Navbar /> */}
         <Routes>
           <Route
             path='/'
@@ -60,9 +61,9 @@ function App() {
             element={<SignupForm />}
           />
         </Routes>
-      </div>
+      </>
     </Router>
   </ApolloProvider>
-};
+)};
 
-export default App();
+export default App;
