@@ -1,0 +1,9 @@
+.logo{
+    width: fit-content;
+    height: 45px;
+}
+.background{
+    background-image: "client\src\assets\background-desktop.jpg";
+    width: 100vw;
+    height: 100vh;
+}
