@@ -6,7 +6,21 @@ const typeDefs = gql`
         username: String!
         email: String!
         password: String!
-        projects: [Project]
+        userProjects: [Project]
+        followedProjects: [Project]
+    }
+    Project {
+        _id: ID!
+        title: String!
+        description: String!
+        fundingGoal: Int!
+        fundingEarned: Int!
+        languages: String!
+        category: [string]
+        creator: User
+        contributors: [User]
+        comments: [Comment]
+        follows: INT!
     }
     type Auth {
         token: ID!
