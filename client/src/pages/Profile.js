@@ -4,9 +4,10 @@ function Profile() {
   return (
     <div>
       <div>
+      <h2> Profile</h2>
 
-        <h2>{username}'s Profile</h2>
-        <p>{bio}</p>
+        {/* <h2>{username}'s Profile</h2> */}
+        {/* <p>{bio}</p> */}
       </div>
 
       <div>
@@ -15,12 +16,12 @@ function Profile() {
       
       <div>
         <h2>My Projects</h2>
-        {userProjects}
+        {/* {userProjects} */}
       </div>
 
       <div>
         <h2>Followed Projects</h2>
-        {followedProjects}
+        {/* {followedProjects} */}
       </div>
       
     </div>

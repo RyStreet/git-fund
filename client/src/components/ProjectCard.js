@@ -4,7 +4,7 @@ function ProjectCards() {
     return(
     <div id="projectCard">
         
-        <div id="projectCardHeader">
+        {/* <div id="projectCardHeader">
             <h3 id="projectCardTitle">{title}</h3>
             <p id="projectCardCreator">{creator}</p>
             <p id="projectCardDescription">{description}</p>
@@ -21,7 +21,7 @@ function ProjectCards() {
         <div id="projectCardEngagements">
             <p id="projectCardFollows">{follows}</p>
             <p id="projectCardContributors">{contributors}</p>
-        </div>
+        </div> */}
 
     </div>
     )
