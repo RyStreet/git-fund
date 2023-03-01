@@ -4,17 +4,25 @@ function Profile() {
   return (
     <div>
       <div>
-        <h2>user.name</h2>
-        <p>Bio</p>
-      </div>
-      
-      <div>
-        {/* map thru user's project cards */}
+
+        <h2>{username}'s Profile</h2>
+        <p>{bio}</p>
       </div>
 
       <div>
         <button>New Project</button>
       </div>
+      
+      <div>
+        <h2>My Projects</h2>
+        {userProjects}
+      </div>
+
+      <div>
+        <h2>Followed Projects</h2>
+        {followedProjects}
+      </div>
+      
     </div>
   )
 };
