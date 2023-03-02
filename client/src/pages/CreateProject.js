@@ -10,7 +10,7 @@ function CreateProject() {
           </div> 
 
           <div>
-            <input id="project-description" type="text" name="project-description" placeholder="What is your project title?"/>
+            <input id="project-description" type="text" name="project-description" placeholder="What is your project description?"/>
           </div>  
 
           <div>
@@ -25,6 +25,10 @@ function CreateProject() {
           <div>
             <label>Languages used:</label>
             <input id="project-languages" type="text" name="project-languages"/>
+          </div>
+
+          <div>
+            <button>Post Project</button>
           </div>
         </form>
     </div>

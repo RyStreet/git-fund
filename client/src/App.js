@@ -60,6 +60,10 @@ function App() {
             path='/signup'
             element={<SignupForm />}
           />
+          <Route 
+            path='/create-project'
+            element={<CreateProject />}
+          />
         </Routes>
       </>
     </Router>

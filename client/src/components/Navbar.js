@@ -7,6 +7,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../assets/Logo.png';
 
+import Homepage from '../pages/Homepage';
+
+
 import Auth from '../utils/auth';
 
 function NavBar() {

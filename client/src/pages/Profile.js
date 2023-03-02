@@ -9,27 +9,23 @@ function Profile() {
       <h2>Profile</h2>
         {Auth.loggedIn() ? (
           <>
-            <span>{Auth.getProfile().data.username}'s Profile</span>
-            {/* <p>{bio}</p> */}
+            <h2>{Auth.getProfile().data.username}'s Profile</h2>
+            <h6>Bio:</h6>
+            <p>{Auth.getProfile().data.bio}</p>
+
+            <div>
+              <h2>My Projects</h2>
+                {/* {userProjects} */}
+            </div>
+              <div>
+                <h2>Followed Projects</h2>
+                {/* {followedProjects} */}
+            </div>
           </>
         ) : (
           <h1>Login or Sign Up first!</h1>
         )}
-      </div>
-
-      <div>
-        <button>New Project</button>
-      </div>
-      
-      <div>
-        <h2>My Projects</h2>
-        {/* {userProjects} */}
-      </div>
-
-      <div>
-        <h2>Followed Projects</h2>
-        {/* {followedProjects} */}
-      </div>
+      </div>  
       
     </div>
   )
