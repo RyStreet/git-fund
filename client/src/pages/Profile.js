@@ -1,13 +1,20 @@
 import React from "react";
 
+import Auth from '../utils/auth';
+
 function Profile() {
   return (
     <div>
       <div>
-      <h2> Profile</h2>
-
-        {/* <h2>{username}'s Profile</h2> */}
-        {/* <p>{bio}</p> */}
+      <h2>Profile</h2>
+        {Auth.loggedIn() ? (
+          <>
+            <span>{Auth.getProfile().data.username}'s Profile</span>
+            {/* <p>{bio}</p> */}
+          </>
+        ) : (
+          <h1>Login or Sign Up first!</h1>
+        )}
       </div>
 
       <div>
