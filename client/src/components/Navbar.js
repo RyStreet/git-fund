@@ -13,6 +13,11 @@ import Homepage from '../pages/Homepage';
 import Auth from '../utils/auth';
 
 function NavBar() {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  }
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -24,7 +29,7 @@ function NavBar() {
             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
             <Nav.Link as={Link} to="signup">Sign Up</Nav.Link>
-           
+            <button onClick={logout}>Logout</button>
           </Nav>
         </Navbar.Collapse>
       </Container>
