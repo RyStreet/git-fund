@@ -1,0 +1,26 @@
+[
+  {
+    "projectID": 1,
+    "title": "Tech Blog",
+    "description": "A blog site where developers can read and write about all things tech and programming.",
+    "image": "techblog.PNG",
+    "fundingGoal": 500,
+    "fundingEarned": 101,
+    "languages": "JavaScript, CSS, Handlebars, MySql",
+    "category": "Blog",
+    "creator": "ace",
+    "follows": 21
+  },
+  {
+    "projectID": 2,
+    "title": "Team Profile Generator",
+    "description": "An application that helps users efficiently create a team profile, organized by job roles and containing contact information.",
+    "image": "team-profile-generatorPIC.PNG",
+    "fundingGoal": 2000,
+    "fundingEarned": 880,
+    "languages": "JavaScript, CSS, HTML",
+    "category": "CMS",
+    "creator": "luffy",
+    "follows": 25
+  }
+]
