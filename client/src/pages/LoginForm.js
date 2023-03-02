@@ -77,6 +77,9 @@ const Login = (props) => {
                 </button>
               </form>
             )}
+            <Link to={'/signup'}>
+              <h5>Sign up instead</h5>
+            </Link>
 
             {error && (
               <div>

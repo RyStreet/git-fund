@@ -1,32 +1,32 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import Auth from '../utils/auth';
 
 function Profile() {
   return (
     <div>
       <div>
-      <h2>Profile</h2>
         {Auth.loggedIn() ? (
           <>
             <h2>{Auth.getProfile().data.username}'s Profile</h2>
-            <h6>Bio:</h6>
+            <h5>Bio:</h5>
             <p>{Auth.getProfile().data.bio}</p>
 
             <div>
-              <h2>My Projects</h2>
+              <h4>My Projects:</h4>
                 {/* {userProjects} */}
             </div>
               <div>
-                <h2>Followed Projects</h2>
+                <h4>Followed Projects:</h4>
                 {/* {followedProjects} */}
             </div>
           </>
         ) : (
-          <h1>Login or Sign Up first!</h1>
+          <Link to={'/login'}>
+            <h1>Login or sign up to view your profile</h1>
+          </Link>
         )}
-      </div>  
-      
+      </div>       
     </div>
   )
 };
