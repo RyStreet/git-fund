@@ -8,7 +8,8 @@
     "fundingEarned": 101,
     "languages": "JavaScript, CSS, Handlebars, MySql",
     "category": "Blog",
-    "creator": "ace"
+    "creator": "ace",
+    "follows": 21
   },
   {
     "projectID": 2,
@@ -19,6 +20,7 @@
     "fundingEarned": 880,
     "languages": "JavaScript, CSS, HTML",
     "category": "CMS",
-    "creator": "luffy"
+    "creator": "luffy",
+    "follows": 25
   }
 ]
