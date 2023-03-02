@@ -33,8 +33,8 @@ const Signup = () => {
       });
 
       Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.log(JSON.stringify(error, null, 2));
     }
   };
 

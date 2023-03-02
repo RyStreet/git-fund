@@ -10,7 +10,7 @@ const typeDefs = gql`
         followedProjects: [Project]
         bio: String!
     }
-    Project {
+     type Project {
         projectID: ID!
         title: String!
         description: String!
