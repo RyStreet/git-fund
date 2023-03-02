@@ -18,11 +18,16 @@ const typeDefs = gql`
         fundingGoal: Int!
         fundingEarned: Int!
         languages: String!
-        category: [string]
+        category: [String]
         creator: User
         contributors: [User]
         comments: [Comment]
-        follows: INT!
+        follows: Int!
+    }
+    type Comment{
+        commentID: ID!
+        commentText: String!
+        author: User!
     }
     type Auth {
         token: ID!
