@@ -9,11 +9,12 @@ db.once('open', async () => {
     await User.deleteMany({});
 
     await User.create(userData);
+    console.log("users made")
 
     for (let i = 0; i < projectData.length; i++) {
-      const { _id, projectAuthor } = await Project.create(projectData[i]);
+      const { _id, creator } = await Project.create(projectData[i]);
       const user = await User.findOneAndUpdate(
-        { username: projectAuthor },
+        { username: creator },
         {
           $addToSet: {
             projects: _id,

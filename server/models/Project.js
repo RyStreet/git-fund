@@ -35,8 +35,9 @@ const projectSchema = new Schema({
     required: true,
     },
     creator: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+      type: String,
+      required: true,
+      trim: true,
     },
     contributors: [
     {
