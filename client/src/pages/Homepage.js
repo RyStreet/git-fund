@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { data } from './DummyData';
-import { useQuery } from '@apollo/client';
+// import { useQuery } from '@apollo/client';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
 import { Progress } from 'semantic-ui-react'
@@ -32,13 +32,13 @@ function Homepage() {
         
       </div>
       <div>
-      {loading ? (
+      {/* {loading ? (
             <div>Loading...</div>
           ) : (
             <ProjectCards
               project={project}
             />
-          )}
+          )} */}
       </div>
 
       {data.map((x)=>{
