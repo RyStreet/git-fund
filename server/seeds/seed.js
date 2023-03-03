@@ -12,9 +12,9 @@ db.once('open', async () => {
     console.log("users made")
 
     for (let i = 0; i < projectData.length; i++) {
-      const { _id, creator } = await Project.create(projectData[i]);
-      const user = await User.findOneAndUpdate(
-        { username: creator },
+      const { _id } = await Project.create(projectData[i]);
+      const user = await User.find(
+       
         {
           $addToSet: {
             projects: _id,

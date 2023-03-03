@@ -5,7 +5,6 @@ const { Schema, model } = require('mongoose');
 const projectSchema = new Schema({
   projectID: {
     type: String,
-    required: true,
   },
   title: {
     type: String,
@@ -24,20 +23,12 @@ const projectSchema = new Schema({
     },
     fundingEarned: {
     type: Number,
-    required: true,
     },
     languages: {
     type: String,
-    required: true,
     },
     category: {
     type: String,
-    required: true,
-    },
-    creator: {
-      type: String,
-      required: true,
-      trim: true,
     },
     contributors: [
     {
@@ -53,7 +44,6 @@ const projectSchema = new Schema({
     ],
     follows: {
     type: Number,
-    required: true,
     },
 });
 const Project = model('Project', projectSchema);
