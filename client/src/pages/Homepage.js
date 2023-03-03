@@ -6,11 +6,16 @@ import { data } from './DummyData';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
 import { Progress } from 'semantic-ui-react'
-import Auth from '../utils/auth';
-import { QUERY_PROJECTS } from '../utils/queries';
 import ProjectCards from '../components/ProjectCards';
 
+import Auth from '../utils/auth';
+import { QUERY_PROJECTS } from '../utils/queries';
+
+
 function Homepage() {
+  const {loading, data} = useQuery(QUERY_PROJECTS)
+  const project = data?.projects || []
+
   return (
     <div>
       <h1>Help fund or collaborate on projects!</h1>
@@ -32,13 +37,13 @@ function Homepage() {
         
       </div>
       <div>
-      {/* {loading ? (
+        {loading ? (
             <div>Loading...</div>
           ) : (
             <ProjectCards
               project={project}
             />
-          )} */}
+          )}
       </div>
 
       {/* <img className='background' src={background}></img>
