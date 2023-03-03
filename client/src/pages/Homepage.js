@@ -1,12 +1,17 @@
+import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
-// import background from '../assets/background-mobile.jpg'
-// import AboutUs from '../components/AboutUs';
+import background from '../assets/background-mobile.jpg'
+import AboutUs from '../components/AboutUs';
+import ProjectCards from "../components/ProjectCards"
 
 import Auth from '../utils/auth';
+import { QUERY_PROJECTS } from '../utils/queries';
 
 function Homepage() {
+  const {loading, data} = useQuery(QUERY_PROJECTS)
+  const project = data?.projects || []
+
   return (
     <div>
       <h1>Help fund or collaborate on projects!</h1>
@@ -26,6 +31,15 @@ function Homepage() {
           </>
         )}
         
+      </div>
+      <div>
+      {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <ProjectCards
+              project={project}
+            />
+          )}
       </div>
 
       {/* <img className='background' src={background}></img>
