@@ -55,7 +55,7 @@ export const REMOVE_PROJECT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($projectId: ID!, $commentText: String!, commentAuthor: String!) {
+  mutation addComment($projectId: ID!, $commentText: String!, $commentAuthor: String!) {
     addComment(projectId: $projectId, commentText: $commentText, commentAuthor: $commentAuthor) {
       _id
       title
