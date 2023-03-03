@@ -8,6 +8,7 @@ import AboutUs from '../components/AboutUs';
 import { Progress } from 'semantic-ui-react'
 import Auth from '../utils/auth';
 import { QUERY_PROJECTS } from '../utils/queries';
+import ProjectCards from '../components/ProjectCards';
 
 function Homepage() {
   return (
