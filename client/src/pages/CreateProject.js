@@ -29,7 +29,7 @@ function CreateProject() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log('handleFormSubmit')
     try {
       const { data } = await addProject({
         variables: {
@@ -37,7 +37,7 @@ function CreateProject() {
           description,
           fundingGoal,
           //test userID. might not need it here
-          userID: Auth.getProfile().data.username,
+          // userID: Auth.getProfile().data.username,
         },
       });
 
@@ -61,6 +61,7 @@ function CreateProject() {
     if (name === 'fundingGoal') {
       setFundingGoal(value);
     }
+    console.log('handleChange')
   };
 
   return (
@@ -82,7 +83,7 @@ function CreateProject() {
           </div>  
 
           <div>
-            <label for="fundingGoal">How much funding is needed?</label>
+            <label>How much funding is needed?</label>
             <input 
               name="fundingGoal" id="fundingGoal" type="number" 
               className="" onChange={handleChange}
@@ -94,7 +95,7 @@ function CreateProject() {
           </div>      */} 
 
           {/* <div>
-            <label for="languages">Languages used:</label>
+            <label>Languages used:</label>
             <input id="languages" type="text" name="languages"/>
           </div> */}
 
