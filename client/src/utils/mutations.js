@@ -24,20 +24,47 @@ export const LOGIN_USER = gql`
   }
 `;
 
-// // should $name be $title instead?
-// export const ADD_PROJECT = gql`
-//   mutation addProject($name: String!, $description: String!, $creator: String!, $fundingGoal: Int!) {
-//     addProject(name: $name, description: $description, creator: $creator, fundingGoal: $fundingGoal) {
-//       _id
-//       title
-//       description
-//       creator
-//       fundingGoal
+export const ADD_PROJECT = gql`
+  mutation addProject($title: String!, $description: String!, $fundingGoal: Int!) {
+    addProject(title: $title, description: $description, fundingGoal: $fundingGoal) {
+      _id
+      title
+      description
+      fundingGoal
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
 
-//     }
-//   }
-// `;
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($projectId: ID!) {
+    removeProject(projectId: $projectId) {
+      _id
+      title
+      description
+      fundingGoal
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
 
-// export const REMOVE_PROJECT = gql`
-  
-// `;
+export const ADD_COMMENT = gql`
+  mutation addComment($projectId: ID!, $commentText: String!, commentAuthor: String!) {
+    addComment(projectId: $projectId, commentText: $commentText, commentAuthor: $commentAuthor) {
+      _id
+      title
+      description
+      fundingGoal
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
