@@ -64,6 +64,10 @@ function App() {
             path='/create-project'
             element={<CreateProject />}
           />
+          <Route 
+            path='/project'
+            element={<Project/>}
+          />
         </Routes>
       </>
     </Router>
