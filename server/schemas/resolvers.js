@@ -6,11 +6,14 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
             if (context.user) {
-              data = await User.findOne({ _id: context.user._id }).select('-__v -password');
+              data = await User.findOne({ _id: context.user._id }).select('-__v -password').populate('userProjects');
               return data;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        projects: async (parent, args, context) => {
+          return Project.find()
+        }
     },
 
     Mutation: {
@@ -20,7 +23,7 @@ const resolvers = {
           return { token, user };
         },
         login: async (parent, { email, password }) => {
-          const user = await User.findOne({ email });
+          const user = await User.findOne({ email }).populate("userProjects");
     
           if (!user) {
             throw new AuthenticationError('No user found with this email address');
@@ -36,13 +39,13 @@ const resolvers = {
     
           return { token, user };
         },
-        addProject: async (parent, { name, description, creator, fundingGoal }, context) => { 
-          const project = await Project.create({ name, description, creator,  fundingGoal }); 
+        addProject: async (parent, { title, description, fundingGoal, userID }, context) => { 
+          const project = await Project.create({ title, description, fundingGoal }); 
           console.log(project);
           const pUser = 
           await User.findOneAndUpdate( 
-              { _id: creator }, 
-              { $addToSet: { projects: project } },
+              { _id: userID }, 
+              { $addToSet: { userProjects: project._id } },
               {new: true}
           );
           console.log(pUser)
