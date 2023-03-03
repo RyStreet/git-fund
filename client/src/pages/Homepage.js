@@ -41,23 +41,6 @@ function Homepage() {
           )} */}
       </div>
 
-      {data.map((x)=>{
-          return(
-            <div className="MainTile">
-            <h4>Project : {x.title}</h4>
-            <p>
-              Description : {x.Description}
-            </p>
-            <div className='btn-fund-container'>
-            <p>Funding - {x.funding}</p>
-            <button className='button' >Donate</button>
-            </div>
-            <Progress percent={"10"} inverted progress success/>
-            </div>
-          )
-        })
-
-        }
       {/* <img className='background' src={background}></img>
       <AboutUs/> */}
     </div>
