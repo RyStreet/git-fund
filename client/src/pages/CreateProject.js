@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { ApolloError, useMutation } from "@apollo/client";
 
 import { ADD_PROJECT } from "../utils/mutations";
-import { QUERY_PROJECTS } from "../utils/queries";
+import { QUERY_PROJECTS, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -29,6 +28,9 @@ function CreateProject() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    const error = ApolloError
+    console.log(error instanceof Error)
     console.log('handleFormSubmit')
     try {
       const { data } = await addProject({
@@ -36,8 +38,7 @@ function CreateProject() {
           title,
           description,
           fundingGoal,
-          //test userID. might not need it here
-          // userID: Auth.getProfile().data.username,
+          creator: Auth.getProfile().data.username,
         },
       });
 
@@ -46,7 +47,7 @@ function CreateProject() {
       setFundingGoal('');
     } catch (err) {
       console.error(err);
-    }
+    } 
   };
 
   const handleChange = (event) => {
@@ -59,13 +60,14 @@ function CreateProject() {
       setDescription(value);
     }
     if (name === 'fundingGoal') {
-      setFundingGoal(value);
+      setFundingGoal(parseInt(value));
     }
-    console.log('handleChange')
   };
 
   return (
     <div>
+      {Auth.loggedIn() ? (
+      <>
         <h1>Post New Project</h1>
         <form onSubmit={handleFormSubmit}>
           <div>
@@ -74,10 +76,10 @@ function CreateProject() {
               className="" onChange={handleChange}
             />
           </div> 
-
+        
           <div>
             <textarea 
-              name="description" id="description" placeholder="What is your project description?"
+              name="description" value={description} id="description" placeholder="What is your project description?"
               className="" onChange={handleChange}
               />
           </div>  
@@ -85,7 +87,7 @@ function CreateProject() {
           <div>
             <label>How much funding is needed?</label>
             <input 
-              name="fundingGoal" id="fundingGoal" type="number" 
+              name="fundingGoal" value={fundingGoal} id="fundingGoal" type="number" 
               className="" onChange={handleChange}
             />
           </div>   
@@ -109,8 +111,13 @@ function CreateProject() {
             </div>
           )}
         </form>
+      </>
+      ) : (
+        <h3>Login or sign up to create a new project</h3>
+      )}
     </div>
   )
 };
+
 
 export default CreateProject;
