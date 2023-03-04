@@ -1,4 +1,7 @@
 import React from "react"
+import { Link } from 'react-router-dom'
+
+import { Progress } from 'semantic-ui-react'
 
 const ProjectCards = ({projects}) => { 
     if(!projects.length){ 
@@ -9,26 +12,36 @@ const ProjectCards = ({projects}) => {
             {projects && 
                 projects.map((project) => (
                     
-                    <div key={project._id}>  
+                    <div key={project._id} className="MainTile">  
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
-                            <h4>By: {project.creator}</h4>
+                            <h4>
+                              By: <Link to={`profiles/${project.creator}`}>{project.creator}</Link>
+                            </h4>
                             
                             <p id="projectCardDescription">{project.description}</p>
                             {/* <p id="projectCardCategory">{project.category}</p> */}
                             {/* <ul id="projectCardLanguages">{project.languages}</ul> */}
                         </div>
 
-                        <div id="projectCardFunding">
-                            <p id="projectCardFunding"> Funding - {project.fundingGoal} </p>
+                        <div id="projectCardFunding" className="btn-fund-container">
+                            <h6 id="projectCardFunding"> Funding Goal: ${project.fundingGoal} </h6>
                             {/* <p id="projectCardEarned"> Funding Earned - {project.fundingEarned} </p> */}
-                            <button id="projectCardDonate">Donate</button>
+                            <button id="projectCardDonate" className="button">Donate</button>
                         </div>
 
+                        <div>
+                          <Progress percent={"10"} inverted progress success/>
+                        </div>
+                        
                         {/* <div id="projectCardEngagements">
                             <p id="projectCardFollows">{project.follows}</p>
                             <p id="projectCardContributors">{project.contributors}</p>
                         </div> */}
+
+                        <Link to={`/projects/${project._id}`}>
+                          View project details 
+                        </Link>
                     </div>
             ))} 
         </div>
