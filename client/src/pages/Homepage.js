@@ -1,8 +1,7 @@
 import { useQuery } from '@apollo/client';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { data } from './DummyData';
-// import { useQuery } from '@apollo/client';
+// import { data } from './DummyData';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
 import { Progress } from 'semantic-ui-react'
@@ -13,8 +12,10 @@ import { QUERY_PROJECTS } from '../utils/queries';
 
 
 function Homepage() {
-  const {loading, data} = useQuery(QUERY_PROJECTS)
-  const project = data?.projects || []
+  const {loading, data, error} = useQuery(QUERY_PROJECTS)
+  console.log(data)
+  console.log(error)
+  const projects = data?.projects || []
 
   return (
     <div>
@@ -41,7 +42,7 @@ function Homepage() {
             <div>Loading...</div>
           ) : (
             <ProjectCards
-              project={project}
+              projects={projects}
             />
           )}
       </div>

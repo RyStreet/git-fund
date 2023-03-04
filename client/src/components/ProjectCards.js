@@ -1,25 +1,28 @@
 import React from "react"
 
-const ProjectCards = ({project}) => {
-    if(!project.length){
+const ProjectCards = ({projects}) => {
+    console.log(projects)
+    if(!projects.length){
         return <h3>No Projects Yet</h3>;
     }
     return(
+
+        
         <div id="projectCard">
-            {/* {projects && 
-            projects.map((project) => ( */}
+            {projects && 
+            projects.map((projects) => ( 
                 
-                <div key={project._id}>  
+                <div key={projects._id}>  
                     <div id="projectCardHeader">
-                        <h3 id="projectCardTitle">{project.title}</h3>
+                        <h3 id="projectCardTitle">{projects.title}</h3>
                         
-                        <p id="projectCardDescription">{project.description}</p>
+                        <p id="projectCardDescription">{projects.description}</p>
                         {/* <p id="projectCardCategory">{project.category}</p> */}
                         {/* <ul id="projectCardLanguages">{project.languages}</ul> */}
                     </div>
 
                     <div id="projectCardFunding">
-                        <p id="projectCardFunding"> Funding - {project.fundingGoal} </p>
+                        <p id="projectCardFunding"> Funding - {projects.fundingGoal} </p>
                         {/* <p id="projectCardEarned"> Funding Earned - {project.fundingEarned} </p> */}
                         <btn id="projectCardDonate">Donate</btn>
                     </div>
@@ -29,9 +32,9 @@ const ProjectCards = ({project}) => {
                         <p id="projectCardContributors">{project.contributors}</p>
                     </div> */}
                 </div>
-            {/* ))} */}
+            ))}
         </div>
-
+    
 
     //----------------- PUT THESE STYLES IN ABOVE AFTER CreateProject.js WORKS ---------------- //
         // <div className="MainTile">

@@ -26,7 +26,7 @@ export const GET_ME = gql`
 `;
 
 export const QUERY_PROJECTS = gql`
-{ 
+ {
   projects{
     _id
     title
@@ -42,8 +42,8 @@ export const QUERY_PROJECTS = gql`
     follows
 
   }
-
 }
+
 `
 
 // // may need queries for getting all projects and getting single projects. like getProjects and getSingleProject

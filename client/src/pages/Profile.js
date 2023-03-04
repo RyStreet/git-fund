@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Auth from '../utils/auth';
 
 function Profile() {
+  console.log(Auth.getProfile())
   return (
     <div>
       <div>
@@ -14,7 +15,7 @@ function Profile() {
 
             <div>
               <h4>My Projects:</h4>
-                {/* {userProjects} */}
+                {Auth.getProfile().data.userProjects}
             </div>
               <div>
                 <h4>Followed Projects:</h4>

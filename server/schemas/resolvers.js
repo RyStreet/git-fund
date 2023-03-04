@@ -12,7 +12,8 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         projects: async (parent, args, context) => {
-          return Project.find()
+          data = await Project.find()
+          return data;
         }
     },
 
