@@ -36,14 +36,15 @@ export const LOGIN_USER = gql`
 // }
 // follows
 export const ADD_PROJECT = gql`
-  mutation addProject($title: String!, $description: String!, $fundingGoal: Int!) {
-    addProject(title: $title, description: $description, fundingGoal: $fundingGoal) {
+  mutation addProject($title: String!, $description: String!, $fundingGoal: Int!, $repo: String!) {
+    addProject(title: $title, description: $description, fundingGoal: $fundingGoal, repo: $repo) {
       _id
       title
       description
       fundingGoal
       creator
-      
+      repo
+
     }
   }
 `;

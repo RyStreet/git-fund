@@ -5,8 +5,6 @@ import { data } from './DummyData';
 // import { useQuery } from '@apollo/client';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
-import { Progress } from 'semantic-ui-react'
-import CreateProject from './CreateProject';
 import ProjectCards from '../components/ProjectCards';
 
 import Auth from '../utils/auth';

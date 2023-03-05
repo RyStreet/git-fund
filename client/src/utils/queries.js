@@ -41,22 +41,30 @@ export const QUERY_PROJECTS = gql`
       title
       description
       fundingGoal
+      fundingEarned
       creator
-      
+      repo
     }
   }
 `;
 
-// export const QUERY_SINGLE_PROJECT = gql`
-//   query getSingleProject($projectId: ID!) {
-//     project(projectId: $projectId) {
-//       _id
-//       title
-//       description
-//       image
-//       fundingGoal
-//       creator
-//       fundingEarned
+export const QUERY_SINGLE_PROJECT = gql`
+  query getSingleProject($projectId: ID!) {
+    project(projectId: $projectId) {
+      _id
+      title
+      description
+      
+      fundingGoal
+      fundingEarned
+      creator
+      repo
+
+    }
+  }
+`;
+// image
+// fundingEarned
 //       languages
 //       category     
 //       contributors
@@ -66,6 +74,3 @@ export const QUERY_PROJECTS = gql`
 //         commentAuthor
 //       }
 //       follows
-//     }
-//   }
-// `;

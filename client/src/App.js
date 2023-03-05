@@ -15,7 +15,7 @@ import SignupForm from './pages/SignupForm';
 import LoginForm from './pages/LoginForm';
 import CreateProject from './pages/CreateProject';
 import Profile from './pages/Profile';
-import Project from './pages/Project';
+import SingleProject from './pages/SingleProject';
 import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
@@ -65,8 +65,12 @@ function App() {
             element={<CreateProject />}
           />
           <Route 
-            path='/project'
-            element={<Project/>}
+            path='/projects/:projectId'
+            element={<SingleProject />}
+          />
+          <Route 
+            path='/profiles/:username'
+            element={<Profile />}
           />
         </Routes>
       </>
