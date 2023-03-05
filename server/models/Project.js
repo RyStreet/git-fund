@@ -24,9 +24,14 @@ const projectSchema = new Schema({
     required: true,
     trim: true,
   },
-  // fundingEarned: {
-  //   type: Number,
-  // },
+  repo: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  fundingEarned: {
+    type: Number,
+  },
   // languages: {
   //   type: String,
   // },

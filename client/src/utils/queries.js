@@ -41,8 +41,9 @@ export const QUERY_PROJECTS = gql`
       title
       description
       fundingGoal
+      fundingEarned
       creator
-      
+      repo
     }
   }
 `;
@@ -55,8 +56,10 @@ export const QUERY_SINGLE_PROJECT = gql`
       description
       
       fundingGoal
+      fundingEarned
       creator
-      
+      repo
+
     }
   }
 `;

@@ -10,6 +10,7 @@ function CreateProject() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [fundingGoal, setFundingGoal] = useState('');
+  const [repo, setRepo] = useState('');
 
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
@@ -44,6 +45,7 @@ function CreateProject() {
           title,
           description,
           fundingGoal,
+          repo,
           creator: Auth.getProfile().data.username,
         },
       });
@@ -51,6 +53,7 @@ function CreateProject() {
       setTitle('');
       setDescription('');
       setFundingGoal('');
+      setRepo('');
     } catch (err) {
       console.error(err);
     } 
@@ -67,6 +70,9 @@ function CreateProject() {
     }
     if (name === 'fundingGoal') {
       setFundingGoal(parseInt(value));
+    }
+    if (name === 'repo') {
+      setRepo(value);
     }
   };
 
@@ -86,6 +92,13 @@ function CreateProject() {
           <div>
             <textarea 
               name="description" value={description} id="description" placeholder="What is your project description?"
+              className="" onChange={handleChange}
+              />
+          </div>  
+
+          <div>
+            <textarea 
+              name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
               className="" onChange={handleChange}
               />
           </div>  

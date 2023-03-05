@@ -26,7 +26,9 @@ function Profile() {
       </Link>
     )
   }
-  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -38,13 +40,9 @@ function Profile() {
         <p>{user.bio}</p>
 
         <div>
-          {loading ? (
-              <div>Loading...</div>
-            ) : (
-              <ProjectCards
-                projects={projects}
-              />
-            )}
+          <ProjectCards
+            projects={projects}
+          />
         </div>
 
         <div>

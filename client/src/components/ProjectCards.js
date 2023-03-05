@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
+import Donate from '../components/Donate'
 
 import { Progress } from 'semantic-ui-react'
 
@@ -26,8 +27,9 @@ const ProjectCards = ({projects}) => {
 
                         <div id="projectCardFunding" className="btn-fund-container">
                             <h6 id="projectCardFunding"> Funding Goal: ${project.fundingGoal} </h6>
-                            {/* <p id="projectCardEarned"> Funding Earned - {project.fundingEarned} </p> */}
-                            <button id="projectCardDonate" className="button">Donate</button>
+                            <h6 id="projectCardEarned"> Funding Earned: ${project.fundingEarned} </h6>
+                            {/* <button id="projectCardDonate" className="button">Donate</button> */}
+                            <Donate id="projectCardDonate" className="button"/>
                         </div>
 
                         <div>
