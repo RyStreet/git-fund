@@ -17,7 +17,7 @@ const ProjectCards = ({projects}) => {
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
                             <h4>
-                              By: <Link to={`profiles/${project.creator}`}>{project.creator}</Link>
+                              By: <Link to={`/profiles/${project.creator}`}>{project.creator}</Link>
                             </h4>
                             
                             <p id="projectCardDescription">{project.description}</p>
