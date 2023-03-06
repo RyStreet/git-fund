@@ -29,7 +29,7 @@ const ProjectCards = ({projects}) => {
                             <h6 id="projectCardFunding"> Funding Goal: ${project.fundingGoal} </h6>
                             <h6 id="projectCardEarned"> Funding Earned: ${project.fundingEarned} </h6>
                             {/* <button id="projectCardDonate" className="button">Donate</button> */}
-                            <Donate id="projectCardDonate" className="button"/>
+                            <Donate projectId={project._id} id="projectCardDonate" className="button"/>
                         </div>
 
                         <div>

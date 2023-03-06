@@ -62,7 +62,11 @@ export const QUERY_SINGLE_PROJECT = gql`
       title
       description      
       fundingGoal
-      fundingEarned
+      fundingEarned {
+        _id
+        donaterName
+        amount
+      }
       creator
       repo
       collaborators {

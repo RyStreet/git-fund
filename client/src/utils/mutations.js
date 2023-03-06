@@ -70,6 +70,27 @@ export const ADD_COLLABORATOR = gql`
   }
 `;
 
+export const ADD_DONATION = gql`
+mutation addDonation($projectId: ID!, $amount: Int!){
+  addDonation(projectId: $projectId, amount: $amount){
+    _id
+    title
+    description
+    fundingGoal
+    creator
+    repo
+    
+    fundingEarned{
+      _id
+      amount
+      donaterName
+    }
+  }
+}
+
+
+`
+
 // export const REMOVE_PROJECT = gql`
 //   mutation removeProject($projectId: ID!) {
 //     removeProject(projectId: $projectId) {

@@ -35,14 +35,14 @@ function SingleProject() {
         <div>
           <div>
             <h5>Funding Goal: ${project.fundingGoal}</h5>
-            <h5>Funding Earned: ${project.fundingEarned}</h5>
+            <h5>Funding Earned: <Donations fundingEarned={project.fundingEarned}/> </h5>
             <Progress percent="80" inverted progress success/>
           </div>      
           <div>
             <h5>Collaborators: <Collaborators collaborators={project.collaborators}/></h5>
           </div>
           <div className='button-container'>
-            <Donate className='button' />
+            <Donate projectId={project._id} className='button' />
             <Collaborate projectId={project._id} className='button' />
           </div>
         </div>
