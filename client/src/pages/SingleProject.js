@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import Donate from '../components/Donate'
 import Collaborate from '../components/Collaborate'
 import Collaborators from '../components/Collaborators';
+import Donations from '../components/Donations';
 
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 
@@ -35,7 +36,7 @@ function SingleProject() {
         <div>
           <div>
             <h5>Funding Goal: ${project.fundingGoal}</h5>
-            <h5>Funding Earned: <Donations fundingEarned={project.fundingEarned}/> </h5>
+            {/* <h5>Funding Earned: <Donations fundingEarned={project.fundingEarned}/> </h5> */}
             <Progress percent="80" inverted progress success/>
           </div>      
           <div>
