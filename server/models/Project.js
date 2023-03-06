@@ -32,22 +32,31 @@ const projectSchema = new Schema({
   fundingEarned: {
     type: Number,
   },
+  collaborators: [
+    {
+      // type: Schema.Types.ObjectId,
+      // ref: 'User',
+      collabNotes: {
+        type: String,
+        required: true,
+      },
+      collaboratorName: {
+        type: String,
+        required: true,
+      }
+    },
+  ],
   // languages: {
   //   type: String,
   // },
   // category: {
   //   type: String,
   // },
-  // contributors: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'User',
-  //   },
-  // ],
+
   // comments: [
   //   {
-  //     // type: Schema.Types.ObjectId,
-  //     // ref: 'Comment',
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Comment',
   //     commentText: {
   //       type: String,
   //       required: true,
