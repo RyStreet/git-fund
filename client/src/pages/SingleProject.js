@@ -46,6 +46,10 @@ function SingleProject() {
             <Donate projectId={project._id} className='button' />
             <Collaborate projectId={project._id} className='button' />
           </div>
+          <div className='donations-container'>
+            <h5>Donations:</h5>
+            <Donations fundingEarned={project.fundingEarned}/>
+          </div>
         </div>
       </div>
     </>

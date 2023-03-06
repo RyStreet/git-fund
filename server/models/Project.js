@@ -29,9 +29,18 @@ const projectSchema = new Schema({
     required: true,
     trim: true,
   },
-  fundingEarned: {
-    type: Number,
-  },
+  fundingEarned: [
+    {
+      amount: {
+        type: Number,
+        required: true
+      },
+      donaterName: {
+        type: String,
+        required: true
+      }
+    }
+  ],
   collaborators: [
     {
       // type: Schema.Types.ObjectId,

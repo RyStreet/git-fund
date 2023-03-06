@@ -1,6 +1,8 @@
+import { useMutation } from '@apollo/client'
 import React, { useState } from 'react'
-import { Button, Icon, Modal } from 'semantic-ui-react'
-
+import { Button, Form, Icon, Modal } from 'semantic-ui-react'
+import { ADD_DONATION } from '../utils/mutations'
+import Auth from '../utils/auth'
 
 function modalReducer(state, action) {
   switch (action.type) {
@@ -13,7 +15,7 @@ function modalReducer(state, action) {
   }
 }
 
-const DonateModal = () => {
+const DonateModal = ({projectId}) => {
   const [state, dispatch] = React.useReducer(modalReducer, {
     open: false,
     size: undefined,
@@ -21,7 +23,35 @@ const DonateModal = () => {
   const { open, size } = state
 
   //////////// FOR DISPLAYING FUNDINGEARNED UNTIL WE FIGURE OUT STRIPE
-  const [fundingEarned, setFundingEarned] = useState(0);
+  const [amount, setAmount] = useState("");
+
+  const [addDonation, {error}] = useMutation(ADD_DONATION)
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log("adding donation")
+    try{
+      const {data} = await addDonation({
+        variables:{
+          projectId,
+          amount,
+          donaterName: Auth.getProfile().data.username,
+        }
+      });
+      setAmount("")
+    } catch (err){
+      console.error(err)
+    }
+  }
+
+  const handleChange = (event) => {
+    let {name, value} = event.target;
+
+    if(name = "amount") {
+      setAmount(parseInt(value))
+    }
+  }
 
   return (
     <>
@@ -30,23 +60,28 @@ const DonateModal = () => {
       </Button>
 
       <Modal
+        as={Form} onSubmit={handleFormSubmit}
         size={size}
         open={open}
         onClose={() => dispatch({ type: 'close' })}
       >
         <Modal.Header>Donate to this project</Modal.Header>
         <Modal.Content>
-          <form>
-            <h6>Donation amount ($):</h6>
-            <input type='number'></input>
-          </form>         
+         <h6>Donation amount ($):</h6>
+            <input 
+            value={amount} 
+            name='amount' 
+            type='number'
+            onChange={handleChange}>  
+            </input>
+                 
         </Modal.Content>
 
         <Modal.Actions>
           <Button negative onClick={() => dispatch({ type: 'close' })}>
             Cancel
           </Button>
-          <Button positive onClick={() => dispatch({ type: 'close' })}>
+          <Button type='submit'>
             Send
           </Button>
         </Modal.Actions>
