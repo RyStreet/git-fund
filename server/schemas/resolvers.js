@@ -95,6 +95,23 @@ const resolvers = {
           }
           throw new AuthenticationError("You must be logged in!")
         },
+        
+        addDonation: async(parent, {projectId, amount}, context) => {
+          if (context.user){
+            return Project.findOneAndUpdate(
+              {_id: projectId},
+              {$addToSet: {
+                fundingEarned: {amount, donaterName: context.user.username}
+              }
+            },
+            {runValidators: true,}
+            );
+          }
+          throw new AuthenticationError("You must be logged in!")
+        }
+
+
+
         // addComment: async (parent, { projectId, commentText }, context) => {
         //   if (context.user) {
         //     return Project.findOneAndUpdate(

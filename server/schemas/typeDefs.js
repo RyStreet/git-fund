@@ -22,11 +22,16 @@ const typeDefs = gql`
         description: String
         
         fundingGoal: Int
-        fundingEarned: Int
+        fundingEarned: [fundingEarned]
         creator: String
         repo: String
         collaborators: [Collaborator]!
         
+    }
+    type fundingEarned{
+        _id: ID
+        amount: Int
+        donaterName: String
     }
     type Collaborator {
         _id: ID
@@ -58,6 +63,8 @@ const typeDefs = gql`
 
         addComment(projectId: ID!, commentText: String!): Project
         removeComment(projectId: ID!, commentId: ID!): Project
+
+        addDonation(projectId: ID!, amount: Int!): Project
     }
 `;
 module.exports = typeDefs;
