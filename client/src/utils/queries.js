@@ -11,7 +11,7 @@ export const QUERY_ME = gql`
         title
         description
         fundingGoal
-        fundingEarned
+        
         creator
         repo
       }
@@ -30,7 +30,7 @@ export const QUERY_USER = gql`
         title
         description
         fundingGoal
-        fundingEarned
+        
         creator
         repo
         
@@ -40,7 +40,7 @@ export const QUERY_USER = gql`
   }
 `;
 
-// fundingEarned
+
 
 export const QUERY_PROJECTS = gql`
   query getProjects { 
@@ -57,11 +57,7 @@ export const QUERY_PROJECTS = gql`
   }
 `;
 
-// fundingEarned {
-//   _id
-//   donaterName
-//   amount
-// }
+
 
 export const QUERY_SINGLE_PROJECT = gql`
   query getSingleProject($projectId: ID!) {
@@ -70,7 +66,11 @@ export const QUERY_SINGLE_PROJECT = gql`
       title
       description      
       fundingGoal
-      
+      fundingEarned {
+       _id
+        donaterName
+        amount
+      }
       creator
       repo
       collaborators {

@@ -22,13 +22,13 @@ const typeDefs = gql`
         description: String
         
         fundingGoal: Int
-        fundingEarned: [fundingEarned]
+        fundingEarned: [Donation]
         creator: String
         repo: String
         collaborators: [Collaborator]!
         
     }
-    type fundingEarned{
+    type Donation{
         _id: ID
         amount: Int
         donaterName: String
