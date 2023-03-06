@@ -5,10 +5,10 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
-            if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate('projects');
-            }
-            throw new AuthenticationError('You need to be logged in!');
+          if (context.user) {
+            return User.findOne({ _id: context.user._id }).populate('projects');
+          }
+          throw new AuthenticationError('You need to be logged in!');
         },
         users: async () => {
           return User.find().populate('projects');
@@ -21,7 +21,7 @@ const resolvers = {
           return Project.find(params)
         },
         project: async (parent, { projectId }) => {
-          return Project.findOne({ _id: projectId });
+          return Project.findOne({ _id: projectId })//.populate('collaborators')////testing with adding collaborators ; 
         }
     },
 
@@ -78,15 +78,16 @@ const resolvers = {
           }
           throw new AuthenticationError('You need to be logged in!');
         },
-        addComment: async (parent, { projectId, commentText }, context) => {
+        addCollaborator: async (parent, { projectId, collabNotes }, context) => {
           if (context.user) {
             return Project.findOneAndUpdate(
               { _id: projectId },
-              { $addToSet: {
-                  comments: { commentText, commentAuthor: context.user.username }
-                },
+              { 
+                $addToSet: {
+                  collaborators: { collabNotes, collaboratorName: context.user.username }
+                } 
               },
-              {
+              { 
                 new: true,
                 runValidators: true,
               }
@@ -94,22 +95,38 @@ const resolvers = {
           }
           throw new AuthenticationError("You must be logged in!")
         },
-        removeComment: async (parent, { projectId, commentId }, context) => {
-          if (context.user) {
-            return Project.findOneAndUpdate(
-              { _id: projectId },
-              { $pull: {
-                  comments: {
-                    _id: commentId,
-                    commentAuthor: context.user.username,
-                  },
-                },
-              },
-              { new: true }
-            );
-          }
-          throw new AuthenticationError("You must be logged in!");
-        },
+        // addComment: async (parent, { projectId, commentText }, context) => {
+        //   if (context.user) {
+        //     return Project.findOneAndUpdate(
+        //       { _id: projectId },
+        //       { $addToSet: {
+        //           comments: { commentText, commentAuthor: context.user.username }
+        //         },
+        //       },
+        //       {
+        //         new: true,
+        //         runValidators: true,
+        //       }
+        //     );
+        //   }
+        //   throw new AuthenticationError("You must be logged in!")
+        // },
+        // removeComment: async (parent, { projectId, commentId }, context) => {
+        //   if (context.user) {
+        //     return Project.findOneAndUpdate(
+        //       { _id: projectId },
+        //       { $pull: {
+        //           comments: {
+        //             _id: commentId,
+        //             commentAuthor: context.user.username,
+        //           },
+        //         },
+        //       },
+        //       { new: true }
+        //     );
+        //   }
+        //   throw new AuthenticationError("You must be logged in!");
+        // },
     }
 };
 

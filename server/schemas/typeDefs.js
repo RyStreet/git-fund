@@ -5,7 +5,6 @@ const { gql } = require('apollo-server-express');
 // fundingEarned: Int
 // languages: String
 // category: [String]
-// contributors: [User]
 // comments: [Comment]
 // follows: Int
 const typeDefs = gql`
@@ -26,8 +25,13 @@ const typeDefs = gql`
         fundingEarned: Int
         creator: String
         repo: String
-
+        collaborators: [Collaborator]!
         
+    }
+    type Collaborator {
+        _id: ID
+        collabNotes: String
+        collaboratorName: String
     }
     type Comment{
         _id: ID
@@ -50,6 +54,8 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
         removeProject(projectId: ID!): Project
+        addCollaborator(projectId: ID!, collabNotes: String!): Project
+
         addComment(projectId: ID!, commentText: String!): Project
         removeComment(projectId: ID!, commentId: ID!): Project
     }
