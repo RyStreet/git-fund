@@ -11,7 +11,9 @@ export const QUERY_ME = gql`
         title
         description
         fundingGoal
+        fundingEarned
         creator
+        repo
       }
     }
   }
@@ -28,7 +30,10 @@ export const QUERY_USER = gql`
         title
         description
         fundingGoal
+        fundingEarned
         creator
+        repo
+        
 
       }
     }
@@ -45,6 +50,7 @@ export const QUERY_PROJECTS = gql`
       fundingEarned
       creator
       repo
+      
     }
   }
 `;
@@ -54,12 +60,16 @@ export const QUERY_SINGLE_PROJECT = gql`
     project(projectId: $projectId) {
       _id
       title
-      description
-      
+      description      
       fundingGoal
       fundingEarned
       creator
       repo
+      collaborators {
+        _id
+        collabNotes
+        collaboratorName        
+      }
 
     }
   }

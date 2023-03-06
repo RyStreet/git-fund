@@ -44,7 +44,28 @@ export const ADD_PROJECT = gql`
       fundingGoal
       creator
       repo
+      collaborators {
+        _id
+        collabNotes
+      }
+    }
+  }
+`;
 
+export const ADD_COLLABORATOR = gql`
+  mutation addCollaborator($projectId: ID!, $collabNotes: String!) {
+    addCollaborator(projectId: $projectId, collabNotes: $collabNotes) {
+      _id
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      
+      collaborators {
+        _id
+        collabNotes
+      }
     }
   }
 `;
