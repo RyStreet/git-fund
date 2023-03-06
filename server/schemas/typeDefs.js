@@ -1,28 +1,47 @@
 const { gql } = require('apollo-server-express');
 
+//////// FROM type Project
+// image: String        
+// fundingEarned: Int
+// languages: String
+// category: [String]
+// comments: [Comment]
+// follows: Int
 const typeDefs = gql`
     type User {
-        _id: ID!
-        username: String!
-        email: String!
-        password: String!
-        userProjects: [Project]
-        followedProjects: [Project]
-        bio: String!
+        _id: ID
+        username: String
+        email: String
+        password: String
+        projects: [Project]
+        
     }
-    Project {
-        projectID: ID!
-        title: String!
-        description: String!
-        image: String!
-        fundingGoal: Int!
-        fundingEarned: Int!
-        languages: String!
-        category: [string]
-        creator: User
-        contributors: [User]
-        comments: [Comment]
-        follows: INT!
+    type Project {
+        _id: ID       
+        title: String
+        description: String
+        
+        fundingGoal: Int
+        fundingEarned: [Donation]
+        creator: String
+        repo: String
+        collaborators: [Collaborator]!
+        
+    }
+    type Donation{
+        _id: ID
+        amount: Int
+        donaterName: String
+    }
+    type Collaborator {
+        _id: ID
+        collabNotes: String
+        collaboratorName: String
+    }
+    type Comment{
+        _id: ID
+        commentText: String
+        commentAuthor: String
     }
     type Auth {
         token: ID!
@@ -30,13 +49,22 @@ const typeDefs = gql`
     }
     type Query {
         me: User
+        users: [User]
+        user(username: String!): User
+        projects(username: String): [Project]
+        project(projectId: ID!): Project
     }
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        removeProject(projectId: ID!): User
-        addProject(name: String!, description: String!, creator: String!, fundingGoal: Int!): Project
-        
+        addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
+        removeProject(projectId: ID!): Project
+        addCollaborator(projectId: ID!, collabNotes: String!): Project
+
+        addComment(projectId: ID!, commentText: String!): Project
+        removeComment(projectId: ID!, commentId: ID!): Project
+
+        addDonation(projectId: ID!, amount: Int!): Project
     }
-    `;
-    module.exports = typeDefs;
+`;
+module.exports = typeDefs;

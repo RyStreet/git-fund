@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Tech Blog",
+    "description": "A blog site where developers can read and write about all things tech and programming.",
+    "fundingGoal": 500,
+    "creator": "pls"
+  },
+  {
+    "title": "Team Profile Generator",
+    "description": "An application that helps users efficiently create a team profile, organized by job roles and containing contact information.",
+    "fundingGoal": 2000,
+    "creator": "ace"
+  }
+]

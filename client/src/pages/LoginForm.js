@@ -41,9 +41,10 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+<center>
+<main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
+        <div className="login-container">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
           <div className="card-body">
             {data ? (
@@ -52,7 +53,7 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} className="login-form">
                 <input
                   className=""
                   placeholder="Enter your email"
@@ -70,13 +71,16 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-block login-btn"
                   type="submit"
                 >
                   Submit
                 </button>
               </form>
             )}
+            <Link to={'/signup'}>
+              <h5>Sign up instead</h5>
+            </Link>
 
             {error && (
               <div>
@@ -87,6 +91,7 @@ const Login = (props) => {
         </div>
       </div>
     </main>
+    </center>
   );
 };
 

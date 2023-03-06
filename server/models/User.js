@@ -1,12 +1,13 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const projectSchema = require('./Project');
+
 const userSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     email: {
       type: String,
@@ -18,13 +19,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    userProjects: [projectSchema],
-},
-{
-    toJSON: {
-      virtuals: true,
-    },
-  }
+    projects: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Project'
+      }
+    ],
+  },
+  // {
+  //   toJSON: {
+  //     virtuals: true,
+  //   },
+  // }
 );
 
 // hash user password

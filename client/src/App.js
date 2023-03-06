@@ -7,16 +7,16 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Navbar from './components/Navbar';
-import ProjectCard from './components/ProjectCard';
-
+import ProjectCards from './components/ProjectCards';
 import Homepage from './pages/Homepage';
 import SignupForm from './pages/SignupForm';
 import LoginForm from './pages/LoginForm';
 import CreateProject from './pages/CreateProject';
 import Profile from './pages/Profile';
-import Project from './pages/Project';
+import SingleProject from './pages/SingleProject';
+import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -38,9 +38,10 @@ const client = new ApolloClient({
 });
 
 function App() {
+  return(
   <ApolloProvider client={client}>
     <Router>
-      <div>
+      <>
         <Navbar />
         <Routes>
           <Route
@@ -59,10 +60,22 @@ function App() {
             path='/signup'
             element={<SignupForm />}
           />
+          <Route 
+            path='/create-project'
+            element={<CreateProject />}
+          />
+          <Route 
+            path='/projects/:projectId'
+            element={<SingleProject />}
+          />
+          <Route 
+            path='/profiles/:username'
+            element={<Profile />}
+          />
         </Routes>
-      </div>
+      </>
     </Router>
   </ApolloProvider>
-};
+)};
 
-export default App();
+export default App;
