@@ -18,6 +18,12 @@ import Profile from './pages/Profile';
 import SingleProject from './pages/SingleProject';
 import Navbar from './components/Navbar';
 
+import {Elements} from "@stripe/react-stripe-js"
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx')
+//api promise from UTA activities
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
