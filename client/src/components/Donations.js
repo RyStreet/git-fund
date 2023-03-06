@@ -1,7 +1,7 @@
 import React from "react";
 
 const Donations = ({fundingEarned = []}) => {
-    if(!donations.length){
+    if(!fundingEarned.length){
         return <p>No Donations Yet</p>
     }
     return (
@@ -14,4 +14,4 @@ const Donations = ({fundingEarned = []}) => {
     )
 }
 
-export default Donations:
+export default Donations;
