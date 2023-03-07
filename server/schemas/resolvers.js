@@ -94,12 +94,13 @@ const resolvers = {
               }
               
               )
-             await User.findOneAndUpdate(
+              await User.findOneAndUpdate(
                 {_id: context.user._id },
                 {$addToSet:{
-                  projects: {_id: projectId}
+                  collabProjects: {_id: projectId}
                 }});
                 return project
+                
           }
           throw new AuthenticationError("You must be logged in!")
         },
