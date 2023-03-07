@@ -48,7 +48,7 @@ const projectSchema = new Schema({
         type: String,
         required: true,
       },
-      collaboratorName: {
+      collaboratorInfo: {
         type: Schema.Types.ObjectId,
         ref: 'User',
       }

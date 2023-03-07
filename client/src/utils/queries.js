@@ -75,8 +75,8 @@ export const QUERY_SINGLE_PROJECT = gql`
       collaborators {
         _id
         collabNotes
-        collaboratorName{
-          username
+        collaboratorInfo{
+        username
         }        
       }
 
