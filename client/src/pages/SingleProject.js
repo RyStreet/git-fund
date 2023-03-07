@@ -18,7 +18,7 @@ function SingleProject() {
   });
 
   const project = data?.project || {};
-
+  console.log(project)
   if (loading) {
     return <div>Loading...</div>
   }

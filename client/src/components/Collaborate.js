@@ -34,11 +34,14 @@ const CollaborateModal = ({ projectId }) => {
 
     console.log('adding collaborator')
     try {
+      console.log({
+        projectId,
+        collabNotes,
+      })
       const { data } = await addCollaborator({
         variables: {
           projectId,
           collabNotes,
-          collaboratorName: Auth.getProfile().data.username,
         }
       });
 

@@ -36,7 +36,7 @@ const typeDefs = gql`
     type Collaborator {
         _id: ID
         collabNotes: String
-        collaboratorName: String
+        collaboratorInfo: User
     }
     type Comment{
         _id: ID
