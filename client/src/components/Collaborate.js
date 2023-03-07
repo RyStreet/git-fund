@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
 import { ADD_COLLABORATOR } from '../utils/mutations';
+import {QUERY_SINGLE_PROJECT} from "../utils/queries"
 
 import { Button, Modal, Form } from 'semantic-ui-react';
 
@@ -27,7 +28,22 @@ const CollaborateModal = ({ projectId }) => {
 
   const [collabNotes, setCollabNotes] = useState('');
 
-  const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR);
+  const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR, {
+
+    update(cache, {data: {addCollaborator}}){
+      try {
+        const {collaboratorInfo} = cache.readQuery({query: QUERY_SINGLE_PROJECT});
+        
+        cache.writeQuery({
+          query: QUERY_SINGLE_PROJECT,
+          data: {collaboratorInfo: [addCollaborator, ...collaboratorInfo]}
+        })
+      } catch (err){
+        console.log(error)
+      }
+    }
+
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -46,6 +62,8 @@ const CollaborateModal = ({ projectId }) => {
       });
 
       setCollabNotes('');
+
+      window.location.reload()
     } catch (err) {
       console.error(err);
     }
