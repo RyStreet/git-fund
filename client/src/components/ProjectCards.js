@@ -6,7 +6,7 @@ import Donations from "./Donations"
 import { Progress } from 'semantic-ui-react'
 
 const ProjectCards = ({projects}) => { 
-    if(!projects.length){ 
+    if(!projects?.length){ 
         return <h3>No Projects Yet</h3>;
     }
     return(

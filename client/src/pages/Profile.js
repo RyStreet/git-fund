@@ -26,26 +26,33 @@ function Profile() {
   const user = data?.me || data?.user || []
   console.log(user)
   const projects = user.projects
-  console.log(projects)
+  const collabProjects = user.collabProjects
+  console.log("USERPROJECT", projects)
+  console.log("collabPROJECT", collabProjects)
 
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/profile" />
-  }
-  if (!user?.username) {
-    return (
-      <Link to={'/login'}>
-        <h1>Login or sign up to view your profile</h1>
-      </Link>
-    )
-  }
+
+
+  const [isLoggedIn,setIsLoggedIn]=React.useState(false)
+  React.useEffect(() => {
+    setIsLoggedIn(Auth?.loggedIn())
+    return () => {
+      
+    }
+  }, [Auth])
   if (loading) {
     return <div>Loading...</div>;
   }
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/profile" />
+  }
+  
   const projectss = [
     { name: 'Project 1', url: 'https://github.com/user/project1' },
     { name: 'Project 2', url: 'https://github.com/user/project2' },
     { name: 'Project 3', url: 'https://github.com/user/project3' },
   ];
+
+  
   // return (
   //   <div>
   //     <div>
@@ -70,26 +77,20 @@ function Profile() {
   //   </div>
   // )
   return  (
-    <Card>
-    <Image src="https://via.placeholder.com/150" wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</Card.Header>
-      <Card.Meta>
-        <span className="email">{user.email}</span>
-      </Card.Meta>
-      <Card.Description>{user?.bio}</Card.Description>
-    </Card.Content>
-    <Card.Content>
-        <Card.Header>Projects</Card.Header>
-        <ProjectList projects={projectss} />
-      </Card.Content>
-    <Card.Content extra>
-      <a href={``}>
-        <i className="fab fa-github"></i>
-        GitHub
-      </a>
-    </Card.Content>
-  </Card>
+   isLoggedIn?
+<>
+<div>
+          <h4>Collaborated Projects:</h4>
+          <ProjectCards
+            projects={ user?.collabProjects}
+          />
+        </div>
+</>
+    :
+
+<Link to={'/login'}>
+<h1>Login or sign up to view your profile</h1>
+</Link>
   )
 };
 

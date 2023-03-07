@@ -43,15 +43,14 @@ const projectSchema = new Schema({
   ],
   collaborators: [
     {
-      // type: Schema.Types.ObjectId,
-      // ref: 'User',
+     
       collabNotes: {
         type: String,
         required: true,
       },
-      collaboratorName: {
-        type: String,
-        required: true,
+      collaboratorInfo: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
       }
     },
   ],

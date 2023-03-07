@@ -25,11 +25,11 @@ function CreateProject() {
         console.error(e)
       }
 
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, projects: [...me.projects, addProject] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, projects: [...me.projects, addProject] } },
+      // });
     },
   });
 
@@ -54,6 +54,8 @@ function CreateProject() {
       setDescription('');
       setFundingGoal('');
       setRepo('');
+
+      document.location.replace('/profile')
     } catch (err) {
       console.error(err);
     } 

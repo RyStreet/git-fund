@@ -11,7 +11,14 @@ export const QUERY_ME = gql`
         title
         description
         fundingGoal
-        
+        creator
+        repo
+      }
+      collabProjects {
+        _id
+        title
+        description
+        fundingGoal
         creator
         repo
       }
@@ -30,11 +37,16 @@ export const QUERY_USER = gql`
         title
         description
         fundingGoal
-        
         creator
         repo
-        
-
+      }
+      collabProjects {
+        _id
+        title
+        description
+        fundingGoal
+        creator
+        repo
       }
     }
   }
@@ -49,7 +61,6 @@ export const QUERY_PROJECTS = gql`
       title
       description
       fundingGoal
-      
       creator
       repo
       
@@ -76,7 +87,9 @@ export const QUERY_SINGLE_PROJECT = gql`
       collaborators {
         _id
         collabNotes
-        collaboratorName        
+        collaboratorInfo{
+        username
+        }        
       }
 
     }
