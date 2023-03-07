@@ -40,7 +40,8 @@ function SingleProject() {
             <Progress percent="80" inverted progress success/>
           </div>      
           <div>
-            <h5>Collaborators: <Collaborators collaborators={project.collaborators}/></h5>
+            <h5>Collaborators:</h5>
+            <h6><Collaborators collaborators={project.collaborators}/></h6>
           </div>
           <div className='button-container'>
             <Donate projectId={project._id} className='button' />
