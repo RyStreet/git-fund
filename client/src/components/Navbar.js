@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,9 +10,11 @@ import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
 
 function NavBar() {
-  const logout = (event) => {
+  const navigate=useNavigate()
+  const handleLogout = (event) => {
     event.preventDefault();
     Auth.logout();
+    
   }
   const [isMobile, setIsMobile] = useState(false);
 
@@ -39,12 +41,17 @@ function NavBar() {
         <Link to={'/profile'}>
           <Menu.Item  color='text-light' name='profile' />
         </Link>
-         <Link to={'/logout'}>
+         <Link onClick={handleLogout}>
           <Menu.Item  color='text-light' name='logout' />
          </Link>
         </>
       ) : (
         <>
+     
+      <Link to={'/'}>
+        
+        <Menu.Item color='text-light' className='text-large'  name='home' />
+      </Link>
         <Link to={'/signup'}>
         
           <Menu.Item  color='text-light' name='signup' />

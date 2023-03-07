@@ -9,6 +9,7 @@ import ProjectCards from '../components/ProjectCards';
 
 import Auth from '../utils/auth';
 import { QUERY_PROJECTS } from '../utils/queries';
+import Footer from '../components/Footer';
 
 
 function Homepage() {
@@ -29,7 +30,7 @@ function Homepage() {
         ) : (
           <>
             <Link to={'/login'}>
-              <button>+ New Project</button>
+              <button className='login-btn'>+ New Project</button>
             </Link>
           </>
          )}
@@ -47,6 +48,7 @@ function Homepage() {
 
       {/* <img className='background' src={background}></img>
       <AboutUs/> */}
+      <Footer/>
     </div>
   )
 };

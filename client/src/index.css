@@ -1,12 +1,15 @@
 /* #FE9F00 */
+
+
 .MainTile{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     width: 90%;
     /* margin: 3rem auto; */
     padding: 15px;
     border: 3px black solid;
     /* border-radius: 25px; */
   }
+
   .buttonRadius{
     /* border-radius: 25px; */
   }
@@ -15,12 +18,17 @@
   }
   .ui.menu:not(.vertical) .item {
     display: flex;
-    align-items: end;
+    align-items: end !important;
+    font-size: 25px;
 }
   .logoContainer{
 display: flex;
 flex-direction: column;
 position: relative;
+  }
+  body{
+    /* background-color: #b9b9b9 !important;
+    z-index: 100; */
   }
 
 .container{
