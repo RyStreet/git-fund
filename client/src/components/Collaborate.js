@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { ADD_COLLABORATOR } from '../utils/mutations';
 import {QUERY_SINGLE_PROJECT} from "../utils/queries"
@@ -7,6 +7,7 @@ import {QUERY_SINGLE_PROJECT} from "../utils/queries"
 import { Button, Modal, Form } from 'semantic-ui-react';
 
 import Auth from '../utils/auth';
+import { useParams } from 'react-router-dom';
 
 function modalReducer(state, action) {
   switch (action.type) {
@@ -27,6 +28,8 @@ const CollaborateModal = ({ projectId }) => {
   const { open, size } = state
 
   const [collabNotes, setCollabNotes] = useState('');
+
+  
 
   const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR, {
 
@@ -62,6 +65,9 @@ const CollaborateModal = ({ projectId }) => {
       });
 
       setCollabNotes('');
+
+      
+      
 
       window.location.reload()
     } catch (err) {
