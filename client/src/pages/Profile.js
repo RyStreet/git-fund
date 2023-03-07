@@ -14,7 +14,10 @@ function Profile() {
   const user = data?.me || data?.user || []
   console.log(user)
   const projects = user.projects
-  console.log(projects)
+  const collabProjects = user.collabProjects
+  console.log("USERPROJECT", projects)
+  console.log("collabPROJECT", collabProjects)
+
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />
@@ -46,8 +49,10 @@ function Profile() {
         </div>
 
         <div>
-          <h4>Followed Projects:</h4>
-          {/* {followedProjects} */}
+          <h4>Collaborated Projects:</h4>
+          <ProjectCards
+            projects={collabProjects}
+          />
         </div>
 
       </div>       

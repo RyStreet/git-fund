@@ -14,6 +14,7 @@ const typeDefs = gql`
         email: String
         password: String
         projects: [Project]
+        collabProjects: [Project]
         
     }
     type Project {

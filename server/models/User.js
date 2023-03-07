@@ -25,6 +25,12 @@ const userSchema = new Schema(
         ref: 'Project'
       }
     ],
+    collabProjects: [ 
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Project"
+      }
+    ]
   },
   // {
   //   toJSON: {
