@@ -40,6 +40,8 @@ const DonateModal = ({projectId}) => {
         }
       });
       setAmount("")
+
+      window.location.reload()
     } catch (err){
       console.error(err)
     }
