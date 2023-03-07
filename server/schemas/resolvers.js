@@ -81,7 +81,7 @@ const resolvers = {
         addCollaborator: async (parent, { projectId, collabNotes }, context) => {
           
           if (context.user) {
-            return Project.findOneAndUpdate(
+            const project = await Project.findOneAndUpdate(
               { _id: projectId },
               { 
                 $addToSet: {
@@ -92,7 +92,14 @@ const resolvers = {
                 new: true,
                 runValidators: true,
               }
-            );
+              
+              )
+             await User.findOneAndUpdate(
+                {_id: context.user._id },
+                {$addToSet:{
+                  projects: {_id: projectId}
+                }});
+                return project
           }
           throw new AuthenticationError("You must be logged in!")
         },
