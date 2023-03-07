@@ -49,7 +49,6 @@ export const QUERY_PROJECTS = gql`
       title
       description
       fundingGoal
-      
       creator
       repo
       
@@ -76,7 +75,9 @@ export const QUERY_SINGLE_PROJECT = gql`
       collaborators {
         _id
         collabNotes
-        collaboratorName        
+        collaboratorName{
+          username
+        }        
       }
 
     }

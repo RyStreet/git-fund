@@ -36,7 +36,7 @@ const typeDefs = gql`
     type Collaborator {
         _id: ID
         collabNotes: String
-        collaboratorName: String
+        collaboratorName: User
     }
     type Comment{
         _id: ID
@@ -59,7 +59,7 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
         removeProject(projectId: ID!): Project
-        addCollaborator(projectId: ID!, collabNotes: String!): Project
+        addCollaborator(projectId: ID!, collabNotes: String!, collaboratorName: String!): Project
 
         addComment(projectId: ID!, commentText: String!): Project
         removeComment(projectId: ID!, commentId: ID!): Project

@@ -21,7 +21,7 @@ const resolvers = {
           return Project.find(params)
         },
         project: async (parent, { projectId }) => {
-          return Project.findOne({ _id: projectId })//.populate('collaborators')////testing with adding collaborators ; 
+          return Project.findOne({ _id: projectId }).populate("collaborators")////testing with adding collaborators ; 
         }
     },
 
@@ -78,13 +78,14 @@ const resolvers = {
           }
           throw new AuthenticationError('You need to be logged in!');
         },
-        addCollaborator: async (parent, { projectId, collabNotes }, context) => {
+        addCollaborator: async (parent, { projectId, collabNotes, collaboratorName }, context) => {
+          
           if (context.user) {
             return Project.findOneAndUpdate(
               { _id: projectId },
               { 
                 $addToSet: {
-                  collaborators: { collabNotes, collaboratorName: context.user.username }
+                  collaborators: { collabNotes, collaboratorName: context.user }
                 } 
               },
               { 
