@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Donate from '../components/Donate'
@@ -7,6 +8,8 @@ import Collaborators from '../components/Collaborators';
 import Donations from '../components/Donations';
 
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
+
+import Auth from '../utils/auth';
 
 import { Progress } from 'semantic-ui-react';
 import { Dummydata } from './DummyData';
@@ -20,6 +23,13 @@ function SingleProject() {
 
   const project = data?.project || {};
   console.log(project)
+  if (!Auth.loggedIn()) {
+    return (
+      <Link to={'/login'} className="textDecNone">
+        <h1>Login or sign up to interact with projects!</h1>
+      </Link>
+    )
+  }
   if (loading) {
     return <div>Loading...</div>
   }
