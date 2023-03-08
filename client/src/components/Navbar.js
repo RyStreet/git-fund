@@ -69,16 +69,16 @@ function NavBar() {
   // )
 
 
-    <Navbar className='nav' collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar className='nav' collapseOnSelect expand="lg" bg="light" >
       <Container>
         <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="flex-end" style={{fontSize:'20px', color:'black'}}>
+          <Nav className="container-fluid justify-content-end navStyles">
             {Auth.loggedIn() ? (
               <>
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/">Home</Nav.Link> 
                 <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
                 <Nav.Link as={Link} onClick={handleLogout}>Logout</Nav.Link>
               </> 
