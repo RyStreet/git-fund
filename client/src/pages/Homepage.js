@@ -18,7 +18,7 @@ function Homepage() {
 
   return (
     <div className='HomeMainContainer'>
-      <h1>Help fund or collaborate on projects!</h1>
+      <h3>Help fund or collaborate on projects!</h3>
       
       <div>
         {Auth.loggedIn() ? (
@@ -30,7 +30,7 @@ function Homepage() {
         ) : (
           <>
             <Link to={'/login'}>
-              <button className='login-btn'>+ New Project</button>
+              <button className='button'>+ New Project</button>
             </Link>
           </>
          )}

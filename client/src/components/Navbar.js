@@ -25,8 +25,8 @@ function NavBar() {
   return (
     <Menu stackable
     // borderless
-    className={` bg-light align-center`}
-    
+    // className={` bg-light `}
+    className='nav'
     >
 
     <Menu.Item>
