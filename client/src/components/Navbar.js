@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {logoUrl} from '../assets/logo';
-import logo from '../assets/logo.png';
+import logo from '../assets/Logo.png';
 import Homepage from '../pages/Homepage';
 import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
@@ -23,78 +23,78 @@ function NavBar() {
     setIsMobile(!isMobile);
   };
   return (
-    <Menu stackable
-    // borderless
-    // className={` bg-light `}
-    className='nav'
-    >
+    // <Menu stackable
+    // // borderless
+    // // className={` bg-light `}
+    // className='nav'
+    // >
 
-    <Menu.Item>
-      <Link to={'/'}>
-        <Image src={logo} className="logo"  size='small' />
-      </Link>
-    </Menu.Item>
+  //   <Menu.Item>
+  //     <Link to={'/'}>
+  //       <Image src={logo} className="logo"  size='small' />
+  //     </Link>
+  //   </Menu.Item>
 
-    <Menu.Menu position='right'>
-      {Auth.loggedIn() ? (
-        <>
-        <Link to={'/'}>      
-          <Menu.Item color='text-dark' className='text-large'  name='home' />
-        </Link>
-        <Link to={'/profile'}>
-          <Menu.Item  color='text-dark' name='profile' />
-        </Link>
-         <Link onClick={handleLogout}>
-          <Menu.Item  color='text-dark' name='logout' />
-         </Link>
-        </>
-      ) : (
-        <>
+  //   <Menu.Menu position='right'>
+  //     {Auth.loggedIn() ? (
+  //       <>
+  //       <Link to={'/'}>      
+  //         <Menu.Item color='text-dark' className='text-large'  name='home' />
+  //       </Link>
+  //       <Link to={'/profile'}>
+  //         <Menu.Item  color='text-dark' name='profile' />
+  //       </Link>
+  //        <Link onClick={handleLogout}>
+  //         <Menu.Item  color='text-dark' name='logout' />
+  //        </Link>
+  //       </>
+  //     ) : (
+  //       <>
      
-      <Link to={'/'}>
+  //     <Link to={'/'}>
         
-        <Menu.Item color='text-dark' className='text-large'  name='Home' />
-      </Link>
-        <Link to={'/signup'}>
+  //       <Menu.Item color='text-dark' className='text-large'  name='Home' />
+  //     </Link>
+  //       <Link to={'/signup'}>
         
-          <Menu.Item  color='text-dark' name='Signup' />
-        </Link>
-        <Link to={'/login'}> 
-          <Menu.Item  color='text-dark' name='Login' />
-        </Link>
-        </>
-      )}
-    </Menu.Menu>
-  </Menu>
-  )
+  //         <Menu.Item  color='text-dark' name='Signup' />
+  //       </Link>
+  //       <Link to={'/login'}> 
+  //         <Menu.Item  color='text-dark' name='Login' />
+  //       </Link>
+  //       </>
+  //     )}
+  //   </Menu.Menu>
+  // </Menu>
+  // )
 
-  // return (
-  //   <Navbar collapseOnSelect expand="lg" style={{margin:'20px'}} bg="dark" variant="dark">
-  //     <Container>
-  //       <Navbar.Brand as={Link} to="/"><img className='logo' alt='GitFund' src={logoUrl}/>
-  //       </Navbar.Brand>
-  //       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  //       <Navbar.Collapse id="responsive-navbar-nav">
-  //         <Nav className="flex-end">
-  //           {Auth.loggedIn() ? (
-  //             <>
-  //               <Nav.Link as={Link} to="/">Home</Nav.Link>
-  //               <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-  //               <Nav.Link as={Link} onClick={logout}>Logout</Nav.Link>
-  //             </> 
-  //           ) : (
-  //             <>
-  //               <Nav.Link as={Link} to="/">Home</Nav.Link>
-  //               <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
-  //               <Nav.Link as={Link} to="/login">Login</Nav.Link>
-  //               <Nav.Link as={Link} to="signup">Sign Up</Nav.Link>
-  //             </>
-  //           )}            
-  //         </Nav>
-  //       </Navbar.Collapse>
-  //     </Container>
-  //   </Navbar>
-  // );
+
+    <Navbar className='nav' collapseOnSelect expand="lg" bg="light" variant="light">
+      <Container>
+        <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="flex-end" style={{fontSize:'20px', color:'black'}}>
+            {Auth.loggedIn() ? (
+              <>
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+                <Nav.Link as={Link} onClick={handleLogout}>Logout</Nav.Link>
+              </> 
+            ) : (
+              <>
+                <Nav.Link as={Link} to="/">Home</Nav.Link>
+                <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                <Nav.Link as={Link} to="signup">Sign Up</Nav.Link>
+              </>
+            )}            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
 export default NavBar;
