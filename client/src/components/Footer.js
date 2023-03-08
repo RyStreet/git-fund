@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Container, Grid, Segment } from 'semantic-ui-react';
 
 const Footer = () => {
-  const developerEmails = ['mer.code.99@gmail.com', 'john.doe@gmail.com', 'jane.doe@gmail.com'];
+  const developerEmails = ['mer.code.99@gmail.com', 'jaredkim011@gmail.com', 'ryanstreet122@gmail.com', 'john.weaver94@utexas.edu'];
   const [footerHeight, setFooterHeight] = useState(0);
 
   useEffect(() => {
@@ -17,7 +17,11 @@ const Footer = () => {
             <Grid.Row>
               <Grid.Column width={4}>
                 <p>About Us</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec augue at lectus mollis posuere.</p>
+                <p>The four developers for Gitfund are the amazing Merrin Abraham, Jared Kim, Ryan Street, and John Weaver.
+                    We are graduates of the UT Web Development Boot Camp with aspiatrions of working in the tech industry.
+                    We have all discovered a passion for coding and are excited to continue learning and growing in this field.
+                    I hope this project shows our dedication to learning, our ability to work together as a team, and our
+                    potential as developers. Please enjoy GitFund!</p>
               </Grid.Column>
               <Grid.Column width={8} textAlign='center'>
                 <p>© {new Date().getFullYear()} My Company. All rights reserved.</p>
