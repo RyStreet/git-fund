@@ -10,7 +10,7 @@ const Donations = ({fundingEarned = []}) => {
             {fundingEarned &&
             fundingEarned.map((donation) => (
                 <div key={donation._id}>
-                    <div>
+                    <div className='list'>
                         <p id="donationAmount">{donation.donaterName} donated ${donation.amount}</p>
                     </div>
                 </div>
