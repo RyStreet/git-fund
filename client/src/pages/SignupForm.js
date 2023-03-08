@@ -99,7 +99,6 @@ const Signup = () => {
       </div>
     </main>
     </center>
-    <Footer/>
 
     </div>
   );

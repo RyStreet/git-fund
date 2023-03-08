@@ -48,7 +48,6 @@ function Homepage() {
 
       {/* <img className='background' src={background}></img>
       <AboutUs/> */}
-      <Footer/>
     </div>
   )
 };
