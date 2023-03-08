@@ -7,7 +7,7 @@ import { Progress } from 'semantic-ui-react'
 
 const ProjectCards = ({projects}) => { 
     if(!projects?.length){ 
-        return <h3>No Projects Yet</h3>;
+        return <h4>No Projects Yet</h4>;
     }
     return(
         <div id="projectCard">
@@ -18,7 +18,7 @@ const ProjectCards = ({projects}) => {
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
                             <h4>
-                              By: <Link to={`/profiles/${project.creator}`}>{project.creator}</Link>
+                              By: <Link className="textDecNone" to={`/profiles/${project.creator}`}>{project.creator}</Link>
                             </h4>
                             
                             <p id="projectCardDescription">{project.description}</p>
@@ -26,24 +26,14 @@ const ProjectCards = ({projects}) => {
                             {/* <ul id="projectCardLanguages">{project.languages}</ul> */}
                         </div>
 
+                        <br/>
+
                         <div id="projectCardFunding" className="btn-fund-container">
                             <h6 id="projectCardFunding"> Funding Goal: ${project.fundingGoal} </h6>
-                            {/* <h6 id="projectCardEarned"> Funding Earned: ${project.fundingEarned} </h6> */}
-                            
-                            {/* <button id="projectCardDonate" className="button">Donate</button> */}
-                            {/* <Donate projectId={project._id} id="projectCardDonate" className="button"/> */}
+                            {/* <div><Progress percent={"10"} inverted progress success/></div> */}
                         </div>
 
-                        <div>
-                          <Progress percent={"10"} inverted progress success/>
-                        </div>
-                        
-                        {/* <div id="projectCardEngagements">
-                            <p id="projectCardFollows">{project.follows}</p>
-                            <p id="projectCardContributors">{project.contributors}</p>
-                        </div> */}
-
-                        <Link to={`/projects/${project._id}`}>
+                        <Link to={`/projects/${project._id}`} className="projectDetails">
                           View project details 
                         </Link>
                     </div>

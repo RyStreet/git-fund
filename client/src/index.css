@@ -48,6 +48,7 @@ position: relative;
   color: black !important;
 
 }
+
 .footer_section{
   /* position: sticky; */
   bottom: 0;
@@ -64,17 +65,27 @@ bottom: 0px;
     grid-auto-flow: dense;
     grid-gap: 20px;
     margin: 20px 20px;
-
+    
   }
+
   #projectCardTitle{
     font-size: 28px;
     font-weight: bold;
   }
   #projectCardDescription{
-    font-size: 20px;
+    font-size: 18px;
   }
   #projectCardFunding{
     font-size: 20px;
+  }
+  .projectDetails{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: .3s ease
+  }
+  .projectDetails:hover{
+    color: #FE9F00  
   }
   .logo{
     width: 120px !important;
@@ -96,6 +107,10 @@ bottom: 0px;
     margin: 10px;
    }
    
+  .profileMargins{
+    margin: 20px 20px;
+  }
+
   .project{
     margin: auto;
     width: 95%;
@@ -105,6 +120,16 @@ bottom: 0px;
     border-radius: 20px;
     background-color: rgba(245, 245, 245, 0.932);
   }
+
+  .textDecNone{
+    text-decoration: none;
+    color: black;
+    transition: .3s ease
+  }
+  .textDecNone:hover{
+    color: #FE9F00;
+  }
+
   .project-section1{
     /* border: 1px solid black;
     padding: 20px;
