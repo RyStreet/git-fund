@@ -1,28 +1,108 @@
 import { gql } from '@apollo/client';
 
-export const GET_ME = gql`
-  {
+export const QUERY_ME = gql`
+  query me {
     me {
       _id
       username
       email
-      password
-      userProjects {
-        projectID
+      projects {
+        _id
         title
         description
-        image
         fundingGoal
-        fundingEarned
-        languages
-        category
         creator
-        contributors
-        comments
-        follows
+        repo
+      }
+      collabProjects {
+        _id
+        title
+        description
+        fundingGoal
+        creator
+        repo
       }
     }
   }
 `;
 
-// // may need queries for getting all projects and getting single projects. like getProjects and getSingleProject
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      projects {
+        _id
+        title
+        description
+        fundingGoal
+        creator
+        repo
+      }
+      collabProjects {
+        _id
+        title
+        description
+        fundingGoal
+        creator
+        repo
+      }
+    }
+  }
+`;
+
+
+
+export const QUERY_PROJECTS = gql`
+  query getProjects { 
+    projects{
+      _id
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      
+    }
+  }
+`;
+
+
+
+export const QUERY_SINGLE_PROJECT = gql`
+  query getSingleProject($projectId: ID!) {
+    project(projectId: $projectId) {
+      _id
+      title
+      description      
+      fundingGoal
+      fundingEarned {
+       _id
+        donaterName
+        amount
+      }
+      creator
+      repo
+      collaborators {
+        _id
+        collabNotes
+        collaboratorInfo{
+        username
+        }        
+      }
+
+    }
+  }
+`;
+// image
+// fundingEarned
+//       languages
+//       category     
+//       contributors
+//       comments {
+//         _id
+//         commentText
+//         commentAuthor
+//       }
+//       follows

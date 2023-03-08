@@ -1,38 +1,144 @@
-import React from "react";
+import React, { useState } from "react";
+import { ApolloError, useMutation } from "@apollo/client";
+
+import { ADD_PROJECT } from "../utils/mutations";
+import { QUERY_PROJECTS, QUERY_ME } from "../utils/queries";
+
+import Auth from "../utils/auth";
 
 function CreateProject() {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [fundingGoal, setFundingGoal] = useState('');
+  const [repo, setRepo] = useState('');
+
+  const [addProject, { error }] = useMutation(ADD_PROJECT, {
+    update(cache, { data: { addProject } }) {
+      try {
+        const { projects } = cache.readQuery({ query: QUERY_PROJECTS });
+
+        cache.writeQuery({
+          query: QUERY_PROJECTS,
+          data: { projects: [addProject, ...projects] },
+        });
+      } catch (e) {
+        console.error(e)
+      }
+
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, projects: [...me.projects, addProject] } },
+      // });
+    },
+  });
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const error = ApolloError
+    console.log(error instanceof Error)
+    console.log('handleFormSubmit')
+    try {
+      const { data } = await addProject({
+        variables: {
+          title,
+          description,
+          fundingGoal,
+          repo,
+          creator: Auth.getProfile().data.username,
+        },
+      });
+
+      setTitle('');
+      setDescription('');
+      setFundingGoal('');
+      setRepo('');
+
+      document.location.replace('/profile')
+    } catch (err) {
+      console.error(err);
+    } 
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'title') {
+      setTitle(value);
+    }
+    if (name === 'description') {
+      setDescription(value);
+    }
+    if (name === 'fundingGoal') {
+      setFundingGoal(parseInt(value));
+    }
+    if (name === 'repo') {
+      setRepo(value);
+    }
+  };
+
   return (
     <div>
+      {Auth.loggedIn() ? (
+      <>
         <h1>Post New Project</h1>
-        <form>
+        <form onSubmit={handleFormSubmit}>
           <div>
-            <input id="project-title" type="text" name="project-title" placeholder="What is your project title?"/>
+            <textarea 
+              name="title" value={title} id="title" placeholder="What is your project title?"
+              className="" onChange={handleChange}
+            />
           </div> 
-
+        
           <div>
-            <input id="project-description" type="text" name="project-description" placeholder="What is your project description?"/>
+            <textarea 
+              name="description" value={description} id="description" placeholder="What is your project description?"
+              className="" onChange={handleChange}
+              />
           </div>  
 
           <div>
-            <input id="project-collab" type="text" name="project-collab" placeholder="Optional: What kind of collaboration is needed?"/>
-          </div>     
+            <textarea 
+              name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
+              className="" onChange={handleChange}
+              />
+          </div>  
 
           <div>
-            <label for="needed-funding">How much funding is needed?</label>
-            <input id="needed-funding" type="number" name="needed-funding"/>
-          </div>    
+            <label>How much funding is needed?</label>
+            <input 
+              name="fundingGoal" value={fundingGoal} id="fundingGoal" type="number" 
+              className="" onChange={handleChange}
+            />
+          </div>   
+          
+          {/* <div>
+            <input id="contributors" type="text" name="contributors" placeholder="Optional: What kind of collaboration is needed?"/>
+          </div>      */} 
 
-          <div>
+          {/* <div>
             <label>Languages used:</label>
-            <input id="project-languages" type="text" name="project-languages"/>
-          </div>
+            <input id="languages" type="text" name="languages"/>
+          </div> */}
 
           <div>
-            <button>Post Project</button>
+            <button type="submit">Post Project</button>
           </div>
+
+          {error && (
+            <div>
+              {error.message}
+            </div>
+          )}
         </form>
+      </>
+      ) : (
+        <h3>Login or sign up to create a new project</h3>
+      )}
     </div>
   )
 };
+
 
 export default CreateProject;

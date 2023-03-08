@@ -1,60 +1,87 @@
 const { Schema, model } = require('mongoose');
 
-
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `userProjects` array in User.js
 const projectSchema = new Schema({
-  projectID: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true,
+    trim: true,
   },
   description: {
     type: String,
     required: true,
+    trim: true,
   },
-  image: {
-    type: String,
-  },
+  // image: {
+  //   type: String,
+  // },
   fundingGoal: {
     type: Number,
     required: true,
-    },
-    fundingEarned: {
-    type: Number,
-    required: true,
-    },
-    languages: {
+  },
+  creator: { 
     type: String,
     required: true,
-    },
-    category: {
+    trim: true,
+  },
+  repo: {
     type: String,
     required: true,
-    },
-    creator: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    contributors: [
+    trim: true,
+  },
+  fundingEarned: [
     {
+      amount: {
+        type: Number,
+        required: true
+      },
+      donaterName: {
+        type: String,
+        required: true
+      },
+    }
+  ],
+  collaborators: [
+    {
+     
+      collabNotes: {
+        type: String,
+        required: true,
+      },
+      collaboratorInfo: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+      }
     },
-    ],
-    comments: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment',
-    },
-    ],
-    follows: {
-    type: Number,
-    required: true,
-    },
+  ],
+  // languages: {
+  //   type: String,
+  // },
+  // category: {
+  //   type: String,
+  // },
+
+  // comments: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Comment',
+  //     commentText: {
+  //       type: String,
+  //       required: true,
+  //       minlength: 1,
+  //       maxlength: 280,
+  //     },
+  //     commentAuthor: {
+  //       type: String,
+  //       required: true,
+  //     },
+  //   },
+  // ],
+  // follows: {
+  //   type: Number,
+  // },
 });
+
 const Project = model('Project', projectSchema);
+
 module.exports = Project;

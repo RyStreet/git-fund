@@ -5,12 +5,24 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
-            if (context.user) {
-              data = await User.findOne({ _id: context.user._id }).select('-__v -password');
-              return data;
-            }
-            throw new AuthenticationError('You need to be logged in!');
+          if (context.user) {
+            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects');
+          }
+          throw new AuthenticationError('You need to be logged in!');
         },
+        users: async () => {
+          return User.find().populate('projects');
+        },
+        user: async (parent, { username }) => {
+          return User.findOne({ username }).populate('projects')
+        },
+        projects: async (parent, { username }) => {
+          const params = username ? { username } : {};
+          return Project.find(params)
+        },
+        project: async (parent, { projectId }) => {
+          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo') ////testing with adding collaborators ; 
+        }
     },
 
     Mutation: {
@@ -20,7 +32,7 @@ const resolvers = {
           return { token, user };
         },
         login: async (parent, { email, password }) => {
-          const user = await User.findOne({ email });
+          const user = await User.findOne({ email }); 
     
           if (!user) {
             throw new AuthenticationError('No user found with this email address');
@@ -36,32 +48,77 @@ const resolvers = {
     
           return { token, user };
         },
-        addProject: async (parent, { name, description, creator, fundingGoal }, context) => { 
-          const project = await Project.create({ name, description, creator,  fundingGoal }); 
-          console.log(project);
-          const pUser = 
-          await User.findOneAndUpdate( 
-              { _id: creator }, 
-              { $addToSet: { projects: project } },
-              {new: true}
-          );
-          console.log(pUser)
-          return project;
+        addProject: async (parent, { title, description, fundingGoal, repo }, context) => { 
+          if (context.user) {
+
+            const project = await Project.create({ title, description, fundingGoal, repo, creator: context.user.username }); 
+            console.log(project);
+
+            await User.findOneAndUpdate( 
+                { _id: context.user._id }, 
+                { $addToSet: { projects: project._id } },
+                // {new: true}
+            );
+            return project;
+          }
+          throw new AuthenticationError('You need to be logged in!');
         },
         removeProject: async (parent, { projectId }, context) => {
           if (context.user) {
-            const project = await project.findOneAndDelete({
+            const project = await Project.findOneAndDelete({
               _id: projectId,
-              creator: context.user._id,
+              creator: context.user.username,
             });
+
             await User.findOneAndUpdate(
               { _id: context.user._id },
-              { $pull: { projects: projectId } }
+              { $pull: { projects: project._id } }
             );
             return project;
+          }
+          throw new AuthenticationError('You need to be logged in!');
+        },
+        addCollaborator: async (parent, { projectId, collabNotes }, context) => {
+          
+          if (context.user) {
+            const project = await Project.findOneAndUpdate(
+              { _id: projectId },
+              { 
+                $addToSet: {
+                  collaborators: { collabNotes, collaboratorInfo: context.user._id }
+                } 
+              },
+              { 
+                new: true,
+                runValidators: true,
+              }
+              
+              )
+              await User.findOneAndUpdate(
+                {_id: context.user._id },
+                {$addToSet:{
+                  collabProjects: {_id: projectId}
+                }});
+                return project
+                
+          }
+          throw new AuthenticationError("You must be logged in!")
+        },
+        
+        addDonation: async(parent, {projectId, amount}, context) => {
+          if (context.user) {
+            return Project.findOneAndUpdate(
+              {_id: projectId},
+              {$addToSet: {
+                fundingEarned: {amount, donaterName: context.user.username}
+              }
+            },
+            {runValidators: true,}
+            );
+          }
+          throw new AuthenticationError("You must be logged in!")
+        }
     }
-  }
-}
 };
 
 module.exports = resolvers;
