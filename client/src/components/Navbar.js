@@ -51,14 +51,14 @@ function NavBar() {
      
       <Link to={'/'}>
         
-        <Menu.Item color='text-light' className='text-large'  name='home' />
+        <Menu.Item color='text-light' className='text-large'  name='Home' />
       </Link>
         <Link to={'/signup'}>
         
-          <Menu.Item  color='text-light' name='signup' />
+          <Menu.Item  color='text-light' name='Signup' />
         </Link>
         <Link to={'/login'}> 
-          <Menu.Item  color='text-light' name='signin' />
+          <Menu.Item  color='text-light' name='Login' />
         </Link>
         </>
       )}
