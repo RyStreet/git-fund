@@ -22,7 +22,7 @@ function Profile() {
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />
   }
-  if (!user?.username) {
+  if (!Auth.loggedIn()) {
     return (
       <Link to={'/login'}>
         <h1>Login or sign up to view your profile</h1>
@@ -37,16 +37,16 @@ function Profile() {
     <div>
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
-        <h5>Email: {user.email}</h5>
+        <h5>Email: {Auth.getProfile().data.email}</h5>
         <h5>GitHub:</h5>
         <h5>Bio:</h5>
         <p>{user.bio}</p>
 
-        <div>
+        {/* <div>
           <ProjectCards
             projects={projects}
           />
-        </div>
+        </div> */}
 
         <div>
           <h4>Collaborated Projects:</h4>
