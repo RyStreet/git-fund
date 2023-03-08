@@ -83,51 +83,43 @@ function CreateProject() {
   };
 
   return (
-    <div>
+    <div >
       {Auth.loggedIn() ? (
-      <>
-        <h1>Post New Project</h1>
-        <form onSubmit={handleFormSubmit}>
+      <div className="newProject">
+        <h2>Post New Project</h2>
+        <form onSubmit={handleFormSubmit} className="newProject_form">
+          
           <div>
             <textarea 
               name="title" value={title} id="title" placeholder="What is your project title?"
-              className="" onChange={handleChange}
+              className="textarea" onChange={handleChange}
             />
-          </div> 
+          </div>
         
           <div>
             <textarea 
               name="description" value={description} id="description" placeholder="What is your project description?"
-              className="" onChange={handleChange}
+              className="textarea" onChange={handleChange}
               />
           </div>  
 
           <div>
             <textarea 
               name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
-              className="" onChange={handleChange}
+              className="textarea" onChange={handleChange}
               />
           </div>  
 
-          <div>
+          <div className="fundingGoal">
             <label>How much funding is needed?</label>
             <input 
               name="fundingGoal" value={fundingGoal} id="fundingGoal" type="number" 
               className="" onChange={handleChange}
             />
           </div>   
-          
-          {/* <div>
-            <input id="contributors" type="text" name="contributors" placeholder="Optional: What kind of collaboration is needed?"/>
-          </div>      */} 
-
-          {/* <div>
-            <label>Languages used:</label>
-            <input id="languages" type="text" name="languages"/>
-          </div> */}
 
           <div>
-            <button type="submit">Post Project</button>
+            <button className="button" type="submit">Post Project</button>
           </div>
 
           {error && (
@@ -136,7 +128,7 @@ function CreateProject() {
             </div>
           )}
         </form>
-      </>
+      </div>
       ) : (
         <h3>Login or sign up to create a new project</h3>
       )}
