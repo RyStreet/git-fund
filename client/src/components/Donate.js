@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Button, Form, Icon, Modal } from 'semantic-ui-react'
 import { ADD_DONATION } from '../utils/mutations'
 import Auth from '../utils/auth'
+import { useNavigate } from "react-router-dom";
 
 function modalReducer(state, action) {
   switch (action.type) {
@@ -22,6 +23,7 @@ const DonateModal = ({projectId}) => {
   })
   const { open, size } = state
 
+  navigate = useNavigate()
   //////////// FOR DISPLAYING FUNDINGEARNED UNTIL WE FIGURE OUT STRIPE
   const [amount, setAmount] = useState("");
 
@@ -41,7 +43,7 @@ const DonateModal = ({projectId}) => {
       });
       setAmount("")
 
-      window.location.reload()
+      navigate(0)
     } catch (err){
       console.error(err)
     }
