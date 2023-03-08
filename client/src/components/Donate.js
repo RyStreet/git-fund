@@ -23,7 +23,7 @@ const DonateModal = ({projectId}) => {
   })
   const { open, size } = state
 
-  navigate = useNavigate()
+  const navigate = useNavigate()
   //////////// FOR DISPLAYING FUNDINGEARNED UNTIL WE FIGURE OUT STRIPE
   const [amount, setAmount] = useState("");
 
