@@ -28,14 +28,15 @@ function NavBar() {
     >
 
     <Menu.Item>
-      <Image src={logoUrl}  size='small' />
+      <Link to={'/'}>
+        <Image src={logoUrl}  size='small' />
+      </Link>
     </Menu.Item>
 
     <Menu.Menu position='right'>
       {Auth.loggedIn() ? (
         <>
-        <Link to={'/'}>
-        
+        <Link to={'/'}>      
           <Menu.Item color='text-light' className='text-large'  name='home' />
         </Link>
         <Link to={'/profile'}>

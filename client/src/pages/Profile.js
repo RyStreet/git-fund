@@ -42,11 +42,11 @@ function Profile() {
         <h5>Bio:</h5>
         <p>{user.bio}</p>
 
-        {/* <div>
+        <div>
           <ProjectCards
             projects={projects}
           />
-        </div> */}
+        </div>
 
         <div>
           <h4>Collaborated Projects:</h4>

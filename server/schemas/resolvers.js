@@ -106,7 +106,7 @@ const resolvers = {
         },
         
         addDonation: async(parent, {projectId, amount}, context) => {
-          if (context.user){
+          if (context.user) {
             return Project.findOneAndUpdate(
               {_id: projectId},
               {$addToSet: {
@@ -118,41 +118,6 @@ const resolvers = {
           }
           throw new AuthenticationError("You must be logged in!")
         }
-
-
-
-        // addComment: async (parent, { projectId, commentText }, context) => {
-        //   if (context.user) {
-        //     return Project.findOneAndUpdate(
-        //       { _id: projectId },
-        //       { $addToSet: {
-        //           comments: { commentText, commentAuthor: context.user.username }
-        //         },
-        //       },
-        //       {
-        //         new: true,
-        //         runValidators: true,
-        //       }
-        //     );
-        //   }
-        //   throw new AuthenticationError("You must be logged in!")
-        // },
-        // removeComment: async (parent, { projectId, commentId }, context) => {
-        //   if (context.user) {
-        //     return Project.findOneAndUpdate(
-        //       { _id: projectId },
-        //       { $pull: {
-        //           comments: {
-        //             _id: commentId,
-        //             commentAuthor: context.user.username,
-        //           },
-        //         },
-        //       },
-        //       { new: true }
-        //     );
-        //   }
-        //   throw new AuthenticationError("You must be logged in!");
-        // },
     }
 };
 

@@ -38,7 +38,7 @@ const projectSchema = new Schema({
       donaterName: {
         type: String,
         required: true
-      }
+      },
     }
   ],
   collaborators: [

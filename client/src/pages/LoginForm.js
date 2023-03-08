@@ -96,7 +96,6 @@ const Login = (props) => {
     </main>
     
     </center>
-    <Footer/>
 
     </div>
   );
