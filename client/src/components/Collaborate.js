@@ -8,6 +8,7 @@ import { Button, Modal, Form } from 'semantic-ui-react';
 
 import Auth from '../utils/auth';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function modalReducer(state, action) {
   switch (action.type) {
@@ -21,11 +22,16 @@ function modalReducer(state, action) {
 }
 
 const CollaborateModal = ({ projectId }) => {
+
+ const  navigate = useNavigate() 
+
   const [state, dispatch] = React.useReducer(modalReducer, {
     open: false,
     size: undefined,
   })
   const { open, size } = state
+
+  
 
   const [collabNotes, setCollabNotes] = useState('');
 
@@ -50,6 +56,7 @@ const CollaborateModal = ({ projectId }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+   
 
     console.log('adding collaborator')
     try {
@@ -69,7 +76,7 @@ const CollaborateModal = ({ projectId }) => {
       
       
 
-      window.location.reload()
+      // navigate(0)
     } catch (err) {
       console.error(err);
     }
