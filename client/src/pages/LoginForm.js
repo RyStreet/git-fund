@@ -81,7 +81,7 @@ const Login = (props) => {
                 </button>
               </form>
             )}
-            <Link to={'/signup'}>
+            <Link to={'/signup'} className="textDecNone">
               <h5>Sign up instead</h5>
             </Link>
 
