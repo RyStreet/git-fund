@@ -24,7 +24,7 @@ function Homepage() {
         {Auth.loggedIn() ? (
           <>
             <Link to='/create-project'>
-              <button style={{backgroundColor:'#FE9F00'}} className={'buttonRadius'}>+ New Project</button>
+              <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
             </Link>
           </>
         ) : (
