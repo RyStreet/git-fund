@@ -14,7 +14,7 @@ const resolvers = {
           return User.find().populate('projects');
         },
         user: async (parent, { username }) => {
-          return User.findOne({ username }).populate('projects')
+          return User.findOne({ username }).populate('projects').populate('collabProjects')
         },
         projects: async (parent, { username }) => {
           const params = username ? { username } : {};
