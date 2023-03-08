@@ -14,7 +14,7 @@ const ProjectCards = ({projects}) => {
             {projects && 
                 projects.map((project) => (
                     
-                    <div key={project._id} className="MainTile my-4" style={{backgroundColor:'#FE9F00'}}>  
+                    <div key={project._id} className="MainTile my-4">  
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
                             <h4>

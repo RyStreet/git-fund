@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {logoUrl} from '../assets/logo';
+import logo from '../assets/logo.png';
 import Homepage from '../pages/Homepage';
 import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
@@ -24,12 +25,13 @@ function NavBar() {
   return (
     <Menu stackable
     // borderless
-    className={` bg-dark`}
+    // className={` bg-light `}
+    className='nav'
     >
 
     <Menu.Item>
       <Link to={'/'}>
-        <Image src={logoUrl}  size='small' />
+        <Image src={logo} className="logo"  size='small' />
       </Link>
     </Menu.Item>
 
@@ -37,13 +39,13 @@ function NavBar() {
       {Auth.loggedIn() ? (
         <>
         <Link to={'/'}>      
-          <Menu.Item color='text-light' className='text-large'  name='home' />
+          <Menu.Item color='text-dark' className='text-large'  name='home' />
         </Link>
         <Link to={'/profile'}>
-          <Menu.Item  color='text-light' name='profile' />
+          <Menu.Item  color='text-dark' name='profile' />
         </Link>
          <Link onClick={handleLogout}>
-          <Menu.Item  color='text-light' name='logout' />
+          <Menu.Item  color='text-dark' name='logout' />
          </Link>
         </>
       ) : (
@@ -51,14 +53,14 @@ function NavBar() {
      
       <Link to={'/'}>
         
-        <Menu.Item color='text-light' className='text-large'  name='Home' />
+        <Menu.Item color='text-dark' className='text-large'  name='Home' />
       </Link>
         <Link to={'/signup'}>
         
-          <Menu.Item  color='text-light' name='Signup' />
+          <Menu.Item  color='text-dark' name='Signup' />
         </Link>
         <Link to={'/login'}> 
-          <Menu.Item  color='text-light' name='Login' />
+          <Menu.Item  color='text-dark' name='Login' />
         </Link>
         </>
       )}

@@ -18,19 +18,19 @@ function Homepage() {
 
   return (
     <div className='HomeMainContainer'>
-      <h1>Help fund or collaborate on projects!</h1>
+      <h3>Help fund or collaborate on projects!</h3>
       
       <div>
         {Auth.loggedIn() ? (
           <>
             <Link to='/create-project'>
-              <button style={{backgroundColor:'#FE9F00'}} className={'buttonRadius'}>+ New Project</button>
+              <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
             </Link>
           </>
         ) : (
           <>
             <Link to={'/login'}>
-              <button className='login-btn'>+ New Project</button>
+              <button className='button'>+ New Project</button>
             </Link>
           </>
          )}
