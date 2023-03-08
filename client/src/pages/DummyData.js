@@ -1,7 +1,6 @@
-export const data=[
+export const Dummydata=[
     {
-        title:"Weather app",
-        Description:"Provides weather information",
-        funding:"40"
+        name:"John James",
+        amt:" $100"
     },
 ]
