@@ -91,8 +91,16 @@ mutation addDonation($projectId: ID!, $amount: Int!){
   }
 }
 
-
 `
+
+export const EDIT_BIO = gql`
+  mutation editBio($userId: ID!, $bio: String) {
+    editBio(userId: $userId, bio: $bio) {
+      _id
+      bio
+    }
+  }
+`;
 
 // export const REMOVE_PROJECT = gql`
 //   mutation removeProject($projectId: ID!) {

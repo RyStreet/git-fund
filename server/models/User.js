@@ -30,7 +30,11 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "Project"
       }
-    ]
+    ],
+    bio: {
+      type: String,
+      trim: true
+    }
   },
   // {
   //   toJSON: {
