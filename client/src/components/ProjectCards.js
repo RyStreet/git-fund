@@ -6,7 +6,7 @@ import Donations from "./Donations"
 import { Progress } from 'semantic-ui-react'
 
 const ProjectCards = ({projects}) => { 
-    if(!projects.length){ 
+    if(!projects?.length){ 
         return <h3>No Projects Yet</h3>;
     }
     return(
@@ -14,7 +14,7 @@ const ProjectCards = ({projects}) => {
             {projects && 
                 projects.map((project) => (
                     
-                    <div key={project._id} className="MainTile">  
+                    <div key={project._id} className="MainTile my-4" style={{backgroundColor:'#FE9F00'}}>  
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
                             <h4>

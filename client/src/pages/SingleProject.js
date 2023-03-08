@@ -18,10 +18,36 @@ function SingleProject() {
   });
 
   const project = data?.project || {};
-
+  console.log(project)
   if (loading) {
     return <div>Loading...</div>
   }
+
+ 
+
+  let donations = project.fundingEarned
+  console.log(donations)
+
+  let total = 0
+
+  for (let i = 0; i < donations.length; i++){
+   const loopDonations = donations[i].amount
+   console.log("LOOP", loopDonations)   
+
+   total += loopDonations
+  }
+  console.log(total)
+  
+ 
+ 
+ 
+
+
+
+  
+  
+  
+
 
   return (
     <>
@@ -36,11 +62,13 @@ function SingleProject() {
         <div>
           <div>
             <h5>Funding Goal: ${project.fundingGoal}</h5>
+            <h5>Funding Total: ${total}</h5>
             {/* <h5>Funding Earned: <Donations fundingEarned={project.fundingEarned}/> </h5> */}
             <Progress percent="80" inverted progress success/>
           </div>      
           <div>
-            <h5>Collaborators: <Collaborators collaborators={project.collaborators}/></h5>
+            <h5>Collaborators:</h5>
+            <h6><Collaborators collaborators={project.collaborators}/></h6>
           </div>
           <div className='button-container'>
             <Donate projectId={project._id} className='button' />

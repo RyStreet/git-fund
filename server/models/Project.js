@@ -38,20 +38,19 @@ const projectSchema = new Schema({
       donaterName: {
         type: String,
         required: true
-      }
+      },
     }
   ],
   collaborators: [
     {
-      // type: Schema.Types.ObjectId,
-      // ref: 'User',
+     
       collabNotes: {
         type: String,
         required: true,
       },
-      collaboratorName: {
-        type: String,
-        required: true,
+      collaboratorInfo: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
       }
     },
   ],

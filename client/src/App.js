@@ -17,6 +17,7 @@ import CreateProject from './pages/CreateProject';
 import Profile from './pages/Profile';
 import SingleProject from './pages/SingleProject';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,6 +34,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
+  uri: "graphql",
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
@@ -73,6 +75,7 @@ function App() {
             element={<Profile />}
           />
         </Routes>
+        <Footer/>
       </>
     </Router>
   </ApolloProvider>

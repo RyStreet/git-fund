@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { ApolloError, useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 import { ADD_PROJECT } from "../utils/mutations";
 import { QUERY_PROJECTS, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
+
+
 function CreateProject() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [fundingGoal, setFundingGoal] = useState('');
   const [repo, setRepo] = useState('');
+  const navigate = useNavigate()
 
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
@@ -25,11 +29,11 @@ function CreateProject() {
         console.error(e)
       }
 
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, projects: [...me.projects, addProject] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, projects: [...me.projects, addProject] } },
+      // });
     },
   });
 
@@ -54,6 +58,8 @@ function CreateProject() {
       setDescription('');
       setFundingGoal('');
       setRepo('');
+
+      navigate("/profile", {replace: true})
     } catch (err) {
       console.error(err);
     } 

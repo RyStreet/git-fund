@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import Footer from '../components/Footer';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -39,6 +40,8 @@ const Signup = () => {
   };
 
   return (
+    <div>
+
     <center>
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
@@ -96,6 +99,8 @@ const Signup = () => {
       </div>
     </main>
     </center>
+
+    </div>
   );
 };
 

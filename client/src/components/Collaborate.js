@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 
 import { ADD_COLLABORATOR } from '../utils/mutations';
+import {QUERY_SINGLE_PROJECT} from "../utils/queries"
 
 import { Button, Modal, Form } from 'semantic-ui-react';
 
 import Auth from '../utils/auth';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function modalReducer(state, action) {
   switch (action.type) {
@@ -19,30 +22,61 @@ function modalReducer(state, action) {
 }
 
 const CollaborateModal = ({ projectId }) => {
+
+ const  navigate = useNavigate() 
+
   const [state, dispatch] = React.useReducer(modalReducer, {
     open: false,
     size: undefined,
   })
   const { open, size } = state
 
+  
+
   const [collabNotes, setCollabNotes] = useState('');
 
-  const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR);
+  
+
+  const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR, {
+
+    update(cache, {data: {addCollaborator}}){
+      try {
+        const {collaboratorInfo} = cache.readQuery({query: QUERY_SINGLE_PROJECT});
+        
+        cache.writeQuery({
+          query: QUERY_SINGLE_PROJECT,
+          data: {collaboratorInfo: [addCollaborator, ...collaboratorInfo]}
+        })
+      } catch (err){
+        console.log(error)
+      }
+    }
+
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+   
 
     console.log('adding collaborator')
     try {
+      console.log({
+        projectId,
+        collabNotes,
+      })
       const { data } = await addCollaborator({
         variables: {
           projectId,
           collabNotes,
-          collaboratorName: Auth.getProfile().data.username,
         }
       });
 
       setCollabNotes('');
+
+      
+      
+
+      // navigate(0)
     } catch (err) {
       console.error(err);
     }

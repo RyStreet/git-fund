@@ -9,6 +9,7 @@ import ProjectCards from '../components/ProjectCards';
 
 import Auth from '../utils/auth';
 import { QUERY_PROJECTS } from '../utils/queries';
+import Footer from '../components/Footer';
 
 
 function Homepage() {
@@ -16,20 +17,20 @@ function Homepage() {
   const projects = data?.projects || []
 
   return (
-    <div>
+    <div className='HomeMainContainer'>
       <h1>Help fund or collaborate on projects!</h1>
       
       <div>
         {Auth.loggedIn() ? (
           <>
             <Link to='/create-project'>
-              <button>+ New Project</button>
+              <button style={{backgroundColor:'#FE9F00'}} className={'buttonRadius'}>+ New Project</button>
             </Link>
           </>
         ) : (
           <>
             <Link to={'/login'}>
-              <button>+ New Project</button>
+              <button className='login-btn'>+ New Project</button>
             </Link>
           </>
          )}

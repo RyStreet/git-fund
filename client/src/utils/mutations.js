@@ -65,6 +65,9 @@ export const ADD_COLLABORATOR = gql`
       collaborators {
         _id
         collabNotes
+        collaboratorInfo{
+          username
+        }
       }
     }
   }
