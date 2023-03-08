@@ -7,13 +7,14 @@ import { QUERY_PROJECTS, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
-const navigate = useNavigate()
+
 
 function CreateProject() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [fundingGoal, setFundingGoal] = useState('');
   const [repo, setRepo] = useState('');
+  const navigate = useNavigate()
 
   const [addProject, { error }] = useMutation(ADD_PROJECT, {
     update(cache, { data: { addProject } }) {
