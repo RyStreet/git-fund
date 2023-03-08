@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {logoUrl} from '../assets/logo';
-import logo from '../assets/logo.png';
+import logo from '../assets/Logo.png';
 import Homepage from '../pages/Homepage';
 import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
