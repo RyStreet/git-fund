@@ -72,11 +72,20 @@ function Profile() {
     <div>
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
-        <h5>Email: {Auth.getProfile().data.email}</h5>
+        <h5>Email: {user.email}</h5>
         <h5>GitHub:</h5>
         {/* <h5>Bio:</h5> */}
+
+      {!userParam ? (
         <EdiText name="bio" type='text' value={bio} onSave={handleSaveBio} onChange={handleChange}/>
-        <p>{user.bio}</p>
+      ): (
+       <></>
+      )}        
+      <p>Bio: {user.bio}</p>
+        
+
+        
+        
 
         <div>
           <ProjectCards
