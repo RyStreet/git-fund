@@ -24,17 +24,6 @@ export const LOGIN_USER = gql`
   }
 `;
 
-////////// From ADD_PROJECT
-// image
-// fundingEarned
-// languages
-// category
-// contributors
-// comments {
-//   _id
-//   commentText
-// }
-// follows
 export const ADD_PROJECT = gql`
   mutation addProject($title: String!, $description: String!, $fundingGoal: Int!, $repo: String!) {
     addProject(title: $title, description: $description, fundingGoal: $fundingGoal, repo: $repo) {
@@ -74,24 +63,23 @@ export const ADD_COLLABORATOR = gql`
 `;
 
 export const ADD_DONATION = gql`
-mutation addDonation($projectId: ID!, $amount: Int!){
-  addDonation(projectId: $projectId, amount: $amount){
-    _id
-    title
-    description
-    fundingGoal
-    creator
-    repo
-    
-    fundingEarned{
+  mutation addDonation($projectId: ID!, $amount: Int!){
+    addDonation(projectId: $projectId, amount: $amount){
       _id
-      amount
-      donaterName
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      
+      fundingEarned{
+        _id
+        amount
+        donaterName
+      }
     }
   }
-}
-
-`
+`;
 
 export const EDIT_BIO = gql`
   mutation editBio($userId: ID!, $bio: String) {
@@ -101,40 +89,3 @@ export const EDIT_BIO = gql`
     }
   }
 `;
-
-// export const REMOVE_PROJECT = gql`
-//   mutation removeProject($projectId: ID!) {
-//     removeProject(projectId: $projectId) {
-//       _id
-//       title
-//       description
-//       fundingGoal
-      
-//     }
-//   }
-// `;
-// // comments {
-// //   _id
-// //   commentText
-// // }
-
-
-// export const ADD_COMMENT = gql`
-//   mutation addComment($projectId: ID!, $commentText: String!) {
-//     addComment(projectId: $projectId, commentText: $commentText) {
-//       _id
-//       title
-//       description
-//       fundingGoal
-//       creator
-//       comments {
-//         _id
-//         commentText
-//       }
-//     }
-//   }
-// `;
-
-// export const REMOVE_COMMENT = gql`
-  
-// `;

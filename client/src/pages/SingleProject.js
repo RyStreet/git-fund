@@ -11,10 +11,6 @@ import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import { Progress } from 'semantic-ui-react';
-import { Dummydata } from './DummyData';
-
-
 function SingleProject() {
   const { projectId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {

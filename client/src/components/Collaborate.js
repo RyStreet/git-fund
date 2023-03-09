@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 
 import { ADD_COLLABORATOR } from '../utils/mutations';
 import {QUERY_SINGLE_PROJECT} from "../utils/queries"
 
 import { Button, Modal, Form } from 'semantic-ui-react';
 
-import Auth from '../utils/auth';
-import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function modalReducer(state, action) {
@@ -23,7 +21,7 @@ function modalReducer(state, action) {
 
 const CollaborateModal = ({ projectId }) => {
 
- const  navigate = useNavigate() 
+  const  navigate = useNavigate() 
 
   const [state, dispatch] = React.useReducer(modalReducer, {
     open: false,
@@ -31,12 +29,7 @@ const CollaborateModal = ({ projectId }) => {
   })
   const { open, size } = state
 
-  
-
   const [collabNotes, setCollabNotes] = useState('');
-
-  
-
   const [addCollaborator, { error }] = useMutation(ADD_COLLABORATOR, {
 
     update(cache, {data: {addCollaborator}}){
@@ -51,13 +44,11 @@ const CollaborateModal = ({ projectId }) => {
         console.log(error)
       }
     }
-
   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
    
-
     console.log('adding collaborator')
     try {
       console.log({
@@ -73,9 +64,6 @@ const CollaborateModal = ({ projectId }) => {
 
       setCollabNotes('');
 
-      
-      
-
       navigate(0)
     } catch (err) {
       console.error(err);
@@ -83,8 +71,6 @@ const CollaborateModal = ({ projectId }) => {
   };
 
   const handleChange = (event) => {
-    // event.preventDefault();
-
     const { name, value } = event.target;
 
     if (name === 'collabNotes') {
@@ -98,7 +84,6 @@ const CollaborateModal = ({ projectId }) => {
         Collaborate
       </Button>
 
-      {/* { event => handleFormSubmit(event)} */}
       <Modal
         as={Form} onSubmit={handleFormSubmit}
         size={size}
@@ -120,7 +105,7 @@ const CollaborateModal = ({ projectId }) => {
           <Button negative onClick={() => dispatch({ type: 'close' })}>
             Cancel
           </Button>
-          <Button type='submit' >{/* positive onClick={() => dispatch({ type: 'close' })} */}
+          <Button type='submit' >
             Send
           </Button>
         </Modal.Actions>

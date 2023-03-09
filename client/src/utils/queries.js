@@ -54,8 +54,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-
-
 export const QUERY_PROJECTS = gql`
   query getProjects { 
     projects{
@@ -69,8 +67,6 @@ export const QUERY_PROJECTS = gql`
     }
   }
 `;
-
-
 
 export const QUERY_SINGLE_PROJECT = gql`
   query getSingleProject($projectId: ID!) {
@@ -97,14 +93,3 @@ export const QUERY_SINGLE_PROJECT = gql`
     }
   }
 `;
-// image
-// fundingEarned
-//       languages
-//       category     
-//       contributors
-//       comments {
-//         _id
-//         commentText
-//         commentAuthor
-//       }
-//       follows

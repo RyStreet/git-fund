@@ -1,9 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom'
-import Donate from '../components/Donate'
-import Donations from "./Donations"
 
-import { Progress } from 'semantic-ui-react'
 
 const ProjectCards = ({projects}) => { 
     if(!projects?.length){ 
@@ -12,8 +9,7 @@ const ProjectCards = ({projects}) => {
     return(
         <div id="projectCard">
             {projects && 
-                projects.map((project) => (
-                    
+                projects.map((project) => (     
                     <div key={project._id} className="MainTile my-4">  
                         <div id="projectCardHeader">
                             <h3 id="projectCardTitle">{project.title}</h3>
@@ -39,21 +35,6 @@ const ProjectCards = ({projects}) => {
                     </div>
             ))} 
         </div>
-
-
-    //----------------- PUT THESE STYLES IN ABOVE AFTER CreateProject.js WORKS ---------------- //
-        // <div className="MainTile">
-            // <h4>Project : </h4>
-            // <p>
-            //   Description : 
-            // </p>
-            // <div className='btn-fund-container'>
-            // <p>Funding -</p>
-            // <button className='button' >Donate</button>
-            // </div>
-            // <Progress percent={"10"} inverted progress success/>
-        // </div>
-    // --------------------------------------------------------------------------------------- //
     )
 };
 
