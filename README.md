@@ -38,7 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
   ## Contacts
-  * RyStreet,(https://github.com/RyStreet) Email:[ryanstreet122@gmail.com]
-  *  jkim011 (https://github.com/jkim011) Email:[jaredkim011@gmail.com]
-  *  Mer2022 (https://github.com/Mer2022) Email:[mer.code.99@gmail.com]
-  *  johnweaver1 (https://github.com/johnweaver1) Email:[john.weaver94@utexas.edu]
+ * RyStreet,(https://github.com/RyStreet) Email:[ryanstreet122@gmail.com]
+ *  jkim011 (https://github.com/jkim011) Email:[jaredkim011@gmail.com]
+ * Mer2022 (https://github.com/Mer2022) Email:[mer.code.99@gmail.com]
+ * johnweaver1 (https://github.com/johnweaver1) Email:[john.weaver94@utexas.edu]
