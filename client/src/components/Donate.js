@@ -24,7 +24,7 @@ const DonateModal = ({projectId}) => {
   const { open, size } = state
 
   const navigate = useNavigate()
-  //////////// FOR DISPLAYING FUNDINGEARNED UNTIL WE FIGURE OUT STRIPE
+  //////////// FUTURE DEVELOPMENT: IMPLEMENT STRIPE FOR PAYMENTS
   const [amount, setAmount] = useState("");
 
   const [addDonation, {error}] = useMutation(ADD_DONATION)

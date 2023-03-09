@@ -74,14 +74,6 @@ function Profile() {
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <h5>Email: {user.email}</h5>
-        {/* <h5>GitHub:</h5> */}
-        {/* <h5>Bio: {user.bio}</h5>
-        {!userParam ? (
-          <EdiText name="bio" type='text' value={bio} onSave={handleSaveBio} onChange={handleChange}/>
-        ): (
-        <></>
-        )}      */}
-        
         {!userParam ? (
           <div>
             <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
