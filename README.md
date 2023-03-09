@@ -6,6 +6,7 @@
   * [Installation](#installation)
   * [User-Story](#User-Story)
   * [Usage](#usage)
+  * [Video](#Video)
   * [Contribution](#contribution)
   * [Tests](#tests)
   * [License](#license)
