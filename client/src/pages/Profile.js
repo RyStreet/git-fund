@@ -33,7 +33,9 @@ function Profile() {
   if (!Auth.loggedIn()) {
     return (
       <Link to={'/login'} className="textDecNone">
-        <h1>Login or sign up to view user profiles</h1>
+        <div className="msgScreen">
+          <h2>Login or sign up to view user profiles</h2>
+        </div>
       </Link>
     )
   }
