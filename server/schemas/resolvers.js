@@ -21,7 +21,7 @@ const resolvers = {
           return Project.find(params)
         },
         project: async (parent, { projectId }) => {
-          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo') ////testing with adding collaborators ; 
+          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo') 
         }
     },
 

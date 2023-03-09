@@ -24,7 +24,7 @@ const DonateModal = ({projectId}) => {
   const { open, size } = state
 
   const navigate = useNavigate()
-  //////////// FOR DISPLAYING FUNDINGEARNED UNTIL WE FIGURE OUT STRIPE
+  //////////// FUTURE DEVELOPMENT: IMPLEMENT STRIPE FOR PAYMENTS
   const [amount, setAmount] = useState("");
 
   const [addDonation, {error}] = useMutation(ADD_DONATION)
@@ -32,7 +32,7 @@ const DonateModal = ({projectId}) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("adding donation")
+    
     try{
       const {data} = await addDonation({
         variables:{
@@ -68,6 +68,7 @@ const DonateModal = ({projectId}) => {
         size={size}
         open={open}
         onClose={() => dispatch({ type: 'close' })}
+        style={{marginTop: "112px", height: "225px"}}
       >
         <Modal.Header>Donate to this project</Modal.Header>
         <Modal.Content>

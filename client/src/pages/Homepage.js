@@ -1,15 +1,12 @@
 import { useQuery } from '@apollo/client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { data } from './DummyData';
-// import { useQuery } from '@apollo/client';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
 import ProjectCards from '../components/ProjectCards';
 
 import Auth from '../utils/auth';
 import { QUERY_PROJECTS } from '../utils/queries';
-import Footer from '../components/Footer';
 
 
 function Homepage() {

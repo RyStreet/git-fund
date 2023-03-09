@@ -3,10 +3,9 @@ import { ApolloError, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 
 import { ADD_PROJECT } from "../utils/mutations";
-import { QUERY_PROJECTS, QUERY_ME } from "../utils/queries";
+import { QUERY_PROJECTS } from "../utils/queries";
 
 import Auth from "../utils/auth";
-
 
 
 function CreateProject() {
@@ -28,21 +27,12 @@ function CreateProject() {
       } catch (e) {
         console.error(e)
       }
-
-      // const { me } = cache.readQuery({ query: QUERY_ME });
-      // cache.writeQuery({
-      //   query: QUERY_ME,
-      //   data: { me: { ...me, projects: [...me.projects, addProject] } },
-      // });
     },
   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const error = ApolloError
-    console.log(error instanceof Error)
-    console.log('handleFormSubmit')
     try {
       const { data } = await addProject({
         variables: {

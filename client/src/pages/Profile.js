@@ -32,9 +32,13 @@ function Profile() {
   }
   if (!Auth.loggedIn()) {
     return (
-      <Link to={'/login'} className="textDecNone">
-        <h1>Login or sign up to view user profiles</h1>
+      <div style={{height: "400px"}}>
+      <Link  to={'/login'} className="textDecNone">
+        <div className="msgScreen">
+          <h2>Login or sign up to view user profiles</h2>
+        </div>
       </Link>
+      </div>
     )
   }
   if (loading) {
@@ -43,7 +47,7 @@ function Profile() {
 
   // For saving and editing bio
   const handleSaveBio = async (bio) => {
-    console.log('New Bio Saved:', bio);
+    
     try {
       const {data} = await editBio({
         variables: {
@@ -72,14 +76,6 @@ function Profile() {
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <h5>Email: {user.email}</h5>
-        {/* <h5>GitHub:</h5> */}
-        {/* <h5>Bio: {user.bio}</h5>
-        {!userParam ? (
-          <EdiText name="bio" type='text' value={bio} onSave={handleSaveBio} onChange={handleChange}/>
-        ): (
-        <></>
-        )}      */}
-        
         {!userParam ? (
           <div>
             <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>

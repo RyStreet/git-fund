@@ -11,10 +11,6 @@ import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-import { Progress } from 'semantic-ui-react';
-import { Dummydata } from './DummyData';
-
-
 function SingleProject() {
   const { projectId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
@@ -22,12 +18,16 @@ function SingleProject() {
   });
 
   const project = data?.project || {};
-  console.log(project)
+  
   if (!Auth.loggedIn()) {
     return (
+      <div style={{height: "400px"}}>
       <Link to={'/login'} className="textDecNone">
-        <h1>Login or sign up to interact with projects!</h1>
+       <div className="msgScreen">
+          <h2>Login or sign up to view user profiles</h2>
+        </div>
       </Link>
+      </div>
     )
   }
   if (loading) {
@@ -36,17 +36,17 @@ function SingleProject() {
 
   // For total donations
   let donations = project.fundingEarned
-  console.log(donations)
+  
 
   let total = 0
 
   for (let i = 0; i < donations.length; i++){
    const loopDonations = donations[i].amount
-   console.log("LOOP", loopDonations)   
+    
 
    total += loopDonations
   }
-  console.log(total)
+  
   
 
   return (
