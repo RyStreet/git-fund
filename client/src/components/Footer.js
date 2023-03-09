@@ -10,12 +10,12 @@ const Footer = () => {
   }, []);
 
   return (
-    <div style={{ paddingBottom: footerHeight }} className="footer_section">
+    <div style={{ paddingTop: footerHeight }} className="footer_section">
       <Segment inverted vertical id='footer' >
         <Container>
           <Grid divided inverted stackable>
-            <Grid.Row>
-              <Grid.Column width={4}>
+            <Grid.Row className='footer_sub'>
+              <Grid.Column width={4} textAlign='left'>
                 <p>About Us</p>
                 <p>The four developers for Gitfund are the amazing Merrin Abraham, Jared Kim, Ryan Street, and John Weaver.
                     We are graduates of the UT Web Development Boot Camp with aspiatrions of working in the tech industry.
@@ -30,7 +30,7 @@ const Footer = () => {
                 <p>Developed by:</p>
                 <ul>
                   {developerEmails.map((email) => (
-                    <li key={email}>{email}</li>
+                    <p key={email}>{email}</p>
                   ))}
                 </ul>
               </Grid.Column>

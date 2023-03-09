@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {logoUrl} from '../assets/logo';
-import logo from '../assets/Logo.png';
+import logo from '../assets/logo.png';
 import Homepage from '../pages/Homepage';
 import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
@@ -69,7 +69,7 @@ function NavBar() {
   // )
 
 
-    <Navbar className='nav' collapseOnSelect expand="lg" bg="light" >
+    <Navbar className='nav sticky-top' collapseOnSelect expand="lg" bg="light" >
       <Container>
         <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
         </Navbar.Brand>
