@@ -36,8 +36,7 @@ SO THAT I can fund coding projects and work on projects that I think would be go
   ## Questions
   N/A
   ## Contacts
-  * GitHub: [RyStreet,(https://github.com/RyStreet)]
-  *  [jkim011 (https://github.com/jkim011)]
-  *  [Mer2022 (https://github.com/Mer2022)]
-  *  [johnweaver1 (https://github.com/johnweaver1)]
-  *  Email: [ryanstreet122@gmail.com, jaredkim011@gmail.com, mer.code.99@gmail.com, john.weaver94@utexas.edu](mailto:ryanstreet122@gmail.com, jaredkim011@gmail.com, mer.code.99@gmail.com, john.weaver94@utexas.edu)
+  * GitHub: RyStreet,(https://github.com/RyStreet)[ryanstreet122@gmail.com]
+  *  jkim011 (https://github.com/jkim011)[jaredkim011@gmail.com]
+  *  Mer2022 (https://github.com/Mer2022)[mer.code.99@gmail.com]
+  *  johnweaver1 (https://github.com/johnweaver1)[john.weaver94@utexas.edu]
