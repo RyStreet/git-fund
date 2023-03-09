@@ -33,9 +33,6 @@ function CreateProject() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const error = ApolloError
-    console.log(error instanceof Error)
-    console.log('handleFormSubmit')
     try {
       const { data } = await addProject({
         variables: {

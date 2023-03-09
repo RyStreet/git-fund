@@ -15,7 +15,7 @@ const Footer = () => {
         <Container>
           <Grid divided inverted stackable>
             <Grid.Row className='footer_sub'>
-              <Grid.Column width={4} textAlign='left'>
+              <Grid.Column width={6} textAlign='left'>
                 <p>About Us</p>
                 <p>The four developers for Gitfund are the amazing Merrin Abraham, Jared Kim, Ryan Street, and John Weaver.
                     We are graduates of the UT Web Development Boot Camp with aspiatrions of working in the tech industry.
@@ -23,10 +23,10 @@ const Footer = () => {
                     I hope this project shows our dedication to learning, our ability to work together as a team, and our
                     potential as developers. Please enjoy GitFund!</p>
               </Grid.Column>
-              <Grid.Column width={8} textAlign='center'>
+              <Grid.Column width={4} textAlign='center'>
                 <p>© {new Date().getFullYear()} My Company. All rights reserved.</p>
               </Grid.Column>
-              <Grid.Column width={4} textAlign='right'>
+              <Grid.Column width={6} textAlign='right'>
                 <p>Developed by:</p>
                 <ul>
                   {developerEmails.map((email) => (

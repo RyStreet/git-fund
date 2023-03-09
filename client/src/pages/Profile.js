@@ -32,11 +32,13 @@ function Profile() {
   }
   if (!Auth.loggedIn()) {
     return (
-      <Link to={'/login'} className="textDecNone">
+      <div style={{height: "400px"}}>
+      <Link  to={'/login'} className="textDecNone">
         <div className="msgScreen">
           <h2>Login or sign up to view user profiles</h2>
         </div>
       </Link>
+      </div>
     )
   }
   if (loading) {
@@ -45,7 +47,7 @@ function Profile() {
 
   // For saving and editing bio
   const handleSaveBio = async (bio) => {
-    console.log('New Bio Saved:', bio);
+    
     try {
       const {data} = await editBio({
         variables: {
