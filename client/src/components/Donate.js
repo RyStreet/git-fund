@@ -32,7 +32,7 @@ const DonateModal = ({projectId}) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("adding donation")
+    
     try{
       const {data} = await addDonation({
         variables:{
@@ -68,6 +68,7 @@ const DonateModal = ({projectId}) => {
         size={size}
         open={open}
         onClose={() => dispatch({ type: 'close' })}
+        style={{marginTop: "112px", height: "225px"}}
       >
         <Modal.Header>Donate to this project</Modal.Header>
         <Modal.Content>

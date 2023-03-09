@@ -49,12 +49,9 @@ const CollaborateModal = ({ projectId }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
    
-    console.log('adding collaborator')
+    
     try {
-      console.log({
-        projectId,
-        collabNotes,
-      })
+      
       const { data } = await addCollaborator({
         variables: {
           projectId,
@@ -89,6 +86,7 @@ const CollaborateModal = ({ projectId }) => {
         size={size}
         open={open}
         onClose={() => dispatch({ type: 'close' })}
+        style={{marginTop: "112px", height: "315px"}}
       >
         <Modal.Header>Collaborate on this project</Modal.Header>
         
