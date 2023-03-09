@@ -15,7 +15,7 @@
   ## Installation
   Once download all you need to do is run npm i, npm run build, and finally npm run develop. We would highly recommed using the link to our deployed App.
  
- ##User-Story
+ ## User-Story
   
 ```
 AS A USER,
