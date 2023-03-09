@@ -7,10 +7,7 @@
   * [User-Story](#User-Story)
   * [Usage](#usage)
   * [Video](#Video)
-  * [Contribution](#contribution)
-  * [Tests](#tests)
   * [License](#license)
-  * [Questions](#questions)
   * [Contacts](#contacts)
   
   ## Installation
@@ -29,23 +26,17 @@ SO THAT I can fund coding projects and work on projects that I think would be go
   
   ## Video 
   https://user-images.githubusercontent.com/110701898/223893246-46b1d4a8-cb84-41e4-be10-c3e2b819d413.mp4
-  ## Contribution
-  N/A
-  ## Tests
-  N/A
+  
   ## License
   Licensed under MIT license
   https://opensource.org/licenses/MIT
   
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the       Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the           Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-  ## Questions
-  N/A
   ## Contacts
   * RyStreet,(https://github.com/RyStreet) Email:[ryanstreet122@gmail.com]
   *  jkim011 (https://github.com/jkim011) Email:[jaredkim011@gmail.com]
