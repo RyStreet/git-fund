@@ -75,7 +75,7 @@ function SingleProject() {
         </div>
       </div>
 
-      <div className='list'> 
+      <div > 
         <Donations fundingEarned={project.fundingEarned}/>
       </div>
     </>
