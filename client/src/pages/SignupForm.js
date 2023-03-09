@@ -88,6 +88,9 @@ const Signup = () => {
                 </button>
               </form>
             )}
+            <Link to={'/login'} className="textDecNone">
+              <h5>Login instead</h5>
+            </Link>
 
             {error && (
               <div>

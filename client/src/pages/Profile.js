@@ -10,10 +10,11 @@ import { EDIT_BIO } from '../utils/mutations'
 import EdiText from 'react-editext';
 
 
-function Profile() {
-  const [bio, setBio] = useState('');
+function Profile() {  
   const navigate = useNavigate()
 
+  // For bio 
+  const [bio, setBio] = useState('');
   const [editBio, {error}] = useMutation(EDIT_BIO);
 
   const { username: userParam } = useParams();
@@ -25,15 +26,13 @@ function Profile() {
   
   const projects = user.projects
   const collabProjects = user.collabProjects
-  
-
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />
   }
   if (!Auth.loggedIn()) {
     return (
-      <Link to={'/login'}>
+      <Link to={'/login'} className="textDecNone">
         <h1>Login or sign up to view user profiles</h1>
       </Link>
     )
@@ -42,9 +41,9 @@ function Profile() {
     return <div>Loading...</div>;
   }
 
+  // For saving and editing bio
   const handleSaveBio = async (bio) => {
     console.log('New Bio Saved:', bio);
-    
     try {
       const {data} = await editBio({
         variables: {
@@ -54,7 +53,7 @@ function Profile() {
       })
       setBio("");
      
-      navigate("/profile", {replace: true})
+      navigate(0)
     } catch (err) {
       console.error(err)
     }
@@ -69,32 +68,45 @@ function Profile() {
   }
 
   return (
-    <div>
+    <div className="profileMargins">
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <h5>Email: {user.email}</h5>
-        <h5>GitHub:</h5>
-        {/* <h5>Bio:</h5> */}
+        {/* <h5>GitHub:</h5> */}
+        {/* <h5>Bio: {user.bio}</h5>
+        {!userParam ? (
+          <EdiText name="bio" type='text' value={bio} onSave={handleSaveBio} onChange={handleChange}/>
+        ): (
+        <></>
+        )}      */}
+        
+        {!userParam ? (
+          <div>
+            <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
+            <EdiText 
+              name="bio" type='textarea' value={bio} 
+              editButtonContent="Edit"
+              inputProps={{ placeholder:"Edit your bio here", style: {maxWidth:"70%"}, rows: 3 }}
+              onSave={handleSaveBio} onChange={handleChange}
+            />
+          </div>
+        ) : (
+          <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
+        )}     
 
-      {!userParam ? (
-        <EdiText name="bio" type='text' value={bio} onSave={handleSaveBio} onChange={handleChange}/>
-      ): (
-       <></>
-      )}        
-      <p>Bio: {user.bio}</p>
-        
-
-        
-        
+      <br/>
 
         <div>
+          <h3>{userParam ? `${user.username}'s` : `Your`} Projects:</h3>
           <ProjectCards
             projects={projects}
           />
         </div>
+      
+      <br/>
 
         <div>
-          <h4>Collaborated Projects:</h4>
+          <h3>Collaborated Projects:</h3>
           <ProjectCards
             projects={collabProjects}
           />

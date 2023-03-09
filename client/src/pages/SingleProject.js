@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Donate from '../components/Donate'
@@ -7,6 +8,8 @@ import Collaborators from '../components/Collaborators';
 import Donations from '../components/Donations';
 
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
+
+import Auth from '../utils/auth';
 
 import { Progress } from 'semantic-ui-react';
 import { Dummydata } from './DummyData';
@@ -20,12 +23,18 @@ function SingleProject() {
 
   const project = data?.project || {};
   console.log(project)
+  if (!Auth.loggedIn()) {
+    return (
+      <Link to={'/login'} className="textDecNone">
+        <h1>Login or sign up to interact with projects!</h1>
+      </Link>
+    )
+  }
   if (loading) {
     return <div>Loading...</div>
   }
 
- 
-
+  // For total donations
   let donations = project.fundingEarned
   console.log(donations)
 
@@ -39,56 +48,36 @@ function SingleProject() {
   }
   console.log(total)
   
- 
- 
- 
-
-
-
-  
-  
-  
-
 
   return (
     <>
       <div className='project'>
         <div className='project-section1'>
-        <h1>{project.title}</h1>
-        <h5>By: {project.creator}</h5>
-        <h5>{project.description}</h5>
-        <h5>Project Repository: {project.repo}</h5>
-        {/* <div className="image-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEDTM_UykRqicsM53-Z3-xlv9epc9nxNcI3g&usqp=CAU" alt=""/>
-        </div> */}
-        {/* <div> */}
-          <div>
-            {/* <h5>Funding Earned: <Donations fundingEarned={project.fundingEarned}/> </h5> */}
-            {/* <Progress percent="80" inverted progress success/> */}
-          </div> 
-      </div>  
-          <div className='project-section3'>
-            
-            <h5>Funding Total: ${total}</h5>
-            <h5>Funding Goal: ${project.fundingGoal}</h5>
-            {/* <Donations fundingEarned={project.fundingEarned}/> */}
-            <Donate projectId={project._id} className='button donate-btn' />
-          </div>
+          <h1>{project.title}</h1>
+          <h5>By: {project.creator}</h5>
+          <h5>{project.description}</h5>
+          <h5>Project Repository: {project.repo}</h5>
+        </div>  
 
-          <div className='project-section2'>
-            <h5>Collaborators:</h5>
-            <h5><Collaborators collaborators={project.collaborators}/></h5>
-            <Collaborate projectId={project._id} className='button' />
-          </div>
+        <br/>
 
+        <div className='project-section3'>          
+          <h4>Funding Total: ${total}</h4>
+          <h4>Funding Goal: ${project.fundingGoal}</h4>
+          {/* <Progress percent="80" inverted progress success/> */}
+          <Donate projectId={project._id} className='button donate-btn' />
+        </div>
+
+        <div className='project-section2'>
+          <h4>Collaborators:</h4>
+          <h5><Collaborators collaborators={project.collaborators}/></h5>
+          <Collaborate projectId={project._id} className='button' />
+        </div>
       </div>
 
-
-      <div className='list'> 
-      Name - Amount
+      <div > 
+        <Donations fundingEarned={project.fundingEarned}/>
       </div>
-
-
     </>
   )
 };
