@@ -4,14 +4,17 @@
   GitFund is a crowdfunding website where developers can support developers. Our goal was for users to create projects that other developrs would want financed, and could even contribute to! This project uses React in the front end with a Node.js and Express.js Server using Graphql. This is a MERN-stack single-page application that works with user inputed data. We hope you enjoy seeing a new way to help seniro and fledgling developers!
   ## Table of Contents
   * [Installation](#installation)
-  * [User-Story](#User-Story)
+  * [User-Story](#user-story)
   * [Usage](#usage)
-  * [Video](#Video)
+  * [Video](#video)
   * [License](#license)
   * [Contacts](#contacts)
   
   ## Installation
-  Once download all you need to do is run npm i, npm run build, and finally npm run develop. We would highly recommed using the link to our deployed App.
+  Once download all you need to do is run npm i, npm run build, and finally npm run develop. We would highly recommed using the link to our deployed App. 
+  <br/>
+  <br/>
+  Deployed app: https://git-fund.herokuapp.com/
  
  ## User-Story
   
