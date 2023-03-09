@@ -17,8 +17,8 @@
   
 ```
 AS A USER,
-I WANT TO be 
-SO THAT I can easily schedule a session and connect with a tutor
+I WANT TO be able to create a crowdfunding project, collaborate with other users, and donate to projects.
+SO THAT I can fund coding projects and work on projects that I think would be good to develop.
 ```
 
   ## Usage
