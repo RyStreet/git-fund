@@ -13,8 +13,19 @@
   
   ## Installation
   Once download all you need to do is run npm i, npm run build, and finally npm run develop. We would highly recommed using the link to our deployed App.
+  ## User story
+  
+```
+AS A USER,
+I WANT TO be 
+SO THAT I can easily schedule a session and connect with a tutor
+```
+
   ## Usage
-  Find unique projects that you can help contribute to, donate to, or both! If you have a cool piece of code that needs help with funding then you can get fudning for it through GitFund.
+  Find unique projects that  you can help contribute to, donate to, or both! If you have a cool piece of code that needs help with funding then you can get fudning for it through GitFund.
+  
+  ## Video 
+  https://user-images.githubusercontent.com/110701898/223893246-46b1d4a8-cb84-41e4-be10-c3e2b819d413.mp4
   ## Contribution
   N/A
   ## Tests
