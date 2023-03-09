@@ -43,7 +43,7 @@ const DonateModal = ({projectId}) => {
       });
       setAmount("")
 
-      // navigate(0)
+      navigate(0)
     } catch (err){
       console.error(err)
     }

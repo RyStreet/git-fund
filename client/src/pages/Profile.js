@@ -53,7 +53,7 @@ function Profile() {
       })
       setBio("");
      
-      navigate("/profile", {replace: true})
+      navigate(0)
     } catch (err) {
       console.error(err)
     }
