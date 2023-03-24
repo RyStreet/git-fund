@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../assets/Logo.png';
+import logo from '../assets/logo.png';
 import Auth from '../utils/auth';
 import { Icon, Image, Menu } from 'semantic-ui-react';
 
@@ -68,7 +68,7 @@ function NavBar() {
 
 
     <Navbar className='nav sticky-top' collapseOnSelect expand="lg" bg="light" >
-      <Container>
+      {/* <Container> */}
         <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -90,7 +90,7 @@ function NavBar() {
             )}            
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      {/* </Container> */}
     </Navbar>
   );
 }
