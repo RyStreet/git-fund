@@ -120,15 +120,14 @@ const resolvers = {
         },
 
         editProfile: async(parent, {userId, bio, github, linkedin}, context) => {
-          if (context.user) {
+          if (context.user) 
+          {
             return User.findOneAndUpdate(
               { _id: userId },
-              {bio},
-              {linkedin},
-              {github},
-              {new: true}
+              {bio, linkedin, github},
+            
             )
-          }
+            }
         }
     }
 };
