@@ -40,6 +40,8 @@ const client = new ApolloClient({
 
 function App() {
   return(
+  <div className='pageContainer'>
+    <div className='contentWrap'>
   <ApolloProvider client={client}>
     <Router>
       <>
@@ -74,10 +76,13 @@ function App() {
             element={<Profile />}
           />
         </Routes>
-        <Footer/>
+        
       </>
     </Router>
   </ApolloProvider>
+  </div>
+  <Footer/>
+  </div>
 )};
 
 export default App;
