@@ -6,6 +6,18 @@ body{
   display: flex;
   flex-direction: column; */
 }
+
+.pageContainer{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+.contentWrap{
+  flex: 1;
+}
+
 .MainTile{
     background-color:#F7DFB8;
     width: 90%;
