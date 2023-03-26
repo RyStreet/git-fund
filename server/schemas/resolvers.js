@@ -119,14 +119,15 @@ const resolvers = {
           throw new AuthenticationError("You must be logged in!")
         },
 
-        editBio: async(parent, {userId, bio}, context) => {
-          if (context.user) {
+        editProfile: async(parent, {userId, bio, github, linkedin}, context) => {
+          if (context.user) 
+          {
             return User.findOneAndUpdate(
               { _id: userId },
-              {bio},
-              {new: true}
+              {bio, linkedin, github},
+            
             )
-          }
+            }
         }
     }
 };
