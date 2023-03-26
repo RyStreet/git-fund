@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import SingleProject from './pages/SingleProject';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import EditProfileContent from './pages/EditProfile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -75,6 +76,10 @@ function App() {
             path='/profiles/:username'
             element={<Profile />}
           />
+          <Route
+          path='/edit-profile'
+          element={<EditProfileContent/>}>
+          </Route>
         </Routes>
         
       </>
