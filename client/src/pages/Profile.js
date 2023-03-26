@@ -76,6 +76,8 @@ function Profile() {
       <div>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <h5>Email: {user.email}</h5>
+        <h5>LinkedIn: {user.linkedin}</h5>
+        <h5>Github: {user.github}</h5>
         {!userParam ? (
           <div>
             <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>

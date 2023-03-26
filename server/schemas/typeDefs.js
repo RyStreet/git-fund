@@ -9,6 +9,8 @@ const typeDefs = gql`
         projects: [Project]
         collabProjects: [Project]
         bio: String
+        linkedin: String
+        github: String
         
     }
     type Project {

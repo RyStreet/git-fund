@@ -2,11 +2,19 @@
   {
     "username": "ace",
     "email": "ace@gmail.com",
+    "github": "github.com/ace",
+    "linkedin": "linkedin.com/ace",
+    "bio": "Hey",
     "password": "password"
+   
   },
   {
     "username": "luffy",
     "email": "luffy@gmail.com",
+    "github": "github.com/luffy",
+    "linkedin": "linkedin.com/luffy",
+    "bio": "Hello",
     "password": "password"
+    
   }
 ]
