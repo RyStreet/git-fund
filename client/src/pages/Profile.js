@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_USER } from "../utils/queries"
 import ProjectCards from "../components/ProjectCards";
 import { useMutation } from "@apollo/client";
-import { EDIT_BIO } from '../utils/mutations'
+import { EDIT_PROFILE } from '../utils/mutations'
 
 import EdiText from 'react-editext';
 
@@ -15,7 +15,7 @@ function Profile() {
 
   // For bio 
   const [bio, setBio] = useState('');
-  const [editBio, {error}] = useMutation(EDIT_BIO);
+  const [editBio, {error}] = useMutation(EDIT_PROFILE);
 
   const { username: userParam } = useParams();
   const {loading, data} = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -81,12 +81,23 @@ function Profile() {
         {!userParam ? (
           <div>
             <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
-            <EdiText 
+            {/* <EdiText 
               name="bio" type='textarea' value={bio} 
               editButtonContent="Edit"
               inputProps={{ placeholder:"Edit your bio here", style: {maxWidth:"70%"}, rows: 3 }}
               onSave={handleSaveBio} onChange={handleChange}
-            />
+            /> */}
+            <a href="edit-profile">
+            <div  class="ui vertical animated button" tabindex="0">
+              <div class="hidden content">Edit Profile</div>
+              <div class="visible content">
+              <i class="pencil alternate icon"></i>
+
+              </div>
+            </div>
+            </a>
+
+
           </div>
         ) : (
           <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>

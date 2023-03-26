@@ -81,11 +81,13 @@ export const ADD_DONATION = gql`
   }
 `;
 
-export const EDIT_BIO = gql`
-  mutation editBio($userId: ID!, $bio: String) {
-    editBio(userId: $userId, bio: $bio) {
+export const EDIT_PROFILE = gql`
+  mutation editProfile($userId: ID!, $bio: String, $github: String, $linkedin: String) {
+    editProfile(userId: $userId, bio: $bio, github: $github, linkedin: $linkedin) {
       _id
       bio
+      github
+      linkedin
     }
   }
 `;
