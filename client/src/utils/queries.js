@@ -7,6 +7,8 @@ export const QUERY_ME = gql`
       username
       email
       bio
+      linkedin
+      github
       projects {
         _id
         title
@@ -34,6 +36,8 @@ export const QUERY_USER = gql`
       username
       email
       bio
+      linkedin
+      github
       projects {
         _id
         title
