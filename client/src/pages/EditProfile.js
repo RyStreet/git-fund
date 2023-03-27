@@ -15,7 +15,7 @@ import Auth from "../utils/auth"
 //edit email
 
 function EditProfileContent () {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [bio, setBio] = useState('')
     const [linkedin, setLinkedin] = useState('')
@@ -31,13 +31,14 @@ function EditProfileContent () {
     const user = data?.me || []
 
     
+    const handleEditProfile = async(event) => {
+        event.preventDefault();
 
-    const handleEditProfile = async(bio, linkedin, github) => {
         console.log("hit")
         console.log(user)
         try{
             const {data} = await editProfile({
-                variables:{
+                variables: {
                     userId: user._id,
                     bio,
                     linkedin,
@@ -48,23 +49,25 @@ function EditProfileContent () {
             setBio("")
             setGithub("")
             setLinkedin("")
+
+            navigate("/profile", {replace: true});
+            navigate(0);
         }catch (err){
             console.error(err)
         }
-        alert("wait")
         
     };
 
     const handleChange = (event) => {
         let {name, value} = event.target;
 
-        if (name="bio"){
+        if (name === "bio"){
             setBio(value)
         }
-        if (name="github"){
+        if (name === "github"){
             setGithub(value)
         }
-        if(name = "linkedin"){
+        if(name === "linkedin"){
             setLinkedin(value)
         }
     };
@@ -73,28 +76,27 @@ function EditProfileContent () {
         <div>
             <h2>{`Now Editing ${user.username}'s Profile`} </h2>
     
-    <div class="ui form">
-        <form onSubmit={handleEditProfile}>
+            <div class="ui form">
+                <form onSubmit={handleEditProfile}>
 
-            <div  class="field" >
-                <label>LinkedIn</label>
-                <input type="textarea" name="linkedin" onChange={handleChange} value={linkedin} rows="1"></input>
+                    <div class="field" >
+                        <label>LinkedIn</label>
+                        <input type="textarea" name="linkedin" onChange={handleChange} value={linkedin} rows="1"></input>
+                    </div>
+
+                    <div onChange={handleChange} class="field" name="github">
+                    <label>Github</label>
+                    <input type="textarea" name="github" onChange={handleChange} value={github} rows="1"></input>
+                    </div>
+
+                    <div onChange={handleChange} class="field" name="bio">
+                    <label>Bio</label>
+                    <input type="textarea" name="bio" onChange={handleChange} value={bio} rows="4"></input>                    </div>
+
+                    <button type="submit" class="ui submit button">Submit</button>
+                </form>
+            
             </div>
-
-        {/* <div onChange={handleChange} class="field" name="github">
-        <label>Github</label>
-        <textarea rows="1"></textarea>
-        </div>
-
-        <div onChange={handleChange} class="field" name="bio">
-        <label>Bio</label>
-        <textarea></textarea>
-        </div> */}
-
-        <button type="submit" class="ui submit button">Submit</button>
-        </form>
-     
-    </div>
         </div>
     )
 
