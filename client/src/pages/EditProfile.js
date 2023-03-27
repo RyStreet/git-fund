@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
-import { useMutation } from "@apollo/client";
+import { empty, useMutation } from "@apollo/client";
 import { EDIT_PROFILE } from "../utils/mutations";
 
 import { useQuery } from "@apollo/client";
@@ -29,6 +29,7 @@ function EditProfileContent () {
         variables: {username: userParam}
     });
     const user = data?.me || []
+    console.log(user)
 
     
     const handleEditProfile = async(event) => {
@@ -36,6 +37,9 @@ function EditProfileContent () {
 
         console.log("hit")
         console.log(user)
+
+
+
         try{
             const {data} = await editProfile({
                 variables: {
@@ -59,11 +63,14 @@ function EditProfileContent () {
     };
 
     const handleChange = (event) => {
+        
         let {name, value} = event.target;
 
         if (name === "bio"){
             setBio(value)
         }
+
+
         if (name === "github"){
             setGithub(value)
         }
@@ -81,17 +88,18 @@ function EditProfileContent () {
 
                     <div class="field" >
                         <label>LinkedIn</label>
-                        <input type="textarea" name="linkedin" onChange={handleChange} value={linkedin} rows="1"></input>
+                        <input id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
                     </div>
 
-                    <div onChange={handleChange} class="field" name="github">
+                    <div  class="field" >
                     <label>Github</label>
-                    <input type="textarea" name="github" onChange={handleChange} value={github} rows="1"></input>
+                    <input id="github" type="textarea" name="github" onChange={handleChange}  placeholder={user.github} value={github} rows="1"></input>
                     </div>
 
-                    <div onChange={handleChange} class="field" name="bio">
+                    <div class="field" >
                     <label>Bio</label>
-                    <input type="textarea" name="bio" onChange={handleChange} value={bio} rows="4"></input>                    </div>
+                    <input id="linkedin" type="textarea" name="bio" onChange={handleChange} placeholder={user.bio} value={bio} rows="4"></input>                    
+                    </div>
 
                     <button type="submit" class="ui submit button">Submit</button>
                 </form>
