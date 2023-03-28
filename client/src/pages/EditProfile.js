@@ -83,12 +83,12 @@ function EditProfileContent () {
         <div>
             <h2>{`Now Editing ${user.username}'s Profile`} </h2>
     
-            <div class="ui form">
-                <form onSubmit={handleEditProfile}>
+            <div id="editProfileContainer" class="ui form">
+                <form id="editProfileForm" onSubmit={handleEditProfile}>
 
                     <div class="field" >
                         <label>LinkedIn</label>
-                        <input id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
+                        <input  id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
                     </div>
 
                     <div  class="field" >
