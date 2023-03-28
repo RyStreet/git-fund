@@ -316,17 +316,20 @@ bottom: 0px;
       width: 30%;
     }
 
-    #editProfileContainer{
-      background-color: #F7DFB8;
-      border: 1px solid black;
-      width: 40%;
-      border-radius: 10px;
-      padding: 20px;
-      align-items: center;
-      display: flex;
-    }
+ 
 
-    input{
-      width: 30vw;
-    }
+    
+  }
+
+  #editProfileContainer{
+    background-color: #F7DFB8;
+    border: 1px solid black;
+    width: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
