@@ -1,0 +1,10 @@
+// Custom variables
+$navbar-light-color: black;
+$navbar-light-hover-color: #FE9F00;
+// $navbar-light-active-color: #F45B69;
+// $navbar-light-toggler-border-color: #FE9F00;
+
+
+// Import default boostrap scss files
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/bootstrap/scss/_variables.scss';

@@ -69,10 +69,10 @@ function NavBar() {
 
     <Navbar className='nav sticky-top' collapseOnSelect expand="lg" bg="light" >
       <Container>
-        <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
-        </Navbar.Brand>
+        <div><Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/></Navbar.Brand></div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="me-auto "></Nav>
           <Nav className="container-fluid justify-content-end navStyles">
             {Auth.loggedIn() ? (
               <>
