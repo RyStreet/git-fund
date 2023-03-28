@@ -67,7 +67,7 @@ function NavBar() {
   // )
 
   // className="container-fluid justify-content-end navStyles"
-    <Navbar className='nav sticky-top gap-3 px-3' collapseOnSelect expand="lg" bg="light" >
+    <Navbar style={{justifyContent:"space-between"}} className='nav sticky-top gap-5' collapseOnSelect expand="lg" bg="light" >
       <Container className='m-auto' style={{justifyContent:"space-between"}}>
         <div><Navbar.Brand as={Link} to="/"><img src={logo} className="logo " size='small' alt='gitfund logo'/></Navbar.Brand></div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
