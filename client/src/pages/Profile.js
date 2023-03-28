@@ -74,24 +74,24 @@ function Profile() {
   return (
     <div className="profileMargins">
 
-      <div className="project" style={{marginBottom: 35, width: "80%", alignContent:"center"}}>
+      <div className="project" style={{marginBottom: 35, width: "80%", alignContent:"center", backgroundColor:"#F7DFB8"}}>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <div style={{marginBottom: 20}}>
         {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
 
         <a style={{textDecoration:"none", color:"grey"}} href="mailto: {user.email}">
-        <i class="mail icon huge" ></i>
+        <i className="mail icon huge" ></i>
         </a>
        
 
         <a style={{textDecoration:"none"}} href={user.linkedin} target="_blank" rel="noreferrer">
-        <i class="linkedin icon huge" ></i>
+        <i className="linkedin icon huge" ></i>
         </a>
         
         
         
         <a style={{textDecoration:"none", color:"black"}} href={user.github} target="_blank" rel="noreferrer" >
-        <i class="github icon huge"></i>
+        <i className="github icon huge"></i>
         </a>
 
         
@@ -106,10 +106,10 @@ function Profile() {
               onSave={handleSaveBio} onChange={handleChange}
             /> */}
             <a href="edit-profile">
-            <div  class="ui vertical animated button" tabindex="0">
-              <div class="hidden content">Edit Profile</div>
-              <div class="visible content">
-              <i class="pencil alternate icon"></i>
+            <div  className="ui vertical animated button" tabIndex="0">
+              <div className="hidden content">Edit Profile</div>
+              <div className="visible content">
+              <i className="pencil alternate icon"></i>
 
               </div>
             </div>
@@ -130,9 +130,12 @@ function Profile() {
         <div style={{marginLeft: "5%"}}>
           <h3>{userParam ? `${user.username}'s` : `Your`} Projects:</h3>
           
+          {!userParam ? 
             <Link style={{}} to='/create-project'>
               <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
-            </Link>
+            </Link> :
+            <div></div>
+          }
           </div>
           <ProjectCards
             projects={projects}
