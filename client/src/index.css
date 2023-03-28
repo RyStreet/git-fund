@@ -52,13 +52,22 @@ position: relative;
   margin-left: 0px !important;
   /* display: flex; */
 }
-.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+/* .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
   display: flex; 
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between !important;
   text-align: center;
+} */
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-sm, .navbar>.container-md, .navbar>.container-lg, .navbar>.container-xl, .navbar>.container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
 }
+
+
 .nav{
   color: black !important;
 }
@@ -143,13 +152,10 @@ bottom: 0px;
   }
 
   .navStyles{
-    font-size: 20px;
+    font-size: 18px;
     color: black;
-    width: 100%;
   }
-  .navStyles:hover{
-    color: #FE9F00;
-  }
+
 
   .project{
     margin: auto;
