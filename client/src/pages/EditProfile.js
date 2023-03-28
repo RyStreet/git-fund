@@ -80,30 +80,32 @@ function EditProfileContent () {
     };
 
     return(
-        <div>
-            <h2>{`Now Editing ${user.username}'s Profile`} </h2>
+        <div style={{justifyContent: "center"}}>
+           <h2 style={{marginLeft: "10%", marginTop: "1%"}}>{`Now Editing ${user.username}'s Profile`} </h2>
+    <div id="editProfileContainer">
     
-            <div class="ui form">
-                <form onSubmit={handleEditProfile}>
+            <div   class="ui form">
+                <form id="editProfileForm" onSubmit={handleEditProfile}>
 
                     <div class="field" >
                         <label>LinkedIn</label>
-                        <input id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
+                        <input  style={{width: "60vw"}}  id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
                     </div>
 
                     <div  class="field" >
                     <label>Github</label>
-                    <input id="github" type="textarea" name="github" onChange={handleChange}  placeholder={user.github} value={github} rows="1"></input>
+                    <input style={{width: "60vw"}} id="github" type="textarea" name="github" onChange={handleChange}  placeholder={user.github} value={github} rows="1"></input>
                     </div>
 
                     <div class="field" >
                     <label>Bio</label>
-                    <input id="linkedin" type="textarea" name="bio" onChange={handleChange} placeholder={user.bio} value={bio} rows="4"></input>                    
+                    <input style={{width: "60vw"}}  id="bio" type="textarea" name="bio" onChange={handleChange} placeholder={user.bio} value={bio} ></input>                    
                     </div>
 
                     <button type="submit" class="ui submit button">Submit</button>
                 </form>
             
+            </div>
             </div>
         </div>
     )
