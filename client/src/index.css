@@ -11,7 +11,6 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 
 .contentWrap{
@@ -58,6 +57,7 @@ position: relative;
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between !important;
+  text-align: center;
 }
 .nav{
   color: black !important;
