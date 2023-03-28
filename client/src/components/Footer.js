@@ -10,7 +10,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div style={{ paddingTop: footerHeight }} className="footer_section">
+    <div style={{ paddingTop: "50px" }} className="footer_section">
       <Segment inverted vertical id='footer' >
         <Container>
           <Grid divided inverted stackable>

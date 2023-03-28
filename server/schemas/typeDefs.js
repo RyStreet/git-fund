@@ -9,6 +9,8 @@ const typeDefs = gql`
         projects: [Project]
         collabProjects: [Project]
         bio: String
+        linkedin: String
+        github: String
         
     }
     type Project {
@@ -55,7 +57,7 @@ const typeDefs = gql`
         addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
         removeProject(projectId: ID!): Project
         addCollaborator(projectId: ID!, collabNotes: String!): Project
-        editBio(userId: ID!, bio: String): User
+        editProfile(userId: ID!, bio: String, linkedin: String, github: String): User
 
         addComment(projectId: ID!, commentText: String!): Project
         removeComment(projectId: ID!, commentId: ID!): Project

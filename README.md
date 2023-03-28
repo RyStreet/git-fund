@@ -1,7 +1,7 @@
 # GitFund
   ![license](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen)
   ## Description
-  GitFund is a crowdfunding website where developers can support developers. Our goal was for users to create projects that other developrs would want financed, and could even contribute to! This project uses React in the front end with a Node.js and Express.js Server using Graphql. This is a MERN-stack single-page application that works with user inputed data. We hope you enjoy seeing a new way to help seniro and fledgling developers!
+  GitFund is a crowdfunding website where developers can support developers. Our goal was for users to create projects that other developrs would want financed, and could even contribute to! This project uses React in the front end with a Node.js and Express.js Server using Graphql. This is a MERN-stack single-page application that works with user inputed data. We hope you enjoy seeing a new way to help senior and new developers!
   ## Table of Contents
   * [Installation](#installation)
   * [User-Story](#user-story)

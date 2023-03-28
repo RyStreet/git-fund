@@ -5,7 +5,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_USER } from "../utils/queries"
 import ProjectCards from "../components/ProjectCards";
 import { useMutation } from "@apollo/client";
-import { EDIT_BIO } from '../utils/mutations'
+import { EDIT_PROFILE } from '../utils/mutations'
 
 import EdiText from 'react-editext';
 
@@ -15,7 +15,7 @@ function Profile() {
 
   // For bio 
   const [bio, setBio] = useState('');
-  const [editBio, {error}] = useMutation(EDIT_BIO);
+  const [editBio, {error}] = useMutation(EDIT_PROFILE);
 
   const { username: userParam } = useParams();
   const {loading, data} = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -73,27 +73,70 @@ function Profile() {
 
   return (
     <div className="profileMargins">
-      <div>
+
+      <div className="project" style={{marginBottom: 35, width: "80%", alignContent:"center", backgroundColor:"#F7DFB8"}}>
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
-        <h5>Email: {user.email}</h5>
+        <div style={{marginBottom: 20}}>
+        {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
+
+        <a style={{textDecoration:"none", color:"grey"}} href="mailto: {user.email}">
+        <i className="mail icon huge" ></i>
+        </a>
+       
+
+        <a style={{textDecoration:"none"}} href={user.linkedin} target="_blank" rel="noreferrer">
+        <i className="linkedin icon huge" ></i>
+        </a>
+        
+        
+        
+        <a style={{textDecoration:"none", color:"black"}} href={user.github} target="_blank" rel="noreferrer" >
+        <i className="github icon huge"></i>
+        </a>
+
+        
+        </div >
         {!userParam ? (
           <div>
-            <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
-            <EdiText 
+            <h5 style={{maxWidth:"70%", marginBottom:15}}>Bio: {user.bio}</h5>
+            {/* <EdiText 
               name="bio" type='textarea' value={bio} 
               editButtonContent="Edit"
               inputProps={{ placeholder:"Edit your bio here", style: {maxWidth:"70%"}, rows: 3 }}
               onSave={handleSaveBio} onChange={handleChange}
-            />
+            /> */}
+            <a href="edit-profile">
+            <div  className="ui vertical animated button" tabIndex="0">
+              <div className="hidden content">Edit Profile</div>
+              <div className="visible content">
+              <i className="pencil alternate icon"></i>
+
+              </div>
+            </div>
+            </a>
+
+
           </div>
+       
         ) : (
           <h5 style={{maxWidth:"70%"}}>Bio: {user.bio}</h5>
         )}     
+      
 
       <br/>
+      </div>   
 
         <div>
+        <div style={{marginLeft: "5%"}}>
           <h3>{userParam ? `${user.username}'s` : `Your`} Projects:</h3>
+          
+          {!userParam ? 
+            <Link style={{}} to='/create-project'>
+              <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
+            </Link> :
+            <div></div>
+          }
+          </div>
           <ProjectCards
             projects={projects}
           />
@@ -102,13 +145,15 @@ function Profile() {
       <br/>
 
         <div>
+          <div style={{marginLeft: "5%"}}>
           <h3>Collaborated Projects:</h3>
+          </div>
           <ProjectCards
             projects={collabProjects}
           />
         </div>
 
-      </div>       
+          
     </div>
   )
 };

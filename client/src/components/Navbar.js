@@ -66,14 +66,14 @@ function NavBar() {
   // </Menu>
   // )
 
-
-    <Navbar className='nav sticky-top' collapseOnSelect expand="lg" bg="light" >
-      <Container>
-        <Navbar.Brand as={Link} to="/"><img src={logo} className="logo" size='small' alt='gitfund logo'/>
-        </Navbar.Brand>
+  // className="container-fluid justify-content-end navStyles"
+    <Navbar style={{justifyContent:"space-between"}} className='nav sticky-top gap-5' collapseOnSelect expand="lg" bg="light" >
+      <Container className='m-auto' style={{justifyContent:"space-between"}}>
+        <div><Navbar.Brand as={Link} to="/"><img src={logo} className="logo " size='small' alt='gitfund logo'/></Navbar.Brand></div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="container-fluid justify-content-end navStyles">
+        <Nav className="me-auto "></Nav>
+          <Nav className='navStyles'> 
             {Auth.loggedIn() ? (
               <>
                 <Nav.Link as={Link} to="/">Home</Nav.Link> 

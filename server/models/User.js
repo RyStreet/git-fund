@@ -34,6 +34,14 @@ const userSchema = new Schema(
     bio: {
       type: String,
       trim: true
+    },
+    linkedin: {
+      type: String,
+      trim: true
+    },
+    github:{
+      type: String,
+      trim: true
     }
   },
   // {

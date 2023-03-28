@@ -7,6 +7,7 @@ import Collaborate from '../components/Collaborate'
 import Collaborators from '../components/Collaborators';
 import Donations from '../components/Donations';
 
+
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 
 import Auth from '../utils/auth';
@@ -54,9 +55,12 @@ function SingleProject() {
       <div className='project'>
         <div className='project-section1'>
           <h1>{project.title}</h1>
-          <h5>By: {project.creator}</h5>
+          <h4>By: <Link className="textDecNone" to={`/profiles/${project.creator}`}>{project.creator}</Link></h4>
           <h5>{project.description}</h5>
-          <h5>Project Repository: {project.repo}</h5>
+          {/* <h5>Project Repository: {project.repo}</h5> */}
+          <a className="ghIcon" style={{textDecoration:"none", color:"black"}} href={project.repo} target="_blank" rel="noreferrer" >
+            <i class="github icon huge"></i>
+          </a>
         </div>  
 
         <br/>
