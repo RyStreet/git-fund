@@ -79,32 +79,32 @@ function CreateProject() {
         <h2>Post New Project</h2>
         <form onSubmit={handleFormSubmit} className="newProject_form">
           
-          <div>
+          
             <textarea 
               name="title" value={title} id="title" placeholder="What is your project title?"
               className="textarea" onChange={handleChange}
             />
-          </div>
+          
         
-          <div>
+          
             <textarea 
-              name="description" value={description} id="description" placeholder="What is your project description?"
+              rows={4} name="description" value={description} id="description" placeholder="What is your project description?"
               className="textarea" onChange={handleChange}
               />
-          </div>  
+           
 
-          <div>
+          
             <textarea 
               name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
               className="textarea" onChange={handleChange}
               />
-          </div>  
+          
 
           <div className="fundingGoal">
             <label>How much funding is needed?</label>
             <input 
-              name="fundingGoal" value={fundingGoal} id="fundingGoal" type="number" 
-              className="" onChange={handleChange}
+              name="fundingGoal" value={fundingGoal} id="fundingGoalBar" type="number" 
+               onChange={handleChange}
             />
           </div>   
 

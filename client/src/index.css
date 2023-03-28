@@ -252,7 +252,7 @@ bottom: 0px;
     align-items: center;
   }
   .newProject_form{
-    width: 46%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -262,13 +262,18 @@ bottom: 0px;
     padding: 20px;
     background-color: #F7DFB8;
   }
-  .textarea{
-    width: 350px;
+  textarea{
+    width: 80%;
   }
   .fundingGoal{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+    
+  }
+
+  #fundingGoalBar{
+    width: 100%;
   }
   
   @media only screen and (min-width: 768px) {
