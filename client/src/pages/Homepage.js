@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import background from '../assets/background-mobile.jpg'
 import AboutUs from '../components/AboutUs';
 import ProjectCards from '../components/ProjectCards';
+import city from '../assets/background-desktop.jpg';
 
 import Auth from '../utils/auth';
 import { QUERY_PROJECTS } from '../utils/queries';
@@ -15,15 +16,17 @@ function Homepage() {
 
   return (
     <div className='HomeMainContainer'>
-      <h3>Help fund or collaborate on projects!</h3>
-      
-      <div>
+      <div id='homeHeader' style={{ justifyContent: "center"}}>
+       
+      <h3 style={{fontSize: "50px", marginLeft: "5%" }}>Help fund or collaborate on projects!</h3>
+      </div>
+      <div style={{marginLeft: "5%" }}>
         {Auth.loggedIn() ? (
-          <>
-            <Link to='/create-project'>
+          <div>
+            <Link style={{}} to='/create-project'>
               <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
             </Link>
-          </>
+          </div>
         ) : (
           <>
             <Link to={'/login'}>
@@ -34,6 +37,8 @@ function Homepage() {
         
       </div>
       <div>
+
+
         {loading ? (
             <div>Loading...</div>
           ) : (
