@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 const Donations = ({fundingEarned = []}) => {
     if(!fundingEarned.length){
-        return <p>No Donations Yet</p>
+        return (
+            <div className='list'>
+              <h4>No Donations Yet</h4>
+              
+            </div>
+        )
     }
     return (
         <>
