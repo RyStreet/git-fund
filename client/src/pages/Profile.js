@@ -79,7 +79,7 @@ function Profile() {
         <div style={{marginBottom: 20}}>
         {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
 
-        <a style={{textDecoration:"none", color:"orange"}} href="mailto: {user.email}">
+        <a style={{textDecoration:"none", color:"grey"}} href="mailto: {user.email}">
         <i class="mail icon huge" ></i>
         </a>
        
@@ -127,7 +127,13 @@ function Profile() {
       </div>   
 
         <div>
+        <div style={{marginLeft: "5%"}}>
           <h3>{userParam ? `${user.username}'s` : `Your`} Projects:</h3>
+          
+            <Link style={{}} to='/create-project'>
+              <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
+            </Link>
+          </div>
           <ProjectCards
             projects={projects}
           />
@@ -136,7 +142,9 @@ function Profile() {
       <br/>
 
         <div>
+          <div style={{marginLeft: "5%"}}>
           <h3>Collaborated Projects:</h3>
+          </div>
           <ProjectCards
             projects={collabProjects}
           />

@@ -170,6 +170,10 @@ bottom: 0px;
     color: #FE9F00;
   }
 
+  .icon:hover{
+    color: #FE9F00;
+  }
+
   .project-section1{
     /* border: 1px solid black;
     padding: 20px;
