@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ProjectCards = ({projects}) => { 
     if(!projects?.length){ 
-        return <h4>No Projects Yet</h4>;
+        return <h4 style={{marginLeft: "5%", marginTop: ".5%"}}>No Projects Yet</h4>;
     }
     return(
         <div id="projectCard">
