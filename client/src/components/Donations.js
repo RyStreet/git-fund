@@ -11,7 +11,7 @@ const Donations = ({fundingEarned = []}) => {
             {fundingEarned &&
             fundingEarned.map((donation) => (
                 <div key={donation._id}>
-                    <div className='list'>
+                    <div className='list' >
                         {/* <p id="donationAmount"> {donation.donaterName} donated ${donation.amount}</p> */}
                        <p id="donationAmount"> <Link className="textDecNone" to={`/profiles/${donation.donaterName}`}>{donation.donaterName}</Link> donated ${donation.amount}</p>
                     </div>

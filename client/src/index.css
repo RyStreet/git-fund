@@ -202,15 +202,18 @@ bottom: 0px;
     background-color:#F7DFB8 ;
   }
   .list{
-    width: 90%;
-    height: 80px;
+    width: 40%;
+    height: 5%;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 30px auto;
+    /* margin: 30px auto; */
+    margin-top: 25px;
+    margin-left: 2.5%;
     background-color: #F7DFB8;
     font-size: 25px;
     padding: 20px;
     font-weight: bolder;
+    
   }
   .image-container {
     width: 100%;
