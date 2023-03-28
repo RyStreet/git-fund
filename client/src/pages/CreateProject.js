@@ -50,6 +50,7 @@ function CreateProject() {
       setRepo('');
 
       navigate("/profile", {replace: true})
+      navigate(0); //////////////////////checking if refreshes on heroku
     } catch (err) {
       console.error(err);
     } 
