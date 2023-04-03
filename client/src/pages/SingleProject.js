@@ -1,22 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import Donate from '../components/Donate'
 import Collaborate from '../components/Collaborate'
 import Collaborators from '../components/Collaborators';
 import Donations from '../components/Donations';
 
-
+import { QUERY_ME } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
+import { REMOVE_PROJECT } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 function SingleProject() {
-  const { projectId } = useParams();
+  const navigate = useNavigate();
+
+  const { projectId, username: userParam } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
-    variables: { projectId: projectId },
+    variables: { projectId: projectId }
   });
+
+  //////// NEED TO ADD USER PARAMS SO DELETE BUTTON ONLY SHOWS ON USER'S OWN PROJECTS /////////////
+  // const {loading: userLoading, data: userData} = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  //   variables: { username: userParam }
+  // });
+  
+  const [removeProject, {error}] = useMutation(REMOVE_PROJECT);
 
   const project = data?.project || {};
   
@@ -37,18 +48,30 @@ function SingleProject() {
 
   // For total donations
   let donations = project.fundingEarned
-  
-
   let total = 0
 
   for (let i = 0; i < donations.length; i++){
    const loopDonations = donations[i].amount
-    
-
    total += loopDonations
   }
-  
-  
+
+  // To delete project
+  const handleRemoveProject = async(event) => {
+    event.preventDefault();
+    console.log("Project Removed!")
+
+    try {
+      const {data} = await removeProject({
+        variables: {
+          projectId: project._id
+        }
+      })
+      navigate("/profile", {replace: true});
+      navigate(0);
+    } catch (err) {
+      console.error(err)
+    }
+  };
 
   return (
     <>
@@ -59,7 +82,7 @@ function SingleProject() {
           <h5>{project.description}</h5>
           {/* <h5>Project Repository: {project.repo}</h5> */}
           <a className="ghIcon" style={{textDecoration:"none", color:"black"}} href={project.repo} target="_blank" rel="noreferrer" >
-            <i class="github icon huge"></i>
+            <i className="github icon huge"></i>
           </a>
         </div>  
 
@@ -77,11 +100,20 @@ function SingleProject() {
           <h5><Collaborators collaborators={project.collaborators}/></h5>
           <Collaborate projectId={project._id} className='button' />
         </div>
-      </div>
 
+        {/* GOTTA ADD USER PARAMS */}
+        {!userParam ? (
+          <div>
+            <button onClick={handleRemoveProject}>Delete</button>
+          </div>
+          ) : (
+          <div></div>
+        )}
+      </div>
+      
       <div > 
         <Donations fundingEarned={project.fundingEarned}/>
-      </div>
+      </div> 
     </>
   )
 };

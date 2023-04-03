@@ -41,6 +41,27 @@ export const ADD_PROJECT = gql`
   }
 `;
 
+// export const EDIT_PROJECT = gql`
+
+// `;
+
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($projectId: ID!) {
+    removeProject(projectId: $projectId) {
+      _id
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      collaborators {
+        _id
+        collabNotes
+      }
+    }
+  }
+`;
+
 export const ADD_COLLABORATOR = gql`
   mutation addCollaborator($projectId: ID!, $collabNotes: String!) {
     addCollaborator(projectId: $projectId, collabNotes: $collabNotes) {
