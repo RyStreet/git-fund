@@ -111,6 +111,13 @@ bottom: 0px;
   #projectCardTitle{
     font-size: 28px;
     font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    transition: .3s ease
+  }
+  #projectCardTitle:hover{
+    color: #FE9F00  
   }
   #projectCardDescription{
     font-size: 18px;
@@ -118,22 +125,13 @@ bottom: 0px;
   #projectCardFunding{
     font-size: 20px;
   }
-  .projectDetails{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    transition: .3s ease
-  }
-  .projectDetails:hover{
-    color: #FE9F00  
-  }
+
   .logo{
     width: 120px !important;
   }
   .btn-fund-container{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
   }
   .button {
     color: white;

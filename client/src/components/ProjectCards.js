@@ -12,7 +12,9 @@ const ProjectCards = ({projects}) => {
                 projects.map((project) => (     
                     <div key={project._id} className="MainTile my-4">  
                         <div id="projectCardHeader">
-                            <h3 id="projectCardTitle">{project.title}</h3>
+                            <Link to={`/projects/${project._id}`} className="textDecNone">
+                                <h3 id="projectCardTitle">{project.title}</h3>
+                            </Link>
                             <h4>
                               By: <Link className="textDecNone" to={`/profiles/${project.creator}`}>{project.creator}</Link>
                             </h4>
@@ -29,9 +31,9 @@ const ProjectCards = ({projects}) => {
                             {/* <div><Progress percent={"10"} inverted progress success/></div> */}
                         </div>
 
-                        <Link to={`/projects/${project._id}`} className="projectDetails">
+                        {/* <Link to={`/projects/${project._id}`} className="projectDetails">
                           View project details 
-                        </Link>
+                        </Link> */}
                     </div>
             ))} 
         </div>
