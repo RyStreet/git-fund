@@ -17,19 +17,14 @@ import Auth from '../utils/auth';
 function SingleProject() {
   const navigate = useNavigate();
 
-  const { projectId, username: userParam } = useParams();
+  const { projectId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
     variables: { projectId: projectId }
   });
 
-  //////// NEED TO ADD USER PARAMS SO DELETE BUTTON ONLY SHOWS ON USER'S OWN PROJECTS /////////////
-  // const {loading: userLoading, data: userData} = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-  //   variables: { username: userParam }
-  // });
-  
-  const [removeProject, {error}] = useMutation(REMOVE_PROJECT);
-
   const project = data?.project || {};
+
+  const [removeProject, {error}] = useMutation(REMOVE_PROJECT);
   
   if (!Auth.loggedIn()) {
     return (
@@ -73,6 +68,19 @@ function SingleProject() {
     }
   };
 
+  const myProject = () => {
+    const me = JSON.stringify(Auth.getProfile().data.username)
+    const projectCreator = JSON.stringify(project.creator)
+    if (me === projectCreator) {
+      console.log("matching")
+      return true;
+    } else {
+      console.log("not matching")
+      return false;
+    } 
+  }
+  const isMyProject = myProject()
+
   return (
     <>
       <div className='project'>
@@ -101,8 +109,7 @@ function SingleProject() {
           <Collaborate projectId={project._id} className='button' />
         </div>
 
-        {/* GOTTA ADD USER PARAMS */}
-        {!userParam ? (
+        {isMyProject == true ? (
           <div>
             <button onClick={handleRemoveProject}>Delete</button>
           </div>
