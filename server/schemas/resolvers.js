@@ -78,6 +78,14 @@ const resolvers = {
           }
           throw new AuthenticationError('You need to be logged in!');
         },
+        editProject: async (parent, { projectId, title, description, fundingGoal, repo }, context) => {
+          // if(context.user) {
+            return Project.findOneAndUpdate(
+              {_id: projectId},
+              {title, description, fundingGoal, repo}
+            )
+          // }
+        },
         addCollaborator: async (parent, { projectId, collabNotes }, context) => {
           
           if (context.user) {

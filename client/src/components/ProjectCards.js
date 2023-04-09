@@ -31,9 +31,6 @@ const ProjectCards = ({projects}) => {
                             {/* <div><Progress percent={"10"} inverted progress success/></div> */}
                         </div>
 
-                        {/* <Link to={`/projects/${project._id}`} className="projectDetails">
-                          View project details 
-                        </Link> */}
                     </div>
             ))} 
         </div>
