@@ -11,8 +11,12 @@ import { QUERY_PROJECTS, QUERY_SINGLE_PROJECT } from "../utils/queries";
 import Auth from "../utils/auth";
 
 
+
 function EditProject() {
-  const [title, setTitle] = useState('');
+
+  
+
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState('');
   const [fundingGoal, setFundingGoal] = useState('');
   const [repo, setRepo] = useState('');
@@ -20,11 +24,17 @@ function EditProject() {
   const {projectId} = useParams()
   const [editProject, {error}] = useMutation(EDIT_PROJECT)
 
+  
+
   const {loading, data} = useQuery(QUERY_SINGLE_PROJECT, {
     variables: {projectId: projectId}
   })
   const project = data?.project || []
   console.log(project)
+
+  console.log(project.fundingGoal)
+  
+ var editBtn = document.getElementById("editBtn")
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -40,7 +50,9 @@ function EditProject() {
         },
       });
 
-      setTitle(``);
+     
+
+      setTitle('');
       setDescription('');
       setFundingGoal('');
       setRepo('');
@@ -56,58 +68,84 @@ function EditProject() {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
+    // if(!project.title.value){
+    //   setTitle(project.title)
+    // }
+
+    // if(!project.description.value){
+    //   setDescription(project.description)
+    // }
+
+    // if(!project.repo.value){
+    //   setRepo(project.repo)
+    // }
+    
+    // if(!project.fundingGoal.value){
+    //   console.log(project.fundingGoal)
+    //  setFundingGoal(project.fundingGoal)
+     
+    // }
+   
     if (name === 'title') {
-      setTitle(value);
+      setTitle(value)
+      
     }
-    if (name === 'description') {
-      setDescription(value);
+     if (name === 'description') {
+      setDescription(value)
     }
-    if (name === 'fundingGoal') {
+   if (name === 'fundingGoal') {
       setFundingGoal(parseInt(value));
     }
     if (name === 'repo') {
       setRepo(value);
     }
+
+  
+    
   };
 
+
   return (
-    <div >
+    <div  >
       {Auth.loggedIn() ? (
       <div className="newProject">
         <h2>Edit Project</h2>
-        <form onSubmit={handleFormSubmit} className="newProject_form">
+        <form  onSubmit={handleFormSubmit} className="newProject_form">
           
           
             <textarea 
-              name="title" value={title} id="title" placeholder={`${project.title}`}
-              className="textarea" onChange={handleChange}
+              name="title"  defaultValue={project.title}  id="title" placeholder={`${project.title}`}
+              className="textarea" 
+              onChange={handleChange}
             />
           
         
           
             <textarea 
-              rows={4} name="description" value={description} id="description" placeholder="What is your project description?"
-              className="textarea" onChange={handleChange}
+              rows={4} name="description"  defaultValue={project.description} id="description" placeholder={`${project.description}`}
+              className="textarea" 
+              onChange={handleChange}
               />
            
 
           
             <textarea 
-              name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
-              className="textarea" onChange={handleChange}
+              name="repo"  defaultValue={project.repo} id="repo" placeholder={`${project.repo}`}
+              className="textarea" 
+              onChange={handleChange}
               />
           
 
           <div className="fundingGoal">
             <label>How much funding is needed?</label>
             <input 
-              name="fundingGoal" value={fundingGoal} id="fundingGoalBar" type="number" 
+              name="fundingGoal" placeholder={`${project.fundingGoal}`} defaultValue={project.fundingGoal} id="fundingGoalBar" type="number" 
                onChange={handleChange}
             />
-          </div>   
+          </div>    
 
           <div>
-            <button className="button" type="submit">Post Project</button>
+            <button id="editBtn" className="ui  button" type="submit">Post Project</button>
           </div>
 
           {error && (
