@@ -144,7 +144,21 @@ bottom: 0px;
    .donate-btn{
     margin: 10px;
    }
+  #editAndDelBtns{
+    display: inline-flex;
+
+    
+  }
+
+  .delete-project-btn{
+    margin-left: 5px;
    
+  }
+
+  .edit-project-btn{
+    width: 65px;
+  }
+
   .profileMargins{
     margin: 20px 20px;
   }
