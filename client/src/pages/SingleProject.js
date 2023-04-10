@@ -124,6 +124,13 @@ function SingleProject() {
         </div>
 
         {isMyProject == true ? (
+          <div id="editAndDelBtns">
+          <div >
+            <Link to= {`/projects/${project._id}/edit`} >
+            <Button className='edit-project-btn' variant='warning'>Edit</Button>
+            </Link>
+          </div>
+  
           <div className='delete-project-btn'>
             <Button variant="danger" onClick={handleShow}>Delete</Button>
             <Modal show={deleteBtn} onHide={handleClose}>
@@ -140,6 +147,9 @@ function SingleProject() {
                 </Button>
               </Modal.Footer>
             </Modal>
+
+
+          </div>
           </div>
           ) : (
           <div></div>

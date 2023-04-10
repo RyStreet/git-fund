@@ -42,8 +42,8 @@ export const ADD_PROJECT = gql`
 `;
 
 export const EDIT_PROJECT = gql`
-  mutation editProject($title: String!, $description: String!, $fundingGoal: Int!, $repo: String!) {
-    editProject(title: $title, description: $description, fundingGoal: $fundingGoal, repo: $repo) {
+  mutation editProject($projectId: ID!, $title: String!, $description: String!, $fundingGoal: Int!, $repo: String!) {
+    editProject(projectId: $projectId title: $title, description: $description, fundingGoal: $fundingGoal, repo: $repo) {
       _id
       title
       description
