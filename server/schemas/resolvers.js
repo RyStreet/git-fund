@@ -67,7 +67,7 @@ const resolvers = {
           if (context.user) {
             const project = await Project.findOneAndDelete({
               _id: projectId,
-              creator: context.user.username,
+              // creator: context.user.username,
             });
 
             await User.findOneAndUpdate(
@@ -77,6 +77,14 @@ const resolvers = {
             return project;
           }
           throw new AuthenticationError('You need to be logged in!');
+        },
+        editProject: async (parent, { projectId, title, description, fundingGoal, repo }, context) => {
+          // if(context.user) {
+            return Project.findOneAndUpdate(
+              {_id: projectId},
+              {title, description, fundingGoal, repo}
+            )
+          // }
         },
         addCollaborator: async (parent, { projectId, collabNotes }, context) => {
           

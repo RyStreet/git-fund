@@ -54,15 +54,17 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
-        removeProject(projectId: ID!): Project
-        addCollaborator(projectId: ID!, collabNotes: String!): Project
         editProfile(userId: ID!, bio: String, linkedin: String, github: String): User
 
-        addComment(projectId: ID!, commentText: String!): Project
-        removeComment(projectId: ID!, commentId: ID!): Project
+        addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
+        removeProject(projectId: ID!): Project
+        editProject(projectId: ID!, title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
 
         addDonation(projectId: ID!, amount: Int!): Project
+        addCollaborator(projectId: ID!, collabNotes: String!): Project
+
+        addComment(projectId: ID!, commentText: String!): Project
+        removeComment(projectId: ID!, commentId: ID!): Project  
     }
 `;
 module.exports = typeDefs;
