@@ -26,9 +26,9 @@ app.get('/', (req, res) => {
 });
 
 // COMMENT OUT WHEN USING IN LOCALHOST
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 
 
