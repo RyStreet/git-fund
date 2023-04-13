@@ -8,11 +8,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_USER } from "../utils/queries"
 
 import Auth from "../utils/auth"
+import EditProfileComp from "../components/EditProfileComp";
 
-//create and edit linkedin
-//create and edit github
-//create and edit bio
-//edit email
 
 function EditProfileContent () {
     const navigate = useNavigate()
@@ -82,44 +79,12 @@ function EditProfileContent () {
     return(
         <div style={{justifyContent: "center"}}>
             {Auth.loggedIn() ? (
-
-            <div>
-                <h2 style={{marginLeft: "10%", marginTop: "1%"}}>{`Now Editing ${user.username}'s Profile`} </h2>
-                    <div id="editProfileContainer">
-                
-                        <div   class="ui form">
-                            <form id="editProfileForm" onSubmit={handleEditProfile}>
-
-                                <div class="field" >
-                                    <label>LinkedIn</label>
-                                    <input  style={{width: "60vw"}}  id="linkedin" type="textarea" name="linkedin" onChange={handleChange} placeholder={user.linkedin} value={linkedin} rows="1"></input>
-                                </div>
-
-                                <div  class="field" >
-                                <label>Github</label>
-                                <input style={{width: "60vw"}} id="github" type="textarea" name="github" onChange={handleChange}  placeholder={user.github} value={github} rows="1"></input>
-                                </div>
-
-                                <div class="field" >
-                                <label>Bio</label>
-                                <input style={{width: "60vw"}}  id="bio" type="textarea" name="bio" onChange={handleChange} placeholder={user.bio} value={bio} ></input>                    
-                                </div>
-
-                                <button type="submit" class="ui submit button">Submit</button>
-                            </form>
-                        
-                        </div>
-                    </div>
-            </div>
+                <EditProfileComp user={user}/>
             ) : (
-                <h3>Login or sign up to create a new project</h3>
+                <h3>Login or sign up to edit your profile</h3>
             )}
         </div>
-    )
-
-
-
-    
+    ) 
 }
 
 export default EditProfileContent;

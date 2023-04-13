@@ -70,7 +70,8 @@ function Profile() {
       setBio(value)
     }
   }
-
+const email = user.email
+console.log(email)
   return (
     <div className="profileMargins">
 
@@ -79,7 +80,7 @@ function Profile() {
         <div style={{marginBottom: 20}}>
         {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
 
-        <a style={{textDecoration:"none", color:"grey"}} href="mailto: {user.email}">
+        <a style={{textDecoration:"none", color:"grey"}} href={{mailto: email}}>
         <i className="mail icon huge" ></i>
         </a>
        

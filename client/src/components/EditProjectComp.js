@@ -75,12 +75,6 @@ function EditProjectComp() {
         },
       });
 
-      // setTitle('');
-      // setDescription('');
-      // setFundingGoal('');
-      // setRepo('');
-
-     
       navigate("/profile", {replace: true})
       navigate(0); 
     } catch (err) {
