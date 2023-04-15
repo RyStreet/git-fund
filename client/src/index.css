@@ -191,6 +191,7 @@ bottom: 0px;
 
   .icon:hover{
     color: #FE9F00;
+    cursor: pointer;
   }
 
   .project-section1{
