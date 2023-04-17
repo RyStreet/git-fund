@@ -50,7 +50,7 @@ function Profile() {
         <div style={{marginBottom: 20}}>
           {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
 
-          <a style={{textDecoration:"none", color:"grey"}} onClick={() => window.location.href = `mailto:${user.email}`}>
+          <a style={{textDecoration:"none", color:"#5A5A5A"}} onClick={() => window.location.href = `mailto:${user.email}`}>
             <i className="mail icon huge" ></i>
           </a>
       

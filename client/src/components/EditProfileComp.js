@@ -72,35 +72,33 @@ function EditProfileComp () {
   };
 
   return(
-    <div style={{justifyContent: "center"}}>
+    <div>
       {Auth.loggedIn() ? (
-        <div>
-          <h2 style={{marginLeft: "10%", marginTop: "1%"}}>{`Now Editing ${user.username}'s Profile`} </h2>
-            <div id="editProfileContainer">           
-              <div className="ui form">
-                <form id="editProfileForm" onSubmit={handleEditProfile}>                          
-                  <label>LinkedIn</label>
-                  <textarea 
-                    style={{width: "60vw"}}  id="linkedin"  name="linkedin" 
-                    onChange={handleChange} placeholder={`${user.linkedin}`} value={linkedin} 
-                  />
+        <div className="newProject">
+          <h2>{`Now Editing ${user.username}'s Profile`} </h2>
+            <form className="newProject_form" onSubmit={handleEditProfile}>                                
+              <label className="editProfileSectionTitles">LinkedIn</label>
+              <textarea 
+                className="textarea" id="linkedin"  name="linkedin" rows={1}
+                onChange={handleChange} placeholder={`${user.linkedin}`} value={linkedin} 
+              />     
 
-                  <label>Github</label>
-                  <textarea        
-                    style={{width: "60vw"}} id="github" name="github" 
-                    onChange={handleChange}  placeholder={`${user.github}`} value={github}
-                  />
+              <label className="editProfileSectionTitles">Github</label>
+              <textarea        
+                className="textarea" id="github" name="github" rows={1}
+                onChange={handleChange}  placeholder={`${user.github}`} value={github}
+              />
 
-                  <label>Bio</label>
-                  <textarea 
-                    style={{width: "60vw"}} id="bio" name="bio" 
-                    onChange={handleChange} placeholder={`${user.bio}`} value={bio}
-                  />
+              <label className="editProfileSectionTitles">Bio</label>
+              <textarea 
+                className="textarea" id="bio" name="bio" rows={4}
+                onChange={handleChange} placeholder={`${user.bio}`} value={bio}
+              />
 
-                  <button type="submit" className="ui submit button">Edit Profile</button>
-                </form>
+              <div>
+                <button type="submit" className="ui submit button">Edit Profile</button>
               </div>
-          </div>
+            </form>
         </div>
       ) : (
         <h3>Login or sign up to edit your profile</h3>
