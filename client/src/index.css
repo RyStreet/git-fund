@@ -60,6 +60,14 @@ position: relative;
   text-align: center;
 } */
 
+.navbarImage {
+  margin-left: 5%;
+}
+
+.navbarItems {
+  margin-right: 5%;
+}
+
 .navbar>.container, .navbar>.container-fluid, .navbar>.container-sm, .navbar>.container-md, .navbar>.container-lg, .navbar>.container-xl, .navbar>.container-xxl {
   display: flex;
   flex-wrap: inherit;
@@ -189,8 +197,13 @@ bottom: 0px;
     color: #FE9F00;
   }
 
+
+  .icon{
+    transition: .3s ease;
+  }
   .icon:hover{
     color: #FE9F00;
+    cursor: pointer;
   }
 
   .project-section1{
@@ -297,6 +310,38 @@ bottom: 0px;
   #fundingGoalBar{
     width: 100%;
   }
+
+  #editProfileContainer{
+    background-color: #F7DFB8;
+    border: 1px solid black;
+    width: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+  }
+
+  .editProfileSections{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .editProfileSectionTitles{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 110%;
+  }
+
+  .editProfileTextboxes{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   
   @media only screen and (max-width: 550px) {
     .newProject_form {
@@ -345,15 +390,4 @@ bottom: 0px;
     
   }
 
-  #editProfileContainer{
-    background-color: #F7DFB8;
-    border: 1px solid black;
-    width: 80%;
-    border-radius: 10px;
-    padding: 20px;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  
