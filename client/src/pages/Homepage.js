@@ -18,7 +18,7 @@ function Homepage() {
     <div className='HomeMainContainer'>
       <div id='homeHeader' style={{ justifyContent: "center"}}>
        
-      <h3 style={{fontSize: "50px", marginLeft: "5%" }}>Help fund or collaborate on projects!</h3>
+      <h3 className='homepageTitle'>Help fund or collaborate on projects!</h3>
       </div>
       <div style={{marginLeft: "5%" }}>
         {Auth.loggedIn() ? (

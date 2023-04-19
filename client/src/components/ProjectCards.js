@@ -19,7 +19,18 @@ const ProjectCards = ({projects}) => {
                               By: <Link className="textDecNone" to={`/profiles/${project.creator}`}>{project.creator}</Link>
                             </h4>
                             
-                            <p id="projectCardDescription">{project.description}</p>
+                            {project.description.length > 75 ?
+                                <p id="projectCardDescription">                              
+                                    {project.description.substring(0, 75)}...
+                                </p>
+                                    :
+                                <p id="projectCardDescription">
+                                    {project.description}
+                                    <br/>
+                                    <br/>
+                                </p>
+                            }
+                            
                             {/* <p id="projectCardCategory">{project.category}</p> */}
                             {/* <ul id="projectCardLanguages">{project.languages}</ul> */}
                         </div>

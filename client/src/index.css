@@ -100,9 +100,19 @@ bottom: 0px;
     
   }
 
+  #homeHeader{
+    margin-bottom: 18px;
+  }
+
+  .homepageTitle {
+    font-size: 50px;
+    margin-left: 5%;
+  }
+
   .MainTile{
     background-color:#F7DFB8;
-    width: 380px;
+    width: 370px;
+    /* height: 250px; */
     margin: 3rem auto;
     padding: 15px;
     border: 3px black solid;
@@ -170,10 +180,6 @@ bottom: 0px;
   .edit-project-btn{
     width: 65px;
   }
-
-  /* .profileMargins{
-    margin: 20px 20px;
-  } */
 
   .navStyles{
     font-size: 18px;
@@ -348,6 +354,10 @@ bottom: 0px;
 
   
   @media only screen and (max-width: 550px) {
+    .homepageTitle {
+      font-size: 35px;
+      margin-right: 2%;
+    }  
     .newProject_form {
       width: 85%;
     }
@@ -399,7 +409,7 @@ bottom: 0px;
 
     #projectCard{
       grid-template-rows: auto auto auto;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto auto auto auto;
     }
 
     
