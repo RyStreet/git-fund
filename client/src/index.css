@@ -60,6 +60,14 @@ position: relative;
   text-align: center;
 } */
 
+.navbarImage {
+  margin-left: 5%;
+}
+
+.navbarItems {
+  margin-right: 5%;
+}
+
 .navbar>.container, .navbar>.container-fluid, .navbar>.container-sm, .navbar>.container-md, .navbar>.container-lg, .navbar>.container-xl, .navbar>.container-xxl {
   display: flex;
   flex-wrap: inherit;
