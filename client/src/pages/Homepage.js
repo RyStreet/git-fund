@@ -20,11 +20,11 @@ function Homepage() {
        
       <h3 className='homepageTitle'>Help fund or collaborate on projects!</h3>
       </div>
-      <div style={{marginLeft: "5%" }}>
+      <div style={{marginLeft: "4%" }}>
         {Auth.loggedIn() ? (
           <div>
             <Link style={{}} to='/create-project'>
-              <button style={{backgroundColor:'#FE9F00'}} className='button'>+ New Project</button>
+              <button style={{backgroundColor:'#FE9F00', marginBottom:"10px"}} className='button'>+ New Project</button>
             </Link>
           </div>
         ) : (

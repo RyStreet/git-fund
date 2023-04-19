@@ -43,7 +43,6 @@ function EditProjectComp() {
     }
   };
 
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -91,7 +90,7 @@ function EditProjectComp() {
         <form onSubmit={handleFormSubmit} className="newProject_form">         
           <textarea 
             name="title" value={title} id="title" placeholder={`${project.title}`}
-            className="textarea" onChange={handleChange}
+            className="textarea" onChange={handleChange} rows={1}
           />
         
           <textarea 
@@ -101,21 +100,20 @@ function EditProjectComp() {
                 
           <textarea 
             name="repo" value={repo} id="repo" placeholder={`${project.repo}`}
-            className="textarea" onChange={handleChange}
+            className="textarea" onChange={handleChange} rows={1}
           />
           
           <div className="fundingGoal">
-            <label>How much funding is needed?</label>
+            <label>How much funding is needed ($)?</label>
             <input 
               name="fundingGoal" value={fundingGoal} id="fundingGoalBar" type="number" placeholder={`${project.fundingGoal}`}
-              onChange={handleChange}
+              onChange={handleChange} 
             />
           </div>   
 
           <div>
             <button className="button" type="submit">Update Project</button>
           </div>
-
 
           {error && (
             <div>
