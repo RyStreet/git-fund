@@ -125,3 +125,23 @@ export const EDIT_PROFILE = gql`
     }
   }
 `;
+export const ADD_COMMENT = gql`
+mutation addComment($projectId: ID!, $commentText: String!) {
+  addComment(projectId: $projectID, commentText: $commentText) {
+    _id
+    title
+    description
+    fundingGoal
+    creator
+    repo
+    
+    comments {
+      _id
+      commentText
+      commentAuthor{
+        username
+      }
+    }
+  }
+}`
+;
