@@ -102,7 +102,7 @@ function SingleProject() {
 
         <br/>
 
-        <div className='project-section3'>          
+        <div className='single-project-section'>          
           <h4>Funding Total: ${total}</h4>
           <h4>Funding Goal: ${project.fundingGoal}</h4>
           {/* <Progress percent="80" inverted progress success/> */}
@@ -113,7 +113,7 @@ function SingleProject() {
           )}
         </div>
 
-        <div className='project-section2'>
+        <div className='single-project-section'>
           <h4>Collaborators:</h4>
           <h5><Collaborators collaborators={project.collaborators}/></h5>
           {!isMyProject == true ? (

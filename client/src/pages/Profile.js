@@ -45,7 +45,7 @@ function Profile() {
   return (
     <div className="profileMargins">
 
-      <div className="project" style={{marginBottom: 35, width: "80%", alignContent:"center", backgroundColor:"#F7DFB8"}}>
+      <div className="profileSection">
         <h2>{userParam ? `Now Viewing ${user.username}'s` : `Your`} Profile</h2>
         <div style={{marginBottom: 20}}>
           {/* <h5 style={{marginBottom:10}} href={user.email}>Email: {user.email}</h5> */}
@@ -85,7 +85,7 @@ function Profile() {
       <br/>
 
       <div>
-        <div style={{marginLeft: "5%"}}>
+        <div style={{marginLeft: "3%"}}>
           <h3>{userParam ? `${user.username}'s` : `Your`} Projects:</h3>
           
           {!userParam ? 
@@ -104,7 +104,7 @@ function Profile() {
       <br/>
 
       <div>
-        <div style={{marginLeft: "5%"}}>
+        <div style={{marginLeft: "3%"}}>
           <h3>Collaborated Projects:</h3>
         </div>
         <ProjectCards

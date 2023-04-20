@@ -7,7 +7,6 @@ import { QUERY_PROJECTS } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
-
 function CreateProject() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -78,31 +77,24 @@ function CreateProject() {
       {Auth.loggedIn() ? (
       <div className="newProject">
         <h2>Post New Project</h2>
-        <form onSubmit={handleFormSubmit} className="newProject_form">
-          
-          
-            <textarea 
-              name="title" value={title} id="title" placeholder="What is your project title?"
-              className="textarea" onChange={handleChange}
-            />
-          
-        
-          
-            <textarea 
-              rows={4} name="description" value={description} id="description" placeholder="What is your project description?"
-              className="textarea" onChange={handleChange}
-              />
-           
+        <form onSubmit={handleFormSubmit} className="newProject_form">  
+          <textarea 
+            name="title" value={title} id="title" placeholder="What is your project title?"
+            className="textarea" onChange={handleChange} rows={1}
+          />
 
-          
-            <textarea 
-              name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
-              className="textarea" onChange={handleChange}
-              />
-          
+          <textarea 
+            rows={4} name="description" value={description} id="description" placeholder="What is your project description?"
+            className="textarea" onChange={handleChange}
+          />
+    
+          <textarea 
+            name="repo" value={repo} id="repo" placeholder="Provide project repository's URL"
+            className="textarea" onChange={handleChange} rows={1}
+          />
 
           <div className="fundingGoal">
-            <label>How much funding is needed?</label>
+            <label>How much funding is needed ($)?</label>
             <input 
               name="fundingGoal" value={fundingGoal} id="fundingGoalBar" type="number" 
                onChange={handleChange}
