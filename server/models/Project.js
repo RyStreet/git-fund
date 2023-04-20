@@ -55,11 +55,8 @@ const projectSchema = new Schema({
     },
   ],
   
-
   comments: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Comment',
       commentText: {
         type: String,
         required: true,
@@ -67,8 +64,8 @@ const projectSchema = new Schema({
         maxlength: 280,
       },
       commentAuthor: {
-        type: String,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'User',
       },
     },
   ]

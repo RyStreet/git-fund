@@ -145,7 +145,7 @@ const resolvers = {
               {_id: projectId},
               {
                 $addToSet: {
-                  comments: {commentText, commentAuthor: context.user._id}
+                  comments: {commentText}///,commentAuthor:username
                 }
               },
               {
@@ -154,9 +154,9 @@ const resolvers = {
               }
             )
             await User.findOneAndUpdate(
-              {_id: context.user._id},
+              // {_id: context.user._id},
               {$addToSet:{
-                comments: {_id: commentId}
+                comments: {_id: projectId}
               }});
               return project
 
