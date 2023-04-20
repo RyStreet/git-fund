@@ -127,7 +127,7 @@ export const EDIT_PROFILE = gql`
 `;
 export const ADD_COMMENT = gql`
 mutation addComment($projectId: ID!, $commentText: String!) {
-  addComment(projectId: $projectID, commentText: $commentText) {
+  addComment(projectId: $projectId, commentText: $commentText) {
     _id
     title
     description

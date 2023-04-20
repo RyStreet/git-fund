@@ -11,7 +11,7 @@ const typeDefs = gql`
         bio: String
         linkedin: String
         github: String
-        comments: [Comment]!
+        comments: [Comment]
         
     }
     type Project {

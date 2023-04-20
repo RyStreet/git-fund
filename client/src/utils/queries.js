@@ -98,13 +98,15 @@ export const QUERY_SINGLE_PROJECT = gql`
         _id
         collabNotes
         collaboratorInfo{
-        username
+          username
         }        
       }
       comments{
         _id
         commentText
-        commentAuthor
+        commentAuthor{
+          username
+        }
       }
 
     }
