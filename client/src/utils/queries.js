@@ -25,6 +25,10 @@ export const QUERY_ME = gql`
         creator
         repo
       }
+      comments{
+        _id
+        commentText
+      }
     }
   }
 `;
@@ -53,6 +57,10 @@ export const QUERY_USER = gql`
         fundingGoal
         creator
         repo
+      }
+      comments{
+        _id
+        commentText
       }
     }
   }
@@ -93,7 +101,14 @@ export const QUERY_SINGLE_PROJECT = gql`
         username
         }        
       }
+      comments{
+        _id
+        commentText
+        commentAuthor
+      }
 
     }
   }
 `;
+
+

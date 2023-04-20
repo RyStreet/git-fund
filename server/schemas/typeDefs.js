@@ -11,18 +11,19 @@ const typeDefs = gql`
         bio: String
         linkedin: String
         github: String
+        comments: [Comment]!
         
     }
     type Project {
         _id: ID       
         title: String
         description: String
-        
         fundingGoal: Int
         fundingEarned: [Donation]
         creator: String
         repo: String
         collaborators: [Collaborator]!
+        comments: [Comment]!
         
     }
     type Donation{
@@ -38,7 +39,7 @@ const typeDefs = gql`
     type Comment{
         _id: ID
         commentText: String
-        commentAuthor: String
+        commentAuthor: User
     }
     type Auth {
         token: ID!
@@ -50,6 +51,7 @@ const typeDefs = gql`
         user(username: String!): User
         projects(username: String): [Project]
         project(projectId: ID!): Project
+        userComments(username: String):[Comment]
     }
     type Mutation {
         login(email: String!, password: String!): Auth
@@ -63,8 +65,13 @@ const typeDefs = gql`
         addDonation(projectId: ID!, amount: Int!): Project
         addCollaborator(projectId: ID!, collabNotes: String!): Project
 
+        
+
         addComment(projectId: ID!, commentText: String!): Project
-        removeComment(projectId: ID!, commentId: ID!): Project  
+      
     }
 `;
+
+// removeComment(projectId: ID!, commentId: ID!): Project 
+// editComment(projectId: ID!, commentId: ID!, commentText: String!): Project 
 module.exports = typeDefs;
