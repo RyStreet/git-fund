@@ -139,13 +139,13 @@ const resolvers = {
         },
 
         addComment: async(parent, {projectId, commentText }, context) => {
-          // if(context.user)
+          if(context.user) {
           
             const project = await Project.findOneAndUpdate(
               {_id: projectId},
               {
                 $addToSet: {
-                  comments: {commentText}///,commentAuthor:username
+                  comments: {commentText, commentAuthor: context.user.username}
                 }
               },
               {
@@ -154,15 +154,13 @@ const resolvers = {
               }
             )
             await User.findOneAndUpdate(
-              // {_id: context.user._id},
+              {_id: context.user._id},
               {$addToSet:{
                 comments: {_id: projectId}
               }});
-              return project
-
-            
-          
-          // throw new AuthenticationError("You must be logged in to comment")
+              return project        
+          }
+          throw new AuthenticationError("You must be logged in to comment")
         } 
 
 
