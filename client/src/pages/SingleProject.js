@@ -8,6 +8,8 @@ import Donate from '../components/Donate'
 import Collaborate from '../components/Collaborate'
 import Collaborators from '../components/Collaborators';
 import Donations from '../components/Donations';
+import CommentForm from '../components/CommentForm';
+import Comment from '../components/Comment';
 
 import { QUERY_ME } from '../utils/queries';
 import { QUERY_USER } from '../utils/queries';
@@ -156,6 +158,14 @@ function SingleProject() {
         )}
       </div>
       
+      <div>
+        <CommentForm projectId={project._id}/>
+      </div>
+
+      <div>
+        <Comment commentText = {project.commentText}/>
+      </div>
+
       <div > 
         <Donations fundingEarned={project.fundingEarned}/>
       </div> 

@@ -6,7 +6,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
           if (context.user) {
-            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects').populate('comments');
+            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects')  ////.populate('comments');
           }
           throw new AuthenticationError('You need to be logged in!');
         },
@@ -14,14 +14,14 @@ const resolvers = {
           return User.find().populate('projects');
         },
         user: async (parent, { username }) => {
-          return User.findOne({ username }).populate('projects').populate('collabProjects').populate('comments')
+          return User.findOne({ username }).populate('projects').populate('collabProjects')  ////.populate('comments')
         },
         projects: async (parent, { username }) => {
           const params = username ? { username } : {};
           return Project.find(params)
         },
         project: async (parent, { projectId }) => {
-          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo').populate('comments') 
+          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo').populate('comments.commentAuthor') 
         }
     },
 
@@ -145,7 +145,7 @@ const resolvers = {
               {_id: projectId},
               {
                 $addToSet: {
-                  comments: {commentText, commentAuthor: context.user.username}
+                  comments: {commentText, commentAuthor: context.user}
                 }
               },
               {
