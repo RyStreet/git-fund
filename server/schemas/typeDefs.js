@@ -39,7 +39,7 @@ const typeDefs = gql`
     type Comment{
         _id: ID
         commentText: String
-        commentAuthor: User
+        commentAuthor: String
     }
     type Auth {
         token: ID!
@@ -51,7 +51,7 @@ const typeDefs = gql`
         user(username: String!): User
         projects(username: String): [Project]
         project(projectId: ID!): Project
-        userComments(username: String):[Comment]
+        
     }
     type Mutation {
         login(email: String!, password: String!): Auth
@@ -74,4 +74,7 @@ const typeDefs = gql`
 
 // removeComment(projectId: ID!, commentId: ID!): Project 
 // editComment(projectId: ID!, commentId: ID!, commentText: String!): Project 
+
+
+// userComments(username: String):[Comment]     <-query
 module.exports = typeDefs;

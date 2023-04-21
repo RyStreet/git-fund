@@ -37,6 +37,10 @@ export const ADD_PROJECT = gql`
         _id
         collabNotes
       }
+      comments {
+        _id
+        commentText
+      }
     }
   }
 `;
@@ -53,6 +57,10 @@ export const EDIT_PROJECT = gql`
       collaborators {
         _id
         collabNotes
+      }
+      comments {
+        _id
+        commentText
       }
     }
   }
@@ -71,6 +79,10 @@ export const REMOVE_PROJECT = gql`
         _id
         collabNotes
       }
+      comments {
+        _id
+        commentText
+      }
     }
   }
 `;
@@ -84,6 +96,10 @@ export const ADD_COLLABORATOR = gql`
       fundingGoal
       creator
       repo
+      comments {
+        _id
+        commentText
+      }
       
       collaborators {
         _id
@@ -138,9 +154,7 @@ mutation addComment($projectId: ID!, $commentText: String!) {
     comments {
       _id
       commentText
-      commentAuthor{
-        username
-      }
+      commentAuthor
     }
   }
 }`

@@ -6,7 +6,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
           if (context.user) {
-            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects')  ////.populate('comments');
+            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects').populate('comments');
           }
           throw new AuthenticationError('You need to be logged in!');
         },
@@ -14,7 +14,7 @@ const resolvers = {
           return User.find().populate('projects');
         },
         user: async (parent, { username }) => {
-          return User.findOne({ username }).populate('projects').populate('collabProjects')  ////.populate('comments')
+          return User.findOne({ username }).populate('projects').populate('collabProjects').populate('comments')
         },
         projects: async (parent, { username }) => {
           const params = username ? { username } : {};
@@ -145,7 +145,7 @@ const resolvers = {
               {_id: projectId},
               {
                 $addToSet: {
-                  comments: {commentText, commentAuthor: context.user}
+                  comments: {commentText, commentAuthor: context.user.username}
                 }
               },
               {
@@ -153,11 +153,11 @@ const resolvers = {
                 runValidators: true,
               }
             )
-            await User.findOneAndUpdate(
-              {_id: context.user._id},
-              {$addToSet:{
-                comments: {_id: projectId}
-              }});
+            // await User.findOneAndUpdate(
+            //   {_id: context.user._id},
+            //   {$addToSet:{
+            //     comments: {_id: projectId}
+            //   }});
               return project        
           }
           throw new AuthenticationError("You must be logged in to comment")
