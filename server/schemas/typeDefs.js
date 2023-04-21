@@ -68,6 +68,7 @@ const typeDefs = gql`
         
 
         addComment(projectId: ID!, commentText: String!): Project
+        removeComment(projectId: ID!, commentId: ID!): Project
       
     }
 `;
