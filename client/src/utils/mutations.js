@@ -157,5 +157,21 @@ mutation addComment($projectId: ID!, $commentText: String!) {
       commentAuthor
     }
   }
+}`;
+export const REMOVE_COMMENT = gql`
+mutation removeComment($projectId: ID!, $commentId: ID!){
+  removeComment(projectId: $projectId, commentId: $commentId){
+    _id
+    title
+    description
+    fundingGoal
+    creator
+    repo
+    
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
 }`
-;
