@@ -31,12 +31,7 @@ const userSchema = new Schema(
         ref: "Project"
       }
     ],
-    // comments: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Project"
-    //   }
-    // ],
+    
     bio: {
       type: String,
       trim: true

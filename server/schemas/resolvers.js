@@ -6,7 +6,7 @@ const resolvers = {
     Query: {
         me: async (parent, args, context) => {
           if (context.user) {
-            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects').populate('comments');
+            return User.findOne({ _id: context.user._id }).populate('projects').populate('collabProjects');
           }
           throw new AuthenticationError('You need to be logged in!');
         },
@@ -161,10 +161,27 @@ const resolvers = {
               return project        
           }
           throw new AuthenticationError("You must be logged in to comment")
-        } 
+        },
+
+        removeComment: async (parent, {projectId, commentId}, context) => {
+          if(context.user) {
+            const project = await Project.findOneAndUpdate(
+             { _id: projectId},
+             {
+              $pull: {
+               comments:{_id: commentId} 
+              }
+             }
+            );
+            return project
+          }
+        }
 
 
     }
+
+    
+
 };
 
 module.exports = resolvers;
