@@ -163,7 +163,7 @@ function SingleProject() {
       </div>
 
       <div>
-        <Comment commentText = {project.commentText}/>
+        <Comment comments = {project.comments}/>
       </div>
 
       <div > 

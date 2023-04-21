@@ -25,10 +25,7 @@ export const QUERY_ME = gql`
         creator
         repo
       }
-      comments{
-        _id
-        commentText
-      }
+
     }
   }
 `;
@@ -58,10 +55,7 @@ export const QUERY_USER = gql`
         creator
         repo
       }
-      comments{
-        _id
-        commentText
-      }
+
     }
   }
 `;
@@ -104,9 +98,7 @@ export const QUERY_SINGLE_PROJECT = gql`
       comments{
         _id
         commentText
-        commentAuthor{
-          username
-        }
+        commentAuthor
       }
 
     }

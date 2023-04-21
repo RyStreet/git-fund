@@ -8,7 +8,7 @@ import {QUERY_SINGLE_PROJECT} from "../utils/queries"
 
 
 function CommentForm({projectId}) {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [commentText, setCommentText] = useState('');
   
   const [addComment, {error}] = useMutation(ADD_COMMENT, {
@@ -43,7 +43,7 @@ function CommentForm({projectId}) {
 
       setCommentText('');
 
-    //   navigate(0)
+      navigate(0)
     } catch (err) {
       console.error(err);
     }

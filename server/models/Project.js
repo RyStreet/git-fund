@@ -64,8 +64,8 @@ const projectSchema = new Schema({
         maxlength: 280,
       },
       commentAuthor: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
+        required: true
       },
     },
   ]
