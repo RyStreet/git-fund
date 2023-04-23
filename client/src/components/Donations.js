@@ -12,6 +12,7 @@ const Donations = ({fundingEarned = []}) => {
   return (
     <>
     <div>
+      <h3 style={{marginTop:"15px", marginBottom:"20px"}}>Donations:</h3>
       {fundingEarned &&
         fundingEarned.map((donation) => (
           <div key={donation._id}>

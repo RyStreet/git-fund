@@ -12,9 +12,10 @@ const Comment = ({ comments = [] }) => {
         {comments &&
           comments.map((comment) => (
             <div key={comment._id}>
-              <div style={{margin: "10px" }}>
-                <p className="card-header">Name: <Link className="textDecNone" to={`/profiles/${comment.commentAuthor}`}>{comment.commentAuthor}</Link></p>
+              <div className='comments'>
+                <p className="card-header" style={{fontWeight:"bold", marginBottom:"5px"}}>Commented by: <Link className="textDecNone" to={`/profiles/${comment.commentAuthor}`}>{comment.commentAuthor}</Link></p>
                 <p>{comment.commentText}</p>
+                    
               </div>
             </div>
           ))}

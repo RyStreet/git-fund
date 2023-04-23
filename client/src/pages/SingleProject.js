@@ -158,17 +158,21 @@ function SingleProject() {
         )}
       </div>
       
-      <div>
-        <CommentForm projectId={project._id}/>
-      </div>
+      <div className='commentsAndDonations'>
+        <div className='commentSection'>
+          <div>
+            <CommentForm projectId={project._id}/>
+          </div>
 
-      <div>
-        <Comment comments = {project.comments}/>
-      </div>
+          <div>
+            <Comment comments = {project.comments}/>
+          </div>
+        </div>
 
-      <div > 
-        <Donations fundingEarned={project.fundingEarned}/>
-      </div> 
+        <div className='donationsSection'> 
+          <Donations fundingEarned={project.fundingEarned}/>
+        </div> 
+      </div>
     </>
   )
 };
