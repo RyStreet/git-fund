@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 const Donations = ({fundingEarned = []}) => {
   if(!fundingEarned.length){
     return (
-      <div className='list'>
-        <h4>No Donations Yet</h4>        
+      <div>
+        <h3 style={{marginTop:"15px", marginBottom:"20px"}}>Donations:</h3>
+        <div className='comments'>
+          <h4>No Donations Yet</h4>        
+        </div>
       </div>
     )
   }

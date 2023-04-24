@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Comment = ({ comments = [] }) => {
   if (!comments.length) {
-    return <p>No Comments Yet</p>;
+    return (
+      <div className='comments'>
+        <p>No Comments Yet</p>
+      </div>
+    )
   }
 
   return (

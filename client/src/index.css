@@ -417,6 +417,7 @@ bottom: 0px;
       align-content: center;
       margin-left: auto;
       margin-right: auto;
+      width: 100%;
     }
     .commentSection {
       /* margin-right: 20px; */
