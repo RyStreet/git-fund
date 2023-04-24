@@ -242,6 +242,7 @@ bottom: 0px;
     background-color: #F7DFB8;
     font-size: 16px;
     padding: 15px;
+    word-wrap: break-word;
   }
 
   .donationsSection {
@@ -259,7 +260,7 @@ bottom: 0px;
     font-size: 25px;
     padding: 20px;
     font-weight: bolder;
-    
+    word-wrap: break-word;
   }
   .image-container {
     width: 100%;
@@ -400,9 +401,9 @@ bottom: 0px;
     .single-project-section{
       width: 100%;
     }
-    /* .list{
-      width: 90%;
-    } */
+    .list{
+      font-size: 20px;
+    }
     .profileSection{
       width: 95%;
       padding: 1.5rem;
