@@ -224,14 +224,37 @@ bottom: 0px;
     background-color:#F7DFB8;
   }
 
-  .list{
-    width: 35%;
-    height: 5%;
+  .commentsAndDonations {
+    display: flex;
+    justify-content: center;
+  }
+
+  .commentSection {
+    margin-right: 20px;
+    margin-top: 10px;
+    width: 50%;
+  }
+
+  .comments {
     border: 1px solid black;
     border-radius: 10px;
-    /* margin: 30px auto; */
-    margin-top: 25px;
-    margin-left: 5%;
+    margin-top: 10px;
+    background-color: #F7DFB8;
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .donationsSection {
+    margin-left: 20px;
+    width: 30%;
+  }
+
+  .list{
+    /* width: 50%; */
+    /* height: 5%; */
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
     background-color: #F7DFB8;
     font-size: 25px;
     padding: 20px;
@@ -377,9 +400,9 @@ bottom: 0px;
     .single-project-section{
       width: 100%;
     }
-    .list{
+    /* .list{
       width: 90%;
-    }
+    } */
     .profileSection{
       width: 95%;
       padding: 1.5rem;
@@ -387,6 +410,37 @@ bottom: 0px;
     .textarea{
       width: 95%;
     }
+
+    .commentsAndDonations {
+      display: inline-block;
+      /* justify-content: center; */
+      align-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .commentSection {
+      /* margin-right: 20px; */
+      margin-top: 10px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .comments {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 15px;
+      padding: 15px;
+    }
+  
+    .donationsSection {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
   }
   @media only screen and (min-width: 768px) {
     .navbarImage {
@@ -424,9 +478,9 @@ bottom: 0px;
     .single-project-section{
       width: 80%;
     }
-    .list{
+    /* .list{
       width: 70%;
-    }
+    } */
     .profileSection{
       width: 75%;
       padding: 1.5rem;
@@ -443,6 +497,43 @@ bottom: 0px;
       margin-left: auto;
       margin-right: auto;
       width: 95%;
+    }
+    .commentsAndDonations {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .commentSection {
+      margin-right: 20px;
+      margin-top: 10px;
+      width: 50%;
+    }
+  
+    .comments {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 16px;
+      padding: 15px;
+    }
+  
+    .donationsSection {
+      margin-left: 20px;
+      width: 30%;
+    }
+  
+    .list{
+      /* width: 50%; */
+      /* height: 5%; */
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 25px;
+      padding: 20px;
+      font-weight: bolder;
+      
     }
   }
 
@@ -475,9 +566,9 @@ bottom: 0px;
     .single-project-section{
       width: 60%;
     }
-    .list{
+    /* .list{
       width: 50%;
-    }
+    } */
     .profileSection{
       width: 60%;
       padding: 2rem;
@@ -498,9 +589,9 @@ bottom: 0px;
       width: 98%;
       grid-row-gap: 30px;
     }
-    .list{
+    /* .list{
       width: 35%;
-    }
+    } */
     .profileSection{
       width: 50%;
     }

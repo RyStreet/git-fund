@@ -59,12 +59,14 @@ function CommentForm({projectId}) {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className='commentForm' >
         <textarea 
-          name='commentText' value={commentText} type="text"
+          name='commentText' value={commentText} type="text" className='commentFormTextbox'
           placeholder='Comment here...' onChange={handleChange}
         />
-        <button type='submit'>Comment</button>
+        <div>
+          <button type='submit' className='button' id='commentBtn'>Comment</button>
+        </div>
       </form>
       
     </div>
