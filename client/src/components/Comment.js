@@ -24,24 +24,59 @@ const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
 
 const project = data?.project || {};
 
-console.log(project.comments)
-const handleRemoveComment = async(event) => {
-  event.preventDefault()
-  console.log("Comment removed")
+// console.log(project.comments[0]._id)
 
-  try{
-    const {data} = await removeComment({
-      variables: {
-        projectId: project._id,
-        comment: comment._id
-      }
 
-    })
-    
-  }catch(err){
-    console.log(err)
-  }
-}
+
+        // const handleRemoveComment = async(event) => {
+        //   event.preventDefault()
+        //   console.log("Comment removed")
+        //   for(let i=0;i<project.comments.length;i++){
+        //     console.log("loop", project.comments[i]._id)
+        //   }
+          
+        //   try{
+        //     const {data} = await removeComment({
+        //       variables: {
+        //         projectId: project._id,
+        //         commentId: project.comments[i]._id
+        //       }
+
+        //     })
+            
+        //   }catch(err){
+        //     console.log(err)
+        //   }
+        // }
+        
+        
+       
+        
+        
+        const handleRemoveComment = async(event) => {
+          event.preventDefault()
+          console.log("Comment removed")
+        
+          try{
+            const {data} = await removeComment({
+              variables: {
+                projectId: project._id,
+                commentId: comment._id
+              }
+
+            })
+            
+          }catch(err){
+            console.log(err)
+          }
+        }
+
+
+
+
+
+
+
 
 
 
@@ -71,12 +106,12 @@ const handleRemoveComment = async(event) => {
         {comments &&
           comments.map((comment) => (
             console.log(comment._id),
-            
 
-            <div key={comment._id}>
+            <div key={comment._id} >
               <div className='comments'>
                 <p className="card-header" style={{fontWeight:"bold", marginBottom:"5px"}}>Commented by: <Link className="textDecNone" to={`/profiles/${comment.commentAuthor}`}>{comment.commentAuthor}</Link></p>
                 <p>{comment.commentText}</p>
+                <p className="commentId">{comment._id}</p>
 
                 {comment.commentAuthor == Auth.getProfile().data.username ? (
                 <div>
@@ -96,6 +131,10 @@ const handleRemoveComment = async(event) => {
       </div>
     </>
   );
+
+  
+
+
 };
 
 
