@@ -31,6 +31,7 @@ const userSchema = new Schema(
         ref: "Project"
       }
     ],
+    
     bio: {
       type: String,
       trim: true

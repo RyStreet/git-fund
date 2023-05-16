@@ -25,6 +25,7 @@ export const QUERY_ME = gql`
         creator
         repo
       }
+
     }
   }
 `;
@@ -54,6 +55,7 @@ export const QUERY_USER = gql`
         creator
         repo
       }
+
     }
   }
 `;
@@ -90,10 +92,17 @@ export const QUERY_SINGLE_PROJECT = gql`
         _id
         collabNotes
         collaboratorInfo{
-        username
+          username
         }        
+      }
+      comments{
+        _id
+        commentText
+        commentAuthor
       }
 
     }
   }
 `;
+
+

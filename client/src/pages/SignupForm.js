@@ -103,7 +103,7 @@ const Signup = () => {
     </center>
 
     </div>
-  );
+  )
 };
 
 export default Signup;

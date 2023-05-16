@@ -17,16 +17,6 @@ body{
   flex: 1;
 }
 
-.MainTile{
-    background-color:#F7DFB8;
-    width: 90%;
-    margin: 3rem auto;
-    padding: 15px;
-    border: 3px black solid;
-    border-radius: 10px;
-    /* background: #F2D4BF; */
-  }
-
   .buttonRadius{
     /* border-radius: 25px; */
   }
@@ -59,6 +49,14 @@ position: relative;
   justify-content: space-between !important;
   text-align: center;
 } */
+
+.navbarImage {
+  margin-left: 5%;
+}
+
+.navbarItems {
+  margin-right: 5%;
+}
 
 .navbar>.container, .navbar>.container-fluid, .navbar>.container-sm, .navbar>.container-md, .navbar>.container-lg, .navbar>.container-xl, .navbar>.container-xxl {
   display: flex;
@@ -94,23 +92,53 @@ color: white;
 bottom: 0px;
   }
   .HomeMainContainer{
-    display: grid;
+    /* display: grid;
     grid-template-rows: repeat(auto-fit, 1fr);
     grid-auto-flow: dense;
     grid-gap: 20px;
-    margin: 20px 28px;
+    margin: 20px 28px; */
     
+  }
+
+  #homeHeader{
+    margin-bottom: 18px;
+  }
+
+  .homepageTitle {
+    font-size: 50px;
+    margin-left: 3.5%;
+  }
+
+  .MainTile{
+    background-color:#F7DFB8;
+    width: 370px;
+    margin: 3rem auto;
+    padding: 15px;
+    border: 3px black solid;
+    border-radius: 10px;
   }
 
   #projectCard{
     width: 100%;
-    
-    
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 30px;
+    /* grid-auto-flow: dense; */
+    /* grid-gap: 20px; */
+    /* margin: 20px 20px; */
   }
 
   #projectCardTitle{
     font-size: 28px;
     font-weight: bold;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    transition: .3s ease
+  }
+  #projectCardTitle:hover{
+    color: #FE9F00  
   }
   #projectCardDescription{
     font-size: 18px;
@@ -118,22 +146,13 @@ bottom: 0px;
   #projectCardFunding{
     font-size: 20px;
   }
-  .projectDetails{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    transition: .3s ease
-  }
-  .projectDetails:hover{
-    color: #FE9F00  
-  }
+
   .logo{
     width: 120px !important;
   }
   .btn-fund-container{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
   }
   .button {
     color: white;
@@ -146,9 +165,19 @@ bottom: 0px;
    .donate-btn{
     margin: 10px;
    }
+  #editAndDelBtns{
+    display: inline-flex;
+    margin-top: 10px;
+    
+  }
+
+  .delete-project-btn{
+    margin-left: 5px;
    
-  .profileMargins{
-    margin: 20px 20px;
+  }
+
+  .edit-project-btn{
+    width: 65px;
   }
 
   .navStyles{
@@ -160,7 +189,7 @@ bottom: 0px;
 
   .project{
     margin: auto;
-    width: 95%;
+    width: 90%;
     margin-top: 1rem;
     padding: 2rem;
     border: 1px solid black;
@@ -177,39 +206,55 @@ bottom: 0px;
     color: #FE9F00;
   }
 
+  .icon{
+    transition: .3s ease;
+  }
   .icon:hover{
     color: #FE9F00;
+    cursor: pointer;
   }
 
-  .project-section1{
-    /* border: 1px solid black;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 5px auto;
-    background-color:#F7DFB8 ; */
-  }
-  .project-section2{
+  .single-project-section{
     border: 1px solid black;
+    width: 60%;
     padding: 20px;
     border-radius: 10px;
-    margin: 5px auto;
-    background-color:#F7DFB8 ;
+    margin-left: 0;
+    margin-bottom: 10px;
+    background-color:#F7DFB8;
   }
-  .project-section3{
+
+  .commentsAndDonations {
+    display: flex;
+    justify-content: center;
+  }
+
+  .commentSection {
+    margin-right: 20px;
+    margin-top: 10px;
+    width: 50%;
+  }
+
+  .comments {
     border: 1px solid black;
-    padding: 20px;
     border-radius: 10px;
-    margin: 5px auto;
-    background-color:#F7DFB8 ;
+    margin-top: 10px;
+    background-color: #F7DFB8;
+    font-size: 16px;
+    padding: 15px;
   }
+
+  .donationsSection {
+    margin-left: 20px;
+    width: 30%;
+  }
+
   .list{
-    width: 40%;
-    height: 5%;
+    /* width: 50%; */
+    /* height: 5%; */
     border: 1px solid black;
     border-radius: 10px;
-    /* margin: 30px auto; */
-    margin-top: 25px;
-    margin-left: 2.5%;
+    margin-top: 10px;
     background-color: #F7DFB8;
     font-size: 25px;
     padding: 20px;
@@ -285,13 +330,125 @@ bottom: 0px;
   #fundingGoalBar{
     width: 100%;
   }
+
+  .profileSection{
+    border: black 3px solid;
+    margin-bottom: 30px;
+    align-content: center;
+    background-color: #F7DFB8;
+    margin: auto;
+    width: 50%;
+    margin-top: 1rem;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  #editProfileContainer{
+    background-color: #F7DFB8;
+    border: 1px solid black;
+    width: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+  }
+
+  .editProfileSections{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .editProfileSectionTitles{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 110%;
+  }
+
+  .editProfileTextboxes{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   
-  @media only screen and (max-width: 550px) {
+  @media only screen and (min-width: 330px) {
+    .navbarImage {
+      margin-left: 1%;
+    }  
+    .navbarItems {
+      margin-right: 2%;
+    }
+    .homepageTitle {
+      font-size: 33px;
+      margin-right: 2%;
+    }  
     .newProject_form {
       width: 85%;
     }
+    #projectCard{
+      grid-template-rows: auto;
+      grid-template-columns: auto;
+      grid-row-gap: 0;
+    }
+    .project{
+      width: 95%;
+    }
+    .single-project-section{
+      width: 100%;
+    }
+    /* .list{
+      width: 90%;
+    } */
+    .profileSection{
+      width: 95%;
+      padding: 1.5rem;
+    }
+    .textarea{
+      width: 95%;
+    }
+
+    .commentsAndDonations {
+      display: inline-block;
+      /* justify-content: center; */
+      align-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .commentSection {
+      /* margin-right: 20px; */
+      margin-top: 10px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .comments {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 15px;
+      padding: 15px;
+    }
+  
+    .donationsSection {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
   }
   @media only screen and (min-width: 768px) {
+    .navbarImage {
+      margin-left: 3%;
+    }  
+    .navbarItems {
+      margin-right: 3%;
+    }
     .image-container {
       width: 100%;
       height: 350px;
@@ -308,8 +465,79 @@ bottom: 0px;
     .login-container{
       width: 40%;
     }
+    #projectCard{
+      grid-template-rows: auto auto;
+      grid-template-columns: auto auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 98%;
+    }
+    .project{
+      width: 90%;
+    }
+    .single-project-section{
+      width: 80%;
+    }
+    /* .list{
+      width: 70%;
+    } */
+    .profileSection{
+      width: 75%;
+      padding: 1.5rem;
+    }
+    .textarea{
+      width: 80%;
+    }
   }
-  @media only screen and (min-width: 992px) {
+
+  @media only screen and (min-width: 820px) {
+    #projectCard{
+      grid-template-rows: auto auto;
+      grid-template-columns: auto auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+    }
+    .commentsAndDonations {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .commentSection {
+      margin-right: 20px;
+      margin-top: 10px;
+      width: 50%;
+    }
+  
+    .comments {
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 16px;
+      padding: 15px;
+    }
+  
+    .donationsSection {
+      margin-left: 20px;
+      width: 30%;
+    }
+  
+    .list{
+      /* width: 50%; */
+      /* height: 5%; */
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-top: 10px;
+      background-color: #F7DFB8;
+      font-size: 25px;
+      padding: 20px;
+      font-weight: bolder;
+      
+    }
+  }
+
+  @media only screen and (min-width: 1150px) {
     .image-container {
       width: 100%;
       height: 500px;
@@ -328,20 +556,57 @@ bottom: 0px;
       width: 30%;
     }
 
- 
-
-    
+    #projectCard{
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto auto auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+    }
+    .single-project-section{
+      width: 60%;
+    }
+    /* .list{
+      width: 50%;
+    } */
+    .profileSection{
+      width: 60%;
+      padding: 2rem;
+    }
+    .newProject{
+      width: 55%;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
-  #editProfileContainer{
-    background-color: #F7DFB8;
-    border: 1px solid black;
-    width: 80%;
-    border-radius: 10px;
-    padding: 20px;
-    align-self: center;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+  @media only screen and (min-width: 1480px) {
+    #projectCard{
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto auto auto auto;
+      margin-left: auto;
+      margin-right: auto;
+      width: 98%;
+      grid-row-gap: 30px;
+    }
+    /* .list{
+      width: 35%;
+    } */
+    .profileSection{
+      width: 50%;
+    }
+  }
+
+  @media only screen and (min-width: 2500px) {
+    #projectCard{
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto auto auto auto auto auto;
+    }
+  }
+
+  @media only screen and (min-width: 3000px) {
+    #projectCard{
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto auto auto auto auto auto auto;
+    }
   }

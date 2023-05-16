@@ -37,6 +37,52 @@ export const ADD_PROJECT = gql`
         _id
         collabNotes
       }
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
+
+export const EDIT_PROJECT = gql`
+  mutation editProject($projectId: ID!, $title: String!, $description: String!, $fundingGoal: Int!, $repo: String!) {
+    editProject(projectId: $projectId title: $title, description: $description, fundingGoal: $fundingGoal, repo: $repo) {
+      _id
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      collaborators {
+        _id
+        collabNotes
+      }
+      comments {
+        _id
+        commentText
+      }
+    }
+  }
+`;
+
+export const REMOVE_PROJECT = gql`
+  mutation removeProject($projectId: ID!) {
+    removeProject(projectId: $projectId) {
+      _id
+      title
+      description
+      fundingGoal
+      creator
+      repo
+      collaborators {
+        _id
+        collabNotes
+      }
+      comments {
+        _id
+        commentText
+      }
     }
   }
 `;
@@ -50,6 +96,10 @@ export const ADD_COLLABORATOR = gql`
       fundingGoal
       creator
       repo
+      comments {
+        _id
+        commentText
+      }
       
       collaborators {
         _id
@@ -91,3 +141,37 @@ export const EDIT_PROFILE = gql`
     }
   }
 `;
+export const ADD_COMMENT = gql`
+mutation addComment($projectId: ID!, $commentText: String!) {
+  addComment(projectId: $projectId, commentText: $commentText) {
+    _id
+    title
+    description
+    fundingGoal
+    creator
+    repo
+    
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
+}`;
+export const REMOVE_COMMENT = gql`
+mutation removeComment($projectId: ID!, $commentId: ID!){
+  removeComment(projectId: $projectId, commentId: $commentId){
+    _id
+    title
+    description
+    fundingGoal
+    creator
+    repo
+    
+    comments {
+      _id
+      commentText
+      commentAuthor
+    }
+  }
+}`

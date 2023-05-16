@@ -11,18 +11,19 @@ const typeDefs = gql`
         bio: String
         linkedin: String
         github: String
+        comments: [Comment]
         
     }
     type Project {
         _id: ID       
         title: String
         description: String
-        
         fundingGoal: Int
         fundingEarned: [Donation]
         creator: String
         repo: String
         collaborators: [Collaborator]!
+        comments: [Comment]!
         
     }
     type Donation{
@@ -50,19 +51,31 @@ const typeDefs = gql`
         user(username: String!): User
         projects(username: String): [Project]
         project(projectId: ID!): Project
+        
     }
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
+        editProfile(userId: ID!, bio: String, linkedin: String, github: String): User
+
         addProject(title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
         removeProject(projectId: ID!): Project
+        editProject(projectId: ID!, title: String!, description: String!, fundingGoal: Int!, repo: String!): Project
+
+        addDonation(projectId: ID!, amount: Int!): Project
         addCollaborator(projectId: ID!, collabNotes: String!): Project
-        editProfile(userId: ID!, bio: String, linkedin: String, github: String): User
+
+        
 
         addComment(projectId: ID!, commentText: String!): Project
         removeComment(projectId: ID!, commentId: ID!): Project
-
-        addDonation(projectId: ID!, amount: Int!): Project
+      
     }
 `;
+
+// removeComment(projectId: ID!, commentId: ID!): Project 
+// editComment(projectId: ID!, commentId: ID!, commentText: String!): Project 
+
+
+// userComments(username: String):[Comment]     <-query
 module.exports = typeDefs;

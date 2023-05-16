@@ -54,29 +54,28 @@ const projectSchema = new Schema({
       }
     },
   ],
+  
+  comments: [
+    {
+      commentText: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280,
+      },
+      commentAuthor: {
+        type: String,
+        required: true
+      },
+    },
+  ]
+  
   // languages: {
   //   type: String,
   // },
   // category: {
   //   type: String,
   // },
-
-  // comments: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Comment',
-  //     commentText: {
-  //       type: String,
-  //       required: true,
-  //       minlength: 1,
-  //       maxlength: 280,
-  //     },
-  //     commentAuthor: {
-  //       type: String,
-  //       required: true,
-  //     },
-  //   },
-  // ],
   // follows: {
   //   type: Number,
   // },

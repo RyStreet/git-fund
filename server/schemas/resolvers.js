@@ -14,14 +14,14 @@ const resolvers = {
           return User.find().populate('projects');
         },
         user: async (parent, { username }) => {
-          return User.findOne({ username }).populate('projects').populate('collabProjects')
+          return User.findOne({ username }).populate('projects').populate('collabProjects') //.populate('comments')
         },
         projects: async (parent, { username }) => {
           const params = username ? { username } : {};
           return Project.find(params)
         },
         project: async (parent, { projectId }) => {
-          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo') 
+          return Project.findOne({ _id: projectId }).populate('collaborators.collaboratorInfo').populate('comments.commentAuthor') 
         }
     },
 
@@ -67,7 +67,7 @@ const resolvers = {
           if (context.user) {
             const project = await Project.findOneAndDelete({
               _id: projectId,
-              creator: context.user.username,
+              // creator: context.user.username,
             });
 
             await User.findOneAndUpdate(
@@ -77,6 +77,14 @@ const resolvers = {
             return project;
           }
           throw new AuthenticationError('You need to be logged in!');
+        },
+        editProject: async (parent, { projectId, title, description, fundingGoal, repo }, context) => {
+          // if(context.user) {
+            return Project.findOneAndUpdate(
+              {_id: projectId},
+              {title, description, fundingGoal, repo}
+            )
+          // }
         },
         addCollaborator: async (parent, { projectId, collabNotes }, context) => {
           
@@ -128,8 +136,52 @@ const resolvers = {
             
             )
             }
+        },
+
+        addComment: async(parent, {projectId, commentText }, context) => {
+          if(context.user) {
+          
+            const project = await Project.findOneAndUpdate(
+              {_id: projectId},
+              {
+                $addToSet: {
+                  comments: {commentText, commentAuthor: context.user.username}
+                }
+              },
+              {
+                new: true,
+                runValidators: true,
+              }
+            )
+            // await User.findOneAndUpdate(
+            //   {_id: context.user._id},
+            //   {$addToSet:{
+            //     comments: {_id: projectId}
+            //   }});
+              return project        
+          }
+          throw new AuthenticationError("You must be logged in to comment")
+        },
+
+        removeComment: async (parent, {projectId, commentId}, context) => {
+          if(context.user) {
+            const project = await Project.findOneAndUpdate(
+             { _id: projectId},
+             {
+              $pull: {
+               comments:{_id: commentId} 
+              }
+             }
+            );
+            return project
+          }
         }
+
+
     }
+
+    
+
 };
 
 module.exports = resolvers;

@@ -49,7 +49,6 @@ const CollaborateModal = ({ projectId }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
    
-    
     try {
       
       const { data } = await addCollaborator({
