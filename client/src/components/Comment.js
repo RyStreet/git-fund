@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 import { REMOVE_COMMENT } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
@@ -12,72 +12,25 @@ import { useParams } from 'react-router-dom';
 
 
 
+
 const Comment = ({ comments = [] }) => {
 
 const [removeComment, {error}] = useMutation(REMOVE_COMMENT)
 
 const { projectId } = useParams();
+const navigate = useNavigate()
 
 const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
-  variables: { projectId: projectId }
+  variables: { projectId: projectId}
+
 });
 
 const project = data?.project || {};
 
-// console.log(project.comments[0]._id)
-
-
-
-        // const handleRemoveComment = async(event) => {
-        //   event.preventDefault()
-        //   console.log("Comment removed")
-        //   for(let i=0;i<project.comments.length;i++){
-        //     console.log("loop", project.comments[i]._id)
-        //   }
-          
-        //   try{
-        //     const {data} = await removeComment({
-        //       variables: {
-        //         projectId: project._id,
-        //         commentId: project.comments[i]._id
-        //       }
-
-        //     })
-            
-        //   }catch(err){
-        //     console.log(err)
-        //   }
-        // }
+let comment = comments.map(({_id}) => _id)
+console.log(comment)
         
-        
-       
-        
-        
-        const handleRemoveComment = async(event) => {
-          event.preventDefault()
-          console.log("Comment removed")
-        
-          try{
-            const {data} = await removeComment({
-              variables: {
-                projectId: project._id,
-                commentId: comment._id
-              }
-
-            })
-            
-          }catch(err){
-            console.log(err)
-          }
-        }
-
-
-
-
-
-
-
-
+   
 
 
   if (!comments.length) {
@@ -115,7 +68,30 @@ const project = data?.project || {};
 
                 {comment.commentAuthor == Auth.getProfile().data.username ? (
                 <div>
-                  <Button variant="danger" onClick={handleRemoveComment} >Delete</Button>
+                  <Button variant="danger" onClick={    
+                    
+                    async(event) => {
+                      event.preventDefault()
+                      console.log("Comment removed")
+                    
+                      try{
+                        let {data} = await removeComment({
+                          variables: {
+                            projectId: project._id,
+                            commentId: comment._id
+                          }
+            
+                        })
+                        navigate(0);
+                        
+                      }catch(err){
+                        console.log(err)
+                      }
+
+                    }
+                    
+                    
+                  }>Delete</Button>
                 </div>
               ) : (
                 <div></div>
