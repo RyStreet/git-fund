@@ -15,6 +15,8 @@ import { QUERY_ME } from '../utils/queries';
 import { QUERY_USER } from '../utils/queries';
 import { QUERY_SINGLE_PROJECT } from '../utils/queries';
 import { REMOVE_PROJECT } from '../utils/mutations';
+import { REMOVE_COMMENT } from '../utils/mutations';
+
 
 import Auth from '../utils/auth';
 
@@ -25,7 +27,9 @@ function SingleProject() {
   const handleClose = () => setDeleteBtn(false);
   const handleShow = () => setDeleteBtn(true);
 
-  const [removeProject, {error}] = useMutation(REMOVE_PROJECT);
+  const [removeProject,  {error}] = useMutation(REMOVE_PROJECT);
+  const [removeComment] = useMutation(REMOVE_COMMENT)
+
 
   const { projectId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_PROJECT, {
@@ -33,6 +37,7 @@ function SingleProject() {
   });
 
   const project = data?.project || {};
+
   
   if (!Auth.loggedIn()) {
     return (
@@ -88,6 +93,8 @@ function SingleProject() {
     } 
   }
   const isMyProject = myProject()
+
+  
 
   return (
     <>
