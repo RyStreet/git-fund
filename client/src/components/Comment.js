@@ -64,7 +64,7 @@ console.log(comment)
               <div className='comments'>
                 <p className="card-header" style={{fontWeight:"bold", marginBottom:"5px"}}>Commented by: <Link className="textDecNone" to={`/profiles/${comment.commentAuthor}`}>{comment.commentAuthor}</Link></p>
                 <p>{comment.commentText}</p>
-                <p className="commentId">{comment._id}</p>
+                
 
                 {comment.commentAuthor == Auth.getProfile().data.username ? (
                 <div>
